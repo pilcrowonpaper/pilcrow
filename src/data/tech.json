@@ -1,17 +1,21 @@
 [
   {
+    "name": "TypeScript",
     "url": "https://www.typescriptlang.org",
     "img": "/ts.png"
   },
   {
+    "name": "Astro",
     "url": "https://astro.build",
     "img": "/astro.png"
   },
   {
+    "name": "Svelte",
     "url": "https://svelte.dev",
     "img": "/svelte.png"
   },
   {
+    "name": "Prisma",
     "url": "https://www.prisma.io",
     "img": "/prisma.png"
   }
