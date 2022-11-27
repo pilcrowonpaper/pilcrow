@@ -1,6 +1,5 @@
 const getEnvironmentVariable = (envVar: string) => {
   const dev = import.meta.env.DEV;
-  console.log( process.env.GITHUB_API_KEY)
   return dev ? import.meta.env[envVar] : process.env[envVar];
 };
 

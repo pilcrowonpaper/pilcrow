@@ -5,7 +5,7 @@ import YoutubeIcon from "../components/icons/YoutubeIcon.astro";
 import Repo from "../components/Repo.astro";
 import Tech from "../components/Tech.astro";
 import techList from "../data/tech.json";
-console.log( process.env.GITHUB_API_KEY)
+
 const repositoriesResponse = await fetch(
   `${Astro.url.origin}/api/github/pinned-repository`
 );
