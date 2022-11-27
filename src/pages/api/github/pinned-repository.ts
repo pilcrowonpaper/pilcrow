@@ -10,7 +10,8 @@ export const get: APIRoute = async () => {
         "Content-Type": "application/json",
       }),
     });
-  } catch {
+  } catch (e) {
+    console.log(e);
     return new Response(null, {
       status: 500,
     });
