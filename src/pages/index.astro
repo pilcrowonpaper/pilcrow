@@ -5,6 +5,9 @@ import YoutubeIcon from "../components/icons/YoutubeIcon.astro";
 import Repo from "../components/Repo.astro";
 import Tech from "../components/Tech.astro";
 import techList from "../data/tech.json";
+import { BUILD_ID } from "../utils/build";
+
+console.log(BUILD_ID)
 
 const repositoriesResponse = await fetch(
   `${Astro.url.origin}/api/github/pinned-repository?build=${Math.floor(
