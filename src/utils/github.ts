@@ -30,7 +30,14 @@ export const getPinnedRepositories = async (): Promise<Repository[]> => {
       Authorization: `Bearer ${GITHUB_API_KEY}`,
     },
   });
-  if (!response.ok) throw new Error("Failed to fetch data");
+  if (!response.ok) {
+    try {
+      console.log(await response.json())
+    } catch {
+      console.log("Failed to parse json")
+    }
+    throw new Error("Failed to fetch data");
+  }
   interface Nodes<T> {
     nodes: T;
   }
