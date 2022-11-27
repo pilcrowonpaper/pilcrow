@@ -7,7 +7,7 @@ import Tech from "../components/Tech.astro";
 import techList from "../data/tech.json";
 
 const repositoriesResponse = await fetch(
-  "http:localhost:3000/api/github/pinned-repository"
+  `${Astro.url.origin}/api/github/pinned-repository`
 );
 if (!repositoriesResponse.ok)
   return new Response(JSON.stringify({ error: "Failed to fetch data" }), {
