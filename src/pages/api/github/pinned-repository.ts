@@ -4,10 +4,9 @@ import { getPinnedRepositories } from "../../../utils/github";
 export const get: APIRoute = async () => {
   try {
     const repositories = await getPinnedRepositories();
-    console.log(repositories)
     return new Response(JSON.stringify(repositories), {
         headers: {
-            "Cache-Control": `public,max-age=${10}`
+            "Cache-Control": `public, max-age=${10}`
         }
     });
   } catch {
