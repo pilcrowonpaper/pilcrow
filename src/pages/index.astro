@@ -7,12 +7,10 @@ import Tech from "../components/Tech.astro";
 import techList from "../data/tech.json";
 import { BUILD_ID } from "../utils/build";
 
-console.log(BUILD_ID)
-
 const repositoriesResponse = await fetch(
-  `${Astro.url.origin}/api/github/pinned-repository?build=${Math.floor(
-    Math.random() * 1000
-  )}`
+  `${Astro.url.origin}/api/github/pinned-repository?${new URLSearchParams({
+    build_id: BUILD_ID,
+  }).toString()}`
 );
 if (!repositoriesResponse.ok)
   return new Response(JSON.stringify({ error: "Failed to fetch data" }), {

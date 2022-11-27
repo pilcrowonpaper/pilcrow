@@ -1,7 +1,8 @@
 import type { APIRoute } from "astro";
 import { getPinnedRepositories } from "../../../utils/github";
 
-export const get: APIRoute = async () => {
+export const get: APIRoute = async ({url}) => {
+  console.log(url.href)
   try {
     const repositories = await getPinnedRepositories();
     return new Response(JSON.stringify(repositories), {
