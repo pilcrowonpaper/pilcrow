@@ -5,6 +5,7 @@ import { getPinnedRepositories } from "../../../utils/github";
 export const get: APIRoute = async () => {
   console.log("PINNED");
   console.log("GITHUB_API_KEY", GITHUB_API_KEY);
+  console.log("env", process.env.GITHUB_API_KEY);
   try {
     const repositories = await getPinnedRepositories();
     return new Response(JSON.stringify(repositories), {
