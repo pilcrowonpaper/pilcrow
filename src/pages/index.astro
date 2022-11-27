@@ -41,9 +41,11 @@ const repositories = (await repositoriesResponse.json()) as Repository[];
         </p>
       </div>
     </div>
-    <div class="flex mt-10 gap-x-2 sm:gap-x-6">
-      <div class="pt-6 sm:pt-8">
-        <ul class="flex flex-col gap-y-2">
+    <div class="flex flex-col sm:flex-row mt-10 gap-x-2 sm:gap-x-6">
+      <div class="sm:pt-8">
+        <ul
+          class="flex flex-row place-content-end sm:place-content-start sm:flex-col gap-x-1 sm:gap-y-2 my-1 sm:my-0"
+        >
           <li>
             <a
               href="https://github.com/pilcrowOnPaper"
