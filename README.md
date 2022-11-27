@@ -1,3 +1,3 @@
-# my little website
+# Personal website
 
-[link](pilcrow.vercel.app)
+Built with Astro - [link](pilcrow.vercel.app)
