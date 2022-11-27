@@ -1,5 +1,6 @@
 const getEnvironmentVariable = (envVar: string) => {
   const dev = import.meta.env.DEV;
+  console.log( process.env)
   return dev ? import.meta.env[envVar] : process.env[envVar];
 };
 
