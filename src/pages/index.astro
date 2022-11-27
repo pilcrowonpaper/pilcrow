@@ -3,7 +3,7 @@ import GithubIcon from "../components/icons/GithubIcon.astro";
 import TwitterIcon from "../components/icons/TwitterIcon.astro";
 import YoutubeIcon from "../components/icons/YoutubeIcon.astro";
 import Repo from "../components/Repo.astro";
-import Tech from "../components/Tech.astro";
+import TechIcon from "../components/TechIcon.astro";
 import techList from "../data/tech.json";
 import { BUILD_ID } from "../utils/build";
 
@@ -27,48 +27,43 @@ const repositories = (await repositoriesResponse.json()) as Repository[];
     <meta name="generator" content={Astro.generator} />
     <title>pilcrow</title>
   </head>
-  <body class="max-w-3xl mx-auto py-12 px-4">
-    <div class="flex gap-x-2 place-items-center mb-8">
-      <img src="/pilcrow-pfp.png" class="w-20 sm:w-32 rounded-full border" />
-      <div>
+  <body class="max-w-3xl mx-auto py-16 px-4">
+    <div class="flex gap-x-2 sm:gap-x-4 place-items-center">
+      <img src="/pilcrow-pfp.png" class="w-24 sm:w-36 rounded-full border hover:scale-105 hover:ease-in transition duration-300" />
+      <div class="sm:mt-4">
         <h1 class="text-3xl sm:text-4xl font-bold">Hi, I'm pilcrow</h1>
-        <p class="sm:text-lg mt-0.5">
+        <p class=" mt-2">
           Just a random little developer from Japan exploring the world
         </p>
-        <ul class="flex gap-x-2 mt-1">
+      </div>
+    </div>
+    <div class="flex mt-10 gap-x-2 sm:gap-x-6">
+      <div class="pt-6 sm:pt-8">
+        <ul class="flex flex-col gap-y-2">
           <li>
-            <a
-              class="hover:text-indigo-500 text-gray-500"
-              href="https://github.com/pilcrowOnPaper"
-              ><GithubIcon />
-            </a>
+            <a href="https://github.com/pilcrowOnPaper"><GithubIcon /></a>
           </li>
           <li>
-            <a
-              class="hover:text-indigo-500 text-gray-500"
-              href="https://twitter.com/pilcrowonpaper"
-              ><TwitterIcon />
-            </a>
+            <a href="https://twitter.com/pilcrowonpaper"><TwitterIcon /></a>
           </li>
           <li>
-            <a
-              class="hover:text-indigo-500 text-gray-500"
-              href="https://www.youtube.com/@pilcrowonpaper"
+            <a href="https://www.youtube.com/@pilcrowonpaper"
               ><YoutubeIcon />
             </a>
           </li>
         </ul>
       </div>
-    </div>
-    <section class="my-12">
-      <h2 class="text-2xl font-semibold">Things I've built</h2>
-      {repositories.map((repository) => <Repo repository={repository} />)}
-    </section>
-    <section class="my-12">
-      <h2 class="text-2xl font-semibold">Things I enjoy using</h2>
-      <div class="flex my-4 gap-x-2">
-        {techList.map((tech) => <Tech tech={tech} />)}
+      <div class="flex-grow">
+        <section class="flex flex-col gap-y-4">
+          {repositories.map((repository) => <Repo repository={repository} />)}
+        </section>
+        <section class="mt-8">
+          <h2 class="text font-bold">Things I enjoy using</h2>
+          <div class="flex my-1 gap-x-1">
+            {techList.map((tech) => <TechIcon tech={tech} />)}
+          </div>
+        </section>
       </div>
-    </section>
+    </div>
   </body>
 </html>
