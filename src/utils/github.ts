@@ -31,11 +31,7 @@ export const getPinnedRepositories = async (): Promise<Repository[]> => {
     },
   });
   if (!response.ok) {
-    try {
-      console.log(await response.json())
-    } catch {
-      console.log("Failed to parse json")
-    }
+    await logApiError(response);
     throw new Error("Failed to fetch data");
   }
   interface Nodes<T> {
@@ -70,4 +66,12 @@ export const getPinnedRepositories = async (): Promise<Repository[]> => {
       url: repository.url,
     };
   });
+};
+
+const logApiError = async (response: Response) => {
+  try {
+    console.log(await response.json());
+  } catch {
+    console.log("Failed to parse JSON");
+  }
 };
