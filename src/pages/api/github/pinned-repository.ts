@@ -13,7 +13,7 @@ export const get: APIRoute = async () => {
   } catch (e) {
     console.log(e);
     return new Response("1", {
-      status: 500,
+      status: 200,
     });
   }
 };
