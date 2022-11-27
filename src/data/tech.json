@@ -1,0 +1,18 @@
+[
+  {
+    "url": "https://www.typescriptlang.org",
+    "img": "/ts.png"
+  },
+  {
+    "url": "https://astro.build",
+    "img": "/astro.png"
+  },
+  {
+    "url": "https://svelte.dev",
+    "img": "/svelte.png"
+  },
+  {
+    "url": "https://www.prisma.io",
+    "img": "/prisma.png"
+  }
+]

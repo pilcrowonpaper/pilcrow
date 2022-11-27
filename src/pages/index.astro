@@ -1,0 +1,71 @@
+---
+import GithubIcon from "../components/icons/GithubIcon.astro";
+import TwitterIcon from "../components/icons/TwitterIcon.astro";
+import YoutubeIcon from "../components/icons/YoutubeIcon.astro";
+import Repo from "../components/Repo.astro";
+import Tech from "../components/Tech.astro";
+import techList from "../data/tech.json";
+
+const repositoriesResponse = await fetch(
+  "http:localhost:3000/api/github/pinned-repository"
+);
+if (!repositoriesResponse.ok)
+  return new Response(JSON.stringify({ error: "Failed to fetch data" }), {
+    status: 500,
+  });
+const repositories = (await repositoriesResponse.json()) as Repository[];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/pilcrow-pfp.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>pilcrow</title>
+  </head>
+  <body class="max-w-3xl mx-auto py-12 px-4">
+    <div class="flex gap-x-2 place-items-center mb-8">
+      <img src="/pilcrow-pfp.png" class="w-20 sm:w-32 rounded-full border" />
+      <div>
+        <h1 class="text-3xl sm:text-4xl font-bold">Hi, I'm pilcrow</h1>
+        <p class="sm:text-lg mt-0.5">
+          Just a random little developer from Japan exploring the world
+        </p>
+        <ul class="flex gap-x-2 mt-1">
+          <li>
+            <a
+              class="hover:text-indigo-500 text-gray-500"
+              href="https://github.com/pilcrowOnPaper"
+              ><GithubIcon />
+            </a>
+          </li>
+          <li>
+            <a
+              class="hover:text-indigo-500 text-gray-500"
+              href="https://twitter.com/pilcrowonpaper"
+              ><TwitterIcon />
+            </a>
+          </li>
+          <li>
+            <a
+              class="hover:text-indigo-500 text-gray-500"
+              href="https://www.youtube.com/@pilcrowonpaper"
+              ><YoutubeIcon />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <section class="my-12">
+      <h2 class="text-2xl font-semibold">Things I've built</h2>
+      {repositories.map((repository) => <Repo repository={repository} />)}
+    </section>
+    <section class="my-12">
+      <h2 class="text-2xl font-semibold">Things I enjoy using</h2>
+      <div class="flex my-4 gap-x-2">
+        {techList.map((tech) => <Tech tech={tech} />)}
+      </div>
+    </section>
+  </body>
+</html>
