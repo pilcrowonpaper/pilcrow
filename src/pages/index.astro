@@ -74,7 +74,7 @@ const repositories = (await repositoriesResponse.json()) as Repository[];
           {repositories.map((repository) => <Repo repository={repository} />)}
         </section>
         <section class="mt-8">
-          <h2 class="text font-bold">Things I enjoy using</h2>
+          <h2 class="text font-semibold">Things I enjoy using</h2>
           <div class="flex my-1 gap-x-1">
             {techList.map((tech) => <TechIcon tech={tech} />)}
           </div>

@@ -10,6 +10,11 @@
     "img": "/astro.png"
   },
   {
+    "name": "Solid",
+    "url": "https://www.solidjs.com",
+    "img": "/solid.png"
+  },
+  {
     "name": "Svelte",
     "url": "https://svelte.dev",
     "img": "/svelte.png"
