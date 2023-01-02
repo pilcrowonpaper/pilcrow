@@ -10,7 +10,7 @@ const { url, img, name } = Astro.props.tech;
 
 <a
   href={url}
-  class="block cursor-pointer hover:scale-105 w-6 h-6 hover:ease-in transition duration-75"
+  class="block cursor-pointer w-6 h-6 hover:ease-in transition duration-75 grayscale hover:grayscale-0 opacity-80 hover:opacity-100"
 >
   <img src={img} class="object-contain w-full h-full" alt={`${name} logo`} />
 </a>
