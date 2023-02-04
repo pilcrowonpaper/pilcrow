@@ -35,9 +35,10 @@ const repositories = (await repositoriesResponse.json()) as Repository[];
         class="w-32 h-32s sm:w-36 sm:h-36 rounded-full border hover:scale-105 hover:ease-in transition duration-300"
       />
       <div class="sm:mt-4">
-        <h1 class="text-4xl sm:text-5xl font-bold">pilcrow</h1>
+        <h1 class="text-4xl sm:text-5xl font-bold">Pilcrow</h1>
         <p class="mt-2">
-          Just a random little developer from Japan exploring the world
+          I'm interested in anything web dev, and I enjoy writing code for stuff
+          like authentication to content management.
         </p>
       </div>
     </div>
@@ -70,7 +71,7 @@ const repositories = (await repositoriesResponse.json()) as Repository[];
         </ul>
       </div>
       <div class="flex-grow">
-        <section class="flex flex-col gap-y-4">
+        <section class="flex flex-col divide-y">
           {repositories.map((repository) => <Repo repository={repository} />)}
         </section>
         <section class="mt-8">
