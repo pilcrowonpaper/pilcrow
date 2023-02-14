@@ -19,4 +19,4 @@ pnpm-debug.log*
 .DS_Store
 .vscode
 
-build-id.txt
+.BUILD_ID.txt
