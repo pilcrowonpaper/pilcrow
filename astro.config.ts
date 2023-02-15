@@ -5,21 +5,11 @@ import type { AstroIntegration } from "astro";
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
-import vercel from "@astrojs/vercel/edge";
-
-
-const testIntegration: AstroIntegration = {
-  name: "test",
-  hooks: {
-    "astro:server:setup": (options) => {
-      console.dir(options.server)
-    },
-  },
-};
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), testIntegration],
+  integrations: [tailwind()],
   output: "server",
   adapter: vercel(),
 });
