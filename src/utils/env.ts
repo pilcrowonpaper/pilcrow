@@ -1,8 +1,6 @@
-import dotenv from "dotenv";
-
-dotenv.config();
-
 const dev = import.meta.env.DEV;
+
+console.log(process.env);
 
 export const GITHUB_API_KEY = dev
   ? import.meta.env.GITHUB_API_KEY

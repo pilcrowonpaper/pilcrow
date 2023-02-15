@@ -5,7 +5,6 @@ specifiers:
   '@astrojs/vercel': ^2.3.4
   '@types/node': ^18.11.9
   astro: ^1.6.11
-  dotenv: ^16.0.3
   tailwindcss: ^3.2.4
   ts-node: ^10.9.1
 
@@ -13,7 +12,6 @@ dependencies:
   '@astrojs/tailwind': 2.1.3_tailwindcss@3.2.6
   '@astrojs/vercel': 2.4.0
   astro: 1.9.2_ucpl6toqp57nqodtp3vxxi6g5a
-  dotenv: 16.0.3
   tailwindcss: 3.2.6_ts-node@10.9.1
 
 devDependencies:
@@ -1281,11 +1279,6 @@ packages:
 
   /dlv/1.1.3:
     resolution: {integrity: sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==}
-    dev: false
-
-  /dotenv/16.0.3:
-    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
-    engines: {node: '>=12'}
     dev: false
 
   /dset/3.1.2:
