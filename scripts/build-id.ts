@@ -12,10 +12,10 @@ const main = async () => {
     return path.resolve(__dirname, relativePath);
   };
   fs.writeFileSync(
-    getPath("../.BUILD_ID.txt"),
+    getPath("../.BUILD_ID"),
     new Date().getTime().toString()
   );
-  console.log(fs.readFileSync(getPath("../.BUILD_ID.txt"), "utf-8"));
+  console.log(fs.readFileSync(getPath("../.BUILD_ID"), "utf-8"));
 };
 
 main();
