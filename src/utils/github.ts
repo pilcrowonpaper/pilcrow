@@ -1,6 +1,6 @@
 import { GITHUB_API_KEY } from "./env";
 
-export const getPinnedRepositories = async (): Promise<Repository[]> => {
+export const getPinnedRepositories = async (): Promise<GithubRepository[]> => {
   const response = await fetch("https://api.github.com/graphql", {
     method: "POST",
     body: JSON.stringify({

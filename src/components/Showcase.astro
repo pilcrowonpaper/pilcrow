@@ -2,14 +2,14 @@
 import StarIcon from "./icons/StarIcon.astro";
 
 type Props = {
-  repository: Repository;
+  repository: GithubRepository;
 };
 const { name, url, stars, language, description } = Astro.props.repository;
 ---
 
 <div class="py-4">
-  <a href={url}
-    ><h2 class="text-2xl font-semibold hover:text-indigo-500">
+  <a href={url} class="block w-fit"
+    ><h2 class="text-2xl font-semibold hover:text-indigo-500 w-fit">
       {name}
     </h2>
   </a>

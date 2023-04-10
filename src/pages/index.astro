@@ -2,7 +2,7 @@
 import GithubIcon from "../components/icons/GithubIcon.astro";
 import TwitterIcon from "../components/icons/TwitterIcon.astro";
 import YoutubeIcon from "../components/icons/YoutubeIcon.astro";
-import Repo from "../components/Repo.astro";
+import Showcase from "../components/Showcase.astro";
 import TechIcon from "../components/TechIcon.astro";
 import techList from "../data/tech.json";
 import { BUILD_ID } from "../utils/build";
@@ -16,7 +16,7 @@ if (!repositoriesResponse.ok)
   return new Response(JSON.stringify({ error: "Failed to fetch data" }), {
     status: 500,
   });
-const repositories = (await repositoriesResponse.json()) as Repository[];
+const repositories = (await repositoriesResponse.json()) as GithubRepository[];
 ---
 
 <html lang="en">
@@ -71,7 +71,7 @@ const repositories = (await repositoriesResponse.json()) as Repository[];
       </div>
       <div class="flex-grow">
         <section class="flex flex-col divide-y">
-          {repositories.map((repository) => <Repo repository={repository} />)}
+          {repositories.map((repository) => <Showcase repository={repository} />)}
         </section>
         <section class="mt-8">
           <h2 class="text font-semibold">Things I enjoy using</h2>
