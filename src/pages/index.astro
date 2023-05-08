@@ -1,85 +1,54 @@
 ---
-import GithubIcon from "../components/icons/GithubIcon.astro";
-import TwitterIcon from "../components/icons/TwitterIcon.astro";
-import YoutubeIcon from "../components/icons/YoutubeIcon.astro";
-import Showcase from "../components/Showcase.astro";
-import TechIcon from "../components/TechIcon.astro";
-import techList from "../data/tech.json";
-import { BUILD_ID } from "../utils/build";
-
-const repositoriesResponse = await fetch(
-  `${Astro.url.origin}/api/github/pinned-repository?${new URLSearchParams({
-    build_id: BUILD_ID,
-  }).toString()}`
-);
-if (!repositoriesResponse.ok)
-  return new Response(JSON.stringify({ error: "Failed to fetch data" }), {
-    status: 500,
-  });
-const repositories = (await repositoriesResponse.json()) as GithubRepository[];
+import GithubIcon from "@components/icons/GithubIcon.astro";
+import TwitterIcon from "@components/icons/TwitterIcon.astro";
+import YoutubeIcon from "@components/icons/YoutubeIcon.astro";
+import Layout from "@components/Layout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/profile.png" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>pilcrow</title>
-  </head>
-  <body class="max-w-3xl mx-auto py-16 px-4">
-    <div class="flex gap-x-2 sm:gap-x-4 place-items-center">
-      <img
-        src="/profile.png"
-        alt="profile picture"
-        class="w-32 h-32s sm:w-36 sm:h-36 rounded-full border hover:scale-105 hover:ease-in transition duration-300"
-      />
-      <div class="sm:mt-4">
-        <h1 class="text-4xl sm:text-5xl font-bold">Pilcrow</h1>
-        <p class="mt-2">
-          I'm interested in anything web dev, and I enjoy drawing and cooking.
-        </p>
-      </div>
-    </div>
-    <div class="flex flex-col sm:flex-row mt-10 gap-x-2 sm:gap-x-6">
-      <div class="sm:pt-8 pb-1 sm:pb-0">
-        <ul
-          class="flex flex-row place-content-end sm:place-content-start sm:flex-col gap-x-1 sm:gap-y-2 my-1 sm:my-0"
-        >
-          <li>
-            <a
-              href="https://github.com/pilcrowOnPaper"
-              aria-label="Link to Github profile"
-              ><GithubIcon />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://twitter.com/pilcrowonpaper"
-              aria-label="Link to Twitter profile"
-              ><TwitterIcon />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.youtube.com/@pilcrowonpaper"
-              aria-label="Link to Youtube page"
-              ><YoutubeIcon />
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="flex-grow">
-        <section class="flex flex-col divide-y">
-          {repositories.map((repository) => <Showcase repository={repository} />)}
-        </section>
-        <section class="mt-8">
-          <h2 class="text font-semibold">Things I enjoy using</h2>
-          <div class="flex my-1 gap-x-1">
-            {techList.map((tech) => <TechIcon tech={tech} />)}
-          </div>
-        </section>
-      </div>
-    </div>
-  </body>
-</html>
+<Layout title="Pilcrow" description="Pilcrow's personal website">
+	<h1 class="text-5xl font-bold">Hi, I'm Pilcrow</h1>
+	<p class="mt-4 text-lg">
+		A developer from Japan interested in anything web dev.
+	</p>
+	<ul class="mt-2 flex gap-x-2">
+		<li>
+			<a
+				href="https://twitter.com/pilcrowonpaper"
+				aria-label="Link to Twitter profile"
+				target="_blank"
+				><TwitterIcon />
+			</a>
+		</li>
+		<li>
+			<a
+				href="https://github.com/pilcrowOnPaper"
+				aria-label="Link to Github profile"
+				target="_blank"
+				><GithubIcon />
+			</a>
+		</li>
+		<li>
+			<a
+				href="https://www.youtube.com/@pilcrowonpaper"
+				aria-label="Link to Youtube page"
+				target="_blank"
+				><YoutubeIcon />
+			</a>
+		</li>
+	</ul>
+	<section class="mt-12">
+		<h2 class="text-3xl font-semibold">About me</h2>
+		<p class="mt-4">
+			I'm relatively new to the world of web dev and programming in general, but
+			I've gained a lot of experience from maintaining open source projects and
+			their documentation sites. I like types, utility classes, multi-page
+			applications, markdown, and Safari. I think I'm a fullstack developer but
+			I still have a lot to learn about accessibility and architecture design.
+		</p>
+		<p class="mt-4">
+			When I don't have VSCode or Github open, I enjoy taking photos, drawing,
+			playing games, traveling, and cooking. Italian cuisine is my favorite.
+		</p>
+		<p class="mt-4">Feel free to message me on Twitter or Discord!</p>
+	</section>
+</Layout>

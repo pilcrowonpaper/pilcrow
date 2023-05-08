@@ -1,0 +1,27 @@
+[
+	{
+		"name": "Lucia",
+		"description": "A simple and flexible auth library that provides an abstraction layer between your app and your database. Supports multiple databases and frameworks.",
+		"repository": "pilcrowonpaper/lucia"
+	},
+	{
+		"name": "pilcrow.vercel.app",
+		"description": "My personal website.",
+		"repository": "pilcrowonpaper/pilcrow"
+	},
+	{
+		"name": "Siena",
+		"description": "Astro integration for optimizing markdown images.",
+		"repository": "pilcrowonpaper/siena"
+	},
+	{
+		"name": "Auri",
+		"description": "Manage package changes and releases.",
+		"repository": "pilcrowonpaper/auri"
+	},
+	{
+		"name": "astro-form-actions",
+		"description": "Handle forms and form requests in Astro projects.",
+		"repository": "pilcrowonpaper/astro-form-actions"
+	}
+]
