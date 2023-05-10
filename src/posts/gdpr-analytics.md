@@ -147,7 +147,7 @@ The first option violates GDPR as it requires you to process personal data (a un
 
 | service   | possible violation                          | relevant legislation |
 | --------- | ------------------------------------------- | -------------------- |
-| Phantom   | assigns unique id: hash from ip, user agent | GDPR                 |
+| Fathom    | assigns unique id: hash from ip, user agent | GDPR                 |
 | Plausible | assigns unique id: hash from ip, user agent | GDPR                 |
 | PostHog   | assigns unique id + storage before consent  | GDPR, ePrivacy       |
 | Umami     | assigns unique id: hash from ip, user agent | GDPR                 |
@@ -163,11 +163,11 @@ Matomo claims its no-consent cookie based configuration is approved by CNIL, Fra
 
 #### Fathom
 
-[Fanthom claims](https://usefathom.com/blog/anonymization) its customers use legitimate interests as their basis for handling IP addresses (personal data):
+[Fathom claims](https://usefathom.com/blog/anonymization) its customers use legitimate interests as their basis for handling IP addresses (personal data):
 
 > Processing personal data (IP address & User-Agent as per the GDPR) is not an issue, and the GDPR offers six lawful bases for doing so. Our customers rely on legitimate interest, and there is no risk to the data subject, and we ensure their data is anonymized.
 
-However, as stated above, I do not think legitimate interests apply here, and Fanthom does not elaborate further. It also wrongly claims that hashing counts as anonymization and that GDPR may not apply, when it should be considered pseudonymization and the resulting data is still considered personal data.
+However, as stated above, I do not think legitimate interests apply here, and Fathom does not elaborate further. It also wrongly claims that hashing counts as anonymization and that GDPR may not apply, when it should be considered pseudonymization and the resulting data is still considered personal data.
 
 ## Now what?
 
