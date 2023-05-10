@@ -1,12 +1,14 @@
 ---
-import StarIcon from "@components/icons/StarIcon.astro";
 import Layout from "@components/Layout.astro";
 import { BUILD_ID } from "@utils/build";
 const { format: formatNumber } = new Intl.NumberFormat("en-US");
 
 import type { Projects } from "../utils/github";
 
-const apiUrl = new URL("/api/projects", getOrigin(Astro));
+const apiUrl = new URL(
+	"/api/projects",
+	import.meta.env.DEV ? Astro.url.origin : import.meta.env.PROD_DOMAIN
+);
 apiUrl.searchParams.set("build_id", BUILD_ID);
 const response = await fetch(apiUrl);
 if (!response.ok) {

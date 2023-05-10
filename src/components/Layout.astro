@@ -1,6 +1,4 @@
 ---
-import { getOrigin } from "@utils/url";
-
 type Props = {
 	title: string;
 	description: string;
@@ -30,19 +28,12 @@ const fontFiles = [
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={Astro.props.description} />
 		<title>{Astro.props.title}</title>
-		<link rel="preconnect" href={getOrigin(Astro)} />
+		<link rel="preconnect" href="/" />
 		{
 			fontFiles.map((fontFile) => {
 				const urls = fontFile.weight.map((weight) => {
-					if (weight)
-						return new URL(
-							`/fonts/jost-${fontFile.size}-${weight}.woff2`,
-							getOrigin(Astro)
-						);
-					return new URL(
-						`/fonts/jost-${fontFile.size}.woff2`,
-						getOrigin(Astro)
-					);
+					if (weight) return `/fonts/jost-${fontFile.size}-${weight}.woff2`;
+					return `/fonts/jost-${fontFile.size}.woff2`;
 				});
 				return urls.map((fontUrl) => (
 					<link rel="preload" href={fontUrl} as="font" type="font/woff2" />
@@ -51,7 +42,7 @@ const fontFiles = [
 		}
 		<link
 			rel="preload"
-			href={new URL("/profile.jpg", getOrigin(Astro))}
+			href="/profile.jpg"
 			as="image"
 		/>
 	</head>
