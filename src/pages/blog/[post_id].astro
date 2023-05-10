@@ -1,0 +1,93 @@
+---
+import Layout from "@components/Layout.astro";
+import { getPosts } from "@utils/posts";
+import type { InferGetStaticPropsType } from "astro";
+
+export const prerender = true;
+
+export const getStaticPaths = async () => {
+	const posts = await getPosts();
+	return posts.map((post) => {
+		return {
+			params: {
+				post_id: post.postId
+			},
+			props: {
+				post
+			}
+		};
+	});
+};
+
+const { format: formateDate } = new Intl.DateTimeFormat("en-US", {
+	dateStyle: "long"
+});
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { post } = Astro.props;
+---
+
+<Layout title={post.metaData.title} description={post.metaData.description}>
+	<h1 class="text-4xl font-bold sm:text-5xl">{post.metaData.title}</h1>
+	<p class="mt-4 text-lg text-zinc-800">
+		{formateDate(new Date(post.metaData.date.replaceAll("-", "/")))}
+	</p>
+	<div class="mt-6">
+		<p class="text-lg font-medium text-indigo-500">
+			tl;dr - {post.metaData.tldr}
+		</p>
+	</div>
+	<div id="md" class="mt-12 leading-loose">
+		<post.Content />
+	</div>
+</Layout>
+
+<style lang="postcss">
+    :global(#md h2) {
+        @apply mt-16 text-3xl sm:text-4xl font-bold;
+    }
+    :global(#md h3) {
+        @apply mt-8 text-2xl font-semibold;
+    }
+    :global(#md h4) {
+        @apply mt-6 text-xl font-semibold;
+    }
+    :global(#md > p) {
+        @apply mt-4 text-zinc-800;
+    }
+    :global(#md ol) {
+        @apply mt-3 list-decimal list-inside text-zinc-800;
+    }
+    :global(#md blockquote) {
+        @apply text-zinc-600 mt-4 border-l-2 border-zinc-600 pl-2 text-sm;
+    }
+    :global(#md a) {
+        @apply text-indigo-500 hover:underline;
+    }
+    :global(#md p code, #md ul code, #md ol code, #md table code) {
+		@apply text-sm;
+	}
+	:global(#md .astro-code) {
+		@apply my-2 overflow-scroll rounded-md px-4 py-2 text-sm ;
+		scrollbar-width: none;
+	}
+	:global(#md pre::-webkit-scrollbar) {
+		display: none;
+	}
+    :global(#md table) {
+		@apply mt-4 w-full table-auto border-collapse text-left text-zinc-800 text-sm;
+	}
+	:global(#md .table-wrapper) {
+		@apply w-full overflow-auto whitespace-nowrap;
+	}
+	:global(#md table thead tr) {
+		@apply w-full border-b border-zinc-200;
+	}
+	:global(#md table :is(td, th)) {
+		@apply border-b border-zinc-200 py-1.5 px-1;
+	}
+	:global(#md table th) {
+		@apply text-xs font-medium;
+	}
+</style>

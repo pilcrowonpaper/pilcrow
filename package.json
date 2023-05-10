@@ -9,6 +9,7 @@
 		"build": "npm run build-id && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
+		"format": "pnpm prettier -w .",
 		"build-id": "ts-node --esm -T scripts/build-id.ts"
 	},
 	"dependencies": {

@@ -32,7 +32,7 @@ export const getProjects = async () => {
 	);
 };
 
-export type Projects = Awaited<ReturnType<typeof getProjects>>
+export type Projects = Awaited<ReturnType<typeof getProjects>>;
 
 const logApiError = async (response: Response) => {
 	try {

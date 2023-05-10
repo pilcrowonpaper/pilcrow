@@ -1,0 +1,37 @@
+---
+export const prerender = true;
+
+import Layout from "@components/Layout.astro";
+import { getPosts } from "@utils/posts";
+
+const posts = await getPosts();
+---
+
+<Layout
+	title="Projects - Pilcrow"
+	description="Some projects and libraries I maintain"
+>
+	<h1 class="text-4xl font-bold sm:text-6xl">Blog</h1>
+	<p class="mt-4 text-zinc-800">
+		Here are some projects and libraries I created. I usually put extensive
+		efforts into writing documentation when maintaining libraries.
+	</p>
+	<div class="mt-10 grid gap-y-6">
+		{
+			posts.map((post) => {
+				return (
+					<article class="">
+						<div class="flex place-items-center gap-x-1">
+							<a href={post.href} class="block w-fit ">
+								<h2 class="w-fit text-2xl font-semibold hover:text-indigo-500 hover:underline">
+									{post.metaData.title}
+								</h2>
+							</a>
+						</div>
+						<p class="text-zinc-800 ">{post.metaData.description}</p>
+					</article>
+				);
+			})
+		}
+	</div>
+</Layout>

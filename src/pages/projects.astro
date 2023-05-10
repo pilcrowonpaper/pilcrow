@@ -22,8 +22,8 @@ const projects: Projects = await response.json();
 	title="Projects - Pilcrow"
 	description="Some projects and libraries I maintain"
 >
-	<h1 class="text-5xl font-bold">Projects</h1>
-	<p class="mt-4">
+	<h1 class="text-4xl font-bold sm:text-6xl">Projects</h1>
+	<p class="mt-4 text-zinc-800">
 		Here are some projects and libraries I created. I usually put extensive
 		efforts into writing documentation when maintaining libraries.
 	</p>
@@ -32,18 +32,16 @@ const projects: Projects = await response.json();
 			projects.map((project) => {
 				return (
 					<article>
-						<div class="flex place-items-baseline gap-x-2">
+						<div class="flex place-items-center gap-x-1">
 							<a href={project.repositoryUrl} class="block w-fit ">
-								<h2 class="w-fit text-xl font-semibold hover:text-indigo-500">
+								<h2 class="w-fit text-2xl font-semibold hover:text-indigo-500 hover:underline">
 									{project.name}
 								</h2>
 							</a>
-							<div class="flex place-items-center text-gray-400 ">
-								<StarIcon />
-								<p>{formatNumber(project.stars)}</p>
-							</div>
 						</div>
-						<p>{project.description}</p>
+						<p class="text-zinc-800">
+							☆{formatNumber(project.stars)} - {project.description}
+						</p>
 					</article>
 				);
 			})
