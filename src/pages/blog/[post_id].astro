@@ -27,7 +27,7 @@ const { post } = Astro.props;
 ---
 
 <Layout title={post.metaData.title} description={post.metaData.description}>
-	<h1 class="text-4xl font-bold sm:text-5xl">{post.metaData.title}</h1>
+	<h1 class="text-4xl font-semibold sm:text-5xl">{post.metaData.title}</h1>
 	<p class="mt-4 text-lg text-zinc-800">
 		{formatDate(post.metaData.date)}
 	</p>
@@ -43,13 +43,13 @@ const { post } = Astro.props;
 
 <style lang="postcss">
     :global(#md h2) {
-        @apply mt-16 text-3xl sm:text-4xl font-bold;
+        @apply mt-16 text-3xl sm:text-4xl font-semibold;
     }
     :global(#md h3) {
-        @apply mt-8 text-2xl font-semibold;
+        @apply mt-8 text-2xl font-medium;
     }
     :global(#md h4) {
-        @apply mt-6 text-xl font-semibold;
+        @apply mt-6 text-xl font-medium;
     }
     :global(#md > p) {
         @apply mt-4 text-zinc-800;
@@ -61,7 +61,7 @@ const { post } = Astro.props;
         @apply mt-4 list-disc list-inside text-zinc-800;
     }
     :global(#md blockquote) {
-        @apply text-zinc-500 mt-4 border-l-2 border-zinc-500 pl-2 text-sm;
+        @apply text-zinc-500 mt-4 border-l-2 border-zinc-400 pl-1.5 text-sm;
     }
     :global(#md a) {
         @apply text-indigo-500 hover:underline;
@@ -86,6 +86,6 @@ const { post } = Astro.props;
 		@apply border-b border-zinc-200 py-1.5 px-1;
 	}
 	:global(#md table th) {
-		@apply text-xs font-semibold py-1.5 px-1 border-b border-zinc-400;
+		@apply text-xs font-medium py-1.5 px-1 border-b border-zinc-400;
 	}
 </style>

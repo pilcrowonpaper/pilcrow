@@ -3,24 +3,63 @@ type Props = {
 	title: string;
 	description: string;
 };
+
+const fontFiles = [
+	{
+		size: 400,
+		weight: [null, "italic"]
+	},
+	{
+		size: 500,
+		weight: [null]
+	},
+	{
+		size: 600,
+		weight: [null]
+	}
+];
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/profile.png" />
+		<link rel="icon" type="image/svg+xml" href="/profile.jpg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={Astro.props.description} />
 		<title>{Astro.props.title}</title>
+		<link rel="preconnect" href={Astro.url.origin} />
+		{
+			fontFiles.map((fontFile) => {
+				const urls = fontFile.weight.map((weight) => {
+					if (weight)
+						return new URL(
+							`/fonts/jost-${fontFile.size}-${weight}.woff2`,
+							Astro.url.origin
+						);
+					return new URL(
+						`/fonts/jost-${fontFile.size}.woff2`,
+						Astro.url.origin
+					);
+				});
+				return urls.map((fontUrl) => (
+					<link rel="preload" href={fontUrl} as="font" type="font/woff2" />
+				));
+			})
+		}
+		<link
+			rel="preload"
+			href={new URL("/profile.jpg", Astro.url.origin)}
+			as="image"
+		/>
 	</head>
 	<body class="mx-auto max-w-3xl px-4">
-		<header class="flex place-content-between place-items-center pt-6 pb-2">
+		<header class="flex place-content-between place-items-center pb-2 pt-6">
 			<a class="block" href="/">
 				<img
-					src="/profile.png"
+					src="/profile.jpg"
 					alt="profile picture"
-					class="w-10 h-10 bg-zinc-100 rounded-full"
+					class="h-10 w-10 rounded-full bg-zinc-100"
 				/></a
 			>
 			<div class="flex gap-x-4 text-zinc-800">
@@ -30,8 +69,38 @@ type Props = {
 				<a href="/blog" class="hover:text-indigo-500 hover:underline">Blog</a>
 			</div>
 		</header>
-		<main class="mt-12 sm:mt-16 mb-24 leading-relaxed">
+		<main class="mb-24 mt-12 leading-relaxed sm:mt-16">
 			<slot />
 		</main>
 	</body>
+	<style>
+		/* @font-face {
+			font-family: "Jost";
+			src: url("/fonts/jost-700.woff2") format("woff2");
+			font-weight: 700;
+			font-style: normal;
+		} */
+		@font-face {
+			font-family: "Jost";
+			src: url("/fonts/jost-600.woff2") format("woff2");
+			font-weight: 600;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: "Jost";
+			src: url("/fonts/jost-500.woff2") format("woff2");
+			font-weight: 500;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: "Jost";
+			src: url("/fonts/jost-400.woff2") format("woff2");
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		html {
+			font-family: "Jost", sans-serif;
+		}
+	</style>
 </html>

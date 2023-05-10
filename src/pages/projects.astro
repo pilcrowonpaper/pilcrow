@@ -22,7 +22,7 @@ const projects: Projects = await response.json();
 	title="Projects - Pilcrow"
 	description="Some projects and libraries I maintain"
 >
-	<h1 class="text-4xl font-bold sm:text-6xl">Projects</h1>
+	<h1 class="text-4xl font-semibold sm:text-6xl">Projects</h1>
 	<p class="mt-4 text-zinc-800">
 		Here are some projects and libraries I created. I usually put extensive
 		efforts into writing documentation when maintaining libraries.
@@ -34,7 +34,7 @@ const projects: Projects = await response.json();
 					<article>
 						<div class="flex place-items-center gap-x-1">
 							<a href={project.repositoryUrl} class="block w-fit ">
-								<h2 class="w-fit text-2xl font-semibold hover:text-indigo-500 hover:underline">
+								<h2 class="w-fit text-2xl font-medium hover:text-indigo-500 hover:underline">
 									{project.name}
 								</h2>
 							</a>

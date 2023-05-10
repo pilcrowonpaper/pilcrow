@@ -10,9 +10,9 @@ const posts = await getPosts();
 
 <Layout
 	title="Projects - Pilcrow"
-	description="Some projects and libraries I maintain"
+	description="My blog posts"
 >
-	<h1 class="text-4xl font-bold sm:text-6xl">Blog</h1>
+	<h1 class="text-4xl font-semibold sm:text-6xl">Blog</h1>
 	<p class="mt-4 text-zinc-800">
 		I'm not very good at writing but I occasionally write about stuff that took
 		me a while to research and understand. Hope these are helpful to someone!
@@ -24,7 +24,7 @@ const posts = await getPosts();
 					<article class="">
 						<div class="flex place-items-center gap-x-1">
 							<a href={post.href} class="block w-fit ">
-								<h2 class="w-fit text-2xl font-semibold hover:text-indigo-500 hover:underline">
+								<h2 class="w-fit text-2xl font-medium hover:text-indigo-500 hover:underline">
 									{post.metaData.title}
 								</h2>
 							</a>
