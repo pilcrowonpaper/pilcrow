@@ -9,7 +9,7 @@ For the past few days, I've been working on my next open source project: a dead-
 
 Here's a short summary of what I found. This is more a "what _not_ to do" article than a "what you should do" one. Specifically, it won't explain how you should write your privacy policy and get consent - that's for another time.
 
-I also looked through how other analytics provider were counting visitors - a lot of them, at best, are misunderstanding the law, and at worst, violating GDPR. This was especially the case for those that claim that they were GDPR complaint and didn't use cookies. And yes, that includes Plausible, Vercel Web Analytics, Umami, Matomo, PostHog, and Fathom. I also assume many people don't really understand GDPR either. Did you know that GDPR isn't about cookies, and in fact, by itself, you're allowed to set cookies without user consent? The important phrase bing "_by itself_".
+I also looked through how other analytics provider were counting visitors - a lot of them, at best, are misunderstanding the law, and at worst, violating GDPR. This was especially the case for those that claim that they were GDPR complaint and don't use cookies. And yes, that includes Plausible, Vercel Web Analytics, Umami, Matomo, PostHog, and Fathom. I also assume many people don't really understand GDPR either. Did you know that GDPR isn't about cookies, and in fact, by itself, you're allowed to set cookies without user consent? The important phrase bing "_by itself_".
 
 It's important to preface that **I'm not a lawyer, and this is not legal advice**. However, you may want to reconsider if you're using such services.
 
@@ -51,6 +51,13 @@ Unique identifiers, regardless of the method used to generate it (including fing
 
 The user should be informed what personal data are processed and for what purpose.
 
+#### IP address
+
+Sending requests to third party APIs may be a violation of GDPR as the user's IP address was unknowingly shared with a third party, especially if you had the option to self-host or proxy the request. This includes using Google Fonts and embedding social media posts. 
+
+- EUCJ: [Fashon ID case](https://curia.europa.eu/juris/document/document.jsf?text=&docid=216555&pageIndex=0&doclang=EN&mode=lst&dir=&occ=first&part=1&cid=6340488)
+- German regional court: [Google Fonts case](https://rewis.io/urteile/urteil/lhm-20-01-2022-3-o-1749320/)
+
 ### Handling personal data
 
 **Personal data may not be processed, including its storage and transmission, without a legal basis** (Article 6). These legal bases are not applicable to cookies.
@@ -68,7 +75,7 @@ Consent must be opt-in. A pre-ticked checkbox or any other default consent are n
 
 #### Legitimate interests
 
-While (6) is purposefully broad and is the most flexible out of the six, there must be a specific interest, be it commercial or security, for it to apply. Users' personal rights override your own interests as well. Security related interests, such as DDOS protection, are explicitly stated to be considered proper legitimate interest in recital 49:
+While (6) is purposefully broad and is the most flexible out of the six, there must be a specific interest, be it commercial or security, for it to apply. Users' personal rights override your own interests as well, and it cannot be used if you have more unintrusive way to achieve your "interests". Security related interests, such as DDOS protection, are explicitly stated to be considered proper legitimate interest in recital 49:
 
 > This [a legitimate interest of the data controller concerned] could, for example, include preventing unauthorised access to electronic communications networks and malicious code distribution and stopping ‘denial of service’ attacks and damage to computer and electronic communication systems.
 
@@ -78,7 +85,7 @@ Your users have a right to object to their personal data being processed, as sta
 
 While you don't need to comply if you have "compelling legitimate grounds" that override your users' objection, it is generally recommended that there an option to opt-out of the processing is present. You must list your "interests" in clear manner as well (e.g. privacy policy).
 
-**Analytics for the sake of analytics will likely not be considered "legitimate interests."** "I was just curious" is, at best, a weak argument.
+**Analytics for the sake of analytics will likely not be considered "legitimate interests."** "I was just curious" is, at best, a weak argument. 
 
 ### Anonymous data
 
@@ -145,6 +152,10 @@ The first option violates GDPR as it requires you to process personal data (a un
 | PostHog   | assigns unique id + storage before consent  | GDPR, ePrivacy    |
 | Umami     | assigns unique id: hash from ip, user agent | GDPR              |
 | Vercel    | assigns unique id: hash from ip, user agent | GDPR              |
+
+It's also possible sending requests to third party APIs, so just using third party analytics, may be a violation of GDPR as you're exposing the user's IP address without their consent. 
+
+The only leeway here is legitimate interests, as mentioned before. Do you have legitimate interests in tracking unique visitors, and solely that? It's likely you *just* want to see the number of visitors to your site, and since you can already track interests and traffic via page views, I do not think it applies here.
 
 #### Matomo
 
