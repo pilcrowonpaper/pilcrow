@@ -7,7 +7,7 @@ import type { Projects } from "../utils/github";
 
 const apiUrl = new URL(
 	"/api/projects",
-	import.meta.env.DEV ? Astro.url.origin : import.meta.env.PROD_DOMAIN
+	import.meta.env.DEV ? Astro.url.origin : process.env.PROD_DOMAIN
 );
 apiUrl.searchParams.set("build_id", BUILD_ID);
 const response = await fetch(apiUrl);
