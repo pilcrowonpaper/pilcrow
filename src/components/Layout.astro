@@ -19,6 +19,8 @@ const fontFiles = [
 		weight: [null]
 	}
 ];
+
+const ORIGIN = "https://pilcrow.vercel.app";
 ---
 
 <html lang="en">
@@ -57,7 +59,10 @@ const fontFiles = [
 		<meta property="og:site_name" content="Pilcrow" />
 		<meta
 			name="og:image"
-			content={`/og/${Astro.props.ogId}.jpg` ?? "/og/pilcrow.jpg"}
+			content={new URL(
+				Astro.props.ogId ? `/og/${Astro.props.ogId}.jpg` : "/og/pilcrow.jpg",
+				ORIGIN
+			)}
 		/>
 		<meta name="og:title" content={Astro.props.title} />
 
@@ -71,7 +76,7 @@ const fontFiles = [
 			content={`/og/${Astro.props.ogId}.jpg` ?? "/og/pilcrow.jpg"}
 		/>
 		<meta name="twitter:image:alt" content={Astro.props.title} /> -->
-		
+
 		<!-- Discord -->
 		<meta name="theme-color" content="#7575ff" />
 	</head>
