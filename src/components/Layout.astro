@@ -27,7 +27,6 @@ const fontFiles = [
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={Astro.props.description} />
-		<meta name="theme-color" content="#7575ff" />
 		<title>{Astro.props.title}</title>
 		<link rel="preconnect" href="/" crossorigin />
 		{
@@ -51,11 +50,11 @@ const fontFiles = [
 		<link rel="icon" type="image/svg+xml" href="/profile.jpg" />
 
 		<!-- OpenGraph tags -->
-		<meta name="og:title" content={Astro.props.title} />
-		<meta name="og:type" content="website" />
-		<meta name="og:locale" content="en" />
-		<meta name="og:description" content={Astro.props.description} />
-		<meta name="og:site_name" content="Pilcrow" />
+		<meta property="og:title" content={Astro.props.title} />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="en" />
+		<meta property="og:description" content={Astro.props.description} />
+		<meta property="og:site_name" content="Pilcrow" />
 		<meta
 			name="og:image"
 			content={`/og/${Astro.props.ogId}.jpg` ?? "/og/pilcrow.jpg"}
@@ -72,6 +71,9 @@ const fontFiles = [
 			content={`/og/${Astro.props.ogId}.jpg` ?? "/og/pilcrow.jpg"}
 		/>
 		<meta name="twitter:image:alt" content={Astro.props.title} /> -->
+		
+		<!-- Discord -->
+		<meta name="theme-color" content="#7575ff" />
 	</head>
 	<body class="mx-auto max-w-3xl px-4">
 		<header class="flex place-content-between place-items-center pb-2 pt-6">
