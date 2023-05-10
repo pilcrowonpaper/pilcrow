@@ -3,6 +3,7 @@ export const prerender = true;
 
 import Layout from "@components/Layout.astro";
 import { getPosts } from "@utils/posts";
+import { formatDate } from "@utils/format";
 
 const posts = await getPosts();
 ---
@@ -27,7 +28,8 @@ const posts = await getPosts();
 								</h2>
 							</a>
 						</div>
-						<p class="text-zinc-800 ">{post.metaData.description}</p>
+						<p class="text-sm text-zinc-600">{formatDate(post.metaData.date)}</p>
+						<p class="text-zinc-800 mt-1">{post.metaData.description}</p>
 					</article>
 				);
 			})

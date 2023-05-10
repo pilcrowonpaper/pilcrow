@@ -1,9 +1,11 @@
 ---
+export const prerender = true;
+
 import Layout from "@components/Layout.astro";
 import { getPosts } from "@utils/posts";
-import type { InferGetStaticPropsType } from "astro";
+import { formatDate } from "@utils/format";
 
-export const prerender = true;
+import type { InferGetStaticPropsType } from "astro";
 
 export const getStaticPaths = async () => {
 	const posts = await getPosts();
@@ -19,10 +21,6 @@ export const getStaticPaths = async () => {
 	});
 };
 
-const { format: formateDate } = new Intl.DateTimeFormat("en-US", {
-	dateStyle: "long"
-});
-
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { post } = Astro.props;
@@ -31,7 +29,7 @@ const { post } = Astro.props;
 <Layout title={post.metaData.title} description={post.metaData.description}>
 	<h1 class="text-4xl font-bold sm:text-5xl">{post.metaData.title}</h1>
 	<p class="mt-4 text-lg text-zinc-800">
-		{formateDate(new Date(post.metaData.date.replaceAll("-", "/")))}
+		{formatDate(post.metaData.date)}
 	</p>
 	<div class="mt-6">
 		<p class="text-lg font-medium text-indigo-500">

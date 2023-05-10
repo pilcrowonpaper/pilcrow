@@ -1,6 +1,6 @@
 ---
 title: 'Your "GDPR compliant" analytics is probably violating GDPR'
-description: "Let's clear some misconceptions surrounding EU privacy laws and look at why your privacy-friendly analytics is probably violating them."
+description: "Let's clear up some misconceptions surrounding EU privacy laws and look at why your privacy-friendly analytics is probably violating them."
 date: "2023-05-09"
 tldr: "It is near impossible to count unique visitors from Europe without getting user consent."
 ---
@@ -53,7 +53,7 @@ The user should be informed what personal data are processed and for what purpos
 
 #### IP address
 
-Sending requests to third party APIs may be a violation of GDPR as the user's IP address was unknowingly shared with a third party, especially if you had the option to self-host or proxy the request. This includes using Google Fonts and embedding social media posts. 
+Sending requests to third party APIs may be a violation of GDPR as the user's IP address was unknowingly shared with a third party, especially if you had the option to self-host or proxy the request. This includes using Google Fonts and embedding social media posts.
 
 - EUCJ: [Fashon ID case](https://curia.europa.eu/juris/document/document.jsf?text=&docid=216555&pageIndex=0&doclang=EN&mode=lst&dir=&occ=first&part=1&cid=6340488)
 - German regional court: [Google Fonts case](https://rewis.io/urteile/urteil/lhm-20-01-2022-3-o-1749320/)
@@ -85,7 +85,7 @@ Your users have a right to object to their personal data being processed, as sta
 
 While you don't need to comply if you have "compelling legitimate grounds" that override your users' objection, it is generally recommended that there an option to opt-out of the processing is present. You must list your "interests" in clear manner as well (e.g. privacy policy).
 
-**Analytics for the sake of analytics will likely not be considered "legitimate interests."** "I was just curious" is, at best, a weak argument. 
+**Analytics for the sake of analytics will likely not be considered "legitimate interests."** "I was just curious" is, at best, a weak argument.
 
 ### Anonymous data
 
@@ -153,9 +153,9 @@ The first option violates GDPR as it requires you to process personal data (a un
 | Umami     | assigns unique id: hash from ip, user agent | GDPR              |
 | Vercel    | assigns unique id: hash from ip, user agent | GDPR              |
 
-It's also possible sending requests to third party APIs, so just using third party analytics, may be a violation of GDPR as you're exposing the user's IP address without their consent. 
+It's also possible sending requests to third party APIs, so just using third party analytics, may be a violation of GDPR as you're exposing the user's IP address without their consent.
 
-The only leeway here is legitimate interests, as mentioned before. Do you have legitimate interests in tracking unique visitors, and solely that? It's likely you *just* want to see the number of visitors to your site, and since you can already track interests and traffic via page views, I do not think it applies here.
+The only leeway here is legitimate interests, as mentioned before. Do you have legitimate interests in tracking unique visitors, and solely that? It's likely you _just_ want to see the number of visitors to your site, and since you can already track interests and traffic via page views, I do not think it applies here.
 
 #### Matomo
 

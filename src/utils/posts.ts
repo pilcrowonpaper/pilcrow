@@ -20,7 +20,12 @@ const resolveMarkdownImportEntry = async ([relativePath, resolveImport]: [
 	return {
 		postId,
 		Content: markdown.Content,
-		metaData: markdown.frontmatter,
+		metaData: {
+			title: markdown.frontmatter.title,
+			tldr: markdown.frontmatter.tldr,
+			description: markdown.frontmatter.description,
+			date: new Date(markdown.frontmatter.date.replaceAll("-", "/"))
+		},
 		href: ["blog", postId].join("/")
 	} as const;
 };
