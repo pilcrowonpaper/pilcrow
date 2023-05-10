@@ -1,5 +1,5 @@
 import { GITHUB_API_KEY } from "./env";
-import projectMetaData from "./projects.json";
+import projectMetaData from "../projects.json";
 
 export const getProjects = async () => {
 	return await Promise.all(

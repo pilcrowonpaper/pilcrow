@@ -45,7 +45,7 @@ Any data that is linked to a single, or just a handful of users, is considered p
 
 > Natural persons may be associated with online identifiers (...) such as internet protocol addresses, cookie identifiers (...)
 
-It does not matter whether you can extract meaningful personal info or not. If you can (re)identify the user, it's considered personal data. This means user ids and pixel tags are included well.
+It does not matter whether you can extract meaningful personal info or not. If you can (re)identify the user, it's considered personal data. I think this is obvious with "cookie identifiers" being mentioned. This means user ids and id used for pixel tags are included as well.
 
 Unique identifiers, regardless of the method used to generate it (including fingerprinting), are personal data. Encrypting or hashing the data, a process referred to as 'pseudonymization,' may affect the fines when there's a data breach, but the resulting output is still considered personal data.
 
@@ -167,7 +167,7 @@ Matomo claims its no-consent cookie based configuration is approved by CNIL, Fra
 
 > Processing personal data (IP address & User-Agent as per the GDPR) is not an issue, and the GDPR offers six lawful bases for doing so. Our customers rely on legitimate interest, and there is no risk to the data subject, and we ensure their data is anonymized.
 
-However, as stated above, I do not think tracking for the sake of tracking is applicable, and Fanthom does not elaborate further. It also wrongly claims that hashing counts as anonymization and that GDPR may not apply, when it should be considered pseudonymization and the resulting data is still considered personal data.
+However, as stated above, I do not think legitimate interests apply here, and Fanthom does not elaborate further. It also wrongly claims that hashing counts as anonymization and that GDPR may not apply, when it should be considered pseudonymization and the resulting data is still considered personal data.
 
 ## Now what?
 

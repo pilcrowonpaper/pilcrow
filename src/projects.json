@@ -6,22 +6,22 @@
 	},
 	{
 		"name": "Pilcrow",
-		"description": "Personal website - pilcrow.vercel.app.",
+		"description": "My personal website - pilcrow.vercel.app.",
 		"repository": "pilcrowonpaper/pilcrow"
 	},
 	{
 		"name": "Siena",
-		"description": "Astro integration for optimizing markdown images.",
+		"description": "Astro integration for optimizing markdown images, with support for relative src paths.",
 		"repository": "pilcrowonpaper/siena"
 	},
 	{
 		"name": "Auri",
-		"description": "Manage package changes and releases.",
+		"description": "Manage package changes and releases in an organized manner without leaving Github.",
 		"repository": "pilcrowonpaper/auri"
 	},
 	{
 		"name": "astro-form-actions",
-		"description": "Handle forms and form requests in Astro projects.",
+		"description": "The form actions API that Astro always needed.",
 		"repository": "pilcrowonpaper/astro-form-actions"
 	}
 ]

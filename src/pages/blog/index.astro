@@ -29,10 +29,10 @@ const posts = await getPosts();
 								</h2>
 							</a>
 						</div>
-						<p class="text-sm text-zinc-600">
+						<p class="text-zinc-800">{post.metaData.description}</p>
+						<p class="text-sm text-zinc-500 leading-none mt-1">
 							{formatDate(post.metaData.date)}
 						</p>
-						<p class="mt-0.5 text-zinc-800">{post.metaData.description}</p>
 					</article>
 				);
 			})

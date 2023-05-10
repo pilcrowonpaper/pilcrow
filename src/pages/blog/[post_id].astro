@@ -61,7 +61,7 @@ const { post } = Astro.props;
         @apply mt-4 list-disc list-inside text-zinc-800;
     }
     :global(#md blockquote) {
-        @apply text-zinc-600 mt-4 border-l-2 border-zinc-600 pl-2 text-sm;
+        @apply text-zinc-500 mt-4 border-l-2 border-zinc-500 pl-2 text-sm;
     }
     :global(#md a) {
         @apply text-indigo-500 hover:underline;
@@ -82,13 +82,10 @@ const { post } = Astro.props;
 	:global(#md .table-wrapper) {
 		@apply w-full overflow-auto whitespace-nowrap;
 	}
-	:global(#md table thead tr) {
-		@apply w-full border-b border-zinc-200;
-	}
-	:global(#md table :is(td, th)) {
+	:global(#md td) {
 		@apply border-b border-zinc-200 py-1.5 px-1;
 	}
 	:global(#md table th) {
-		@apply text-xs font-medium;
+		@apply text-xs font-semibold py-1.5 px-1 border-b border-zinc-400;
 	}
 </style>
