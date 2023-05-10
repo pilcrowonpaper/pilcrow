@@ -39,9 +39,10 @@ const projects: Projects = await response.json();
 								</h2>
 							</a>
 						</div>
-						<p class="text-zinc-800">
-							☆{formatNumber(project.stars)} - {project.description}
+						<p class="text-sm text-zinc-600">
+							{formatNumber(project.stars)} stars
 						</p>
+						<p class="mt-0.5 text-zinc-800">{project.description}</p>
 					</article>
 				);
 			})
