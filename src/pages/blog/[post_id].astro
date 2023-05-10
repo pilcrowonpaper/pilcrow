@@ -26,7 +26,11 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { post } = Astro.props;
 ---
 
-<Layout title={post.metaData.title} description={post.metaData.description}>
+<Layout
+	title={post.metaData.title}
+	description={post.metaData.description}
+	ogId={post.postId}
+>
 	<h1 class="text-4xl font-semibold sm:text-5xl">{post.metaData.title}</h1>
 	<p class="mt-4 text-lg text-zinc-800">
 		{formatDate(post.metaData.date)}

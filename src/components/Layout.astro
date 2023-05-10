@@ -2,6 +2,7 @@
 type Props = {
 	title: string;
 	description: string;
+	ogId?: string;
 };
 
 const fontFiles = [
@@ -55,7 +56,10 @@ const fontFiles = [
 		<meta name="og:locale" content="en" />
 		<meta name="og:description" content={Astro.props.description} />
 		<meta name="og:site_name" content="Pilcrow" />
-		<meta name="og:image" content="/og/pilcrow.jpg" />
+		<meta
+			name="og:image"
+			content={`/og/${Astro.props.ogId}.jpg` ?? "/og/pilcrow.jpg"}
+		/>
 		<meta name="og:title" content={Astro.props.title} />
 
 		<!-- Twitter tags -->
@@ -63,7 +67,10 @@ const fontFiles = [
 		<meta name="twitter:site" content="pilcrow" />
 		<meta name="twitter:title" content={Astro.props.title} />
 		<meta name="twitter:description" content={Astro.props.description} />
-		<meta name="twitter:image" content="/og/pilcrow.jpg" />
+		<meta
+			name="twitter:image"
+			content={`/og/${Astro.props.ogId}.jpg` ?? "/og/pilcrow.jpg"}
+		/>
 		<meta name="twitter:image:alt" content={Astro.props.title} />
 	</head>
 	<body class="mx-auto max-w-3xl px-4">
