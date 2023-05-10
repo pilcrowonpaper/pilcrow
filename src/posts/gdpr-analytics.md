@@ -5,7 +5,7 @@ date: "2023-05-09"
 tldr: "It is near impossible to count unique visitors from Europe without getting user consent."
 ---
 
-For the past few days, I've been working on my next open source project: a dead-simple, self-host analytics library (don't worry - this blog post isn't for promoting it). I just want something simple and lightweight for my blogs and library docs. Daily views, countries, and OS/device. The one metric I hadn't implement yet was unique visitors; I wasn't really sure how to make it GDPR compliant. I really didn't want it to require user consent. Banners are super annoying for the user. That led me down a rabbit hole of EU laws and I was reading pages of legal documents before I knew it.
+For the past few days, I've been working on my next open source project: a dead-simple, self-host analytics library (don't worry - this blog post isn't for promoting it). I just want something simple and lightweight for my blogs and library docs that didn't require those annoying popups. Daily views, countries, and OS/device. The one metric I hadn't implement yet was unique visitors; I wasn't really sure how to make it GDPR compliant. That led me down a rabbit hole of EU laws and I read tons of legal documents.
 
 Here's a short summary of what I found. This is more a "what _not_ to do" article than a "what you should do" one. Specifically, it won't explain how you should write your privacy policy and get consent - that's for another time.
 
