@@ -26,6 +26,7 @@ const fontFiles = [
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={Astro.props.description} />
+		<meta name="theme-color" content="#7575ff" />
 		<title>{Astro.props.title}</title>
 		<link rel="preconnect" href="/" crossorigin />
 		{
@@ -45,16 +46,25 @@ const fontFiles = [
 				));
 			})
 		}
-		<link
-			rel="preload"
-			href="/profile.jpg"
-			as="image"
-		/>
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href="/profile.jpg"
-		/>
+		<link rel="preload" href="/profile.jpg" as="image" />
+		<link rel="icon" type="image/svg+xml" href="/profile.jpg" />
+
+		<!-- OpenGraph tags -->
+		<meta name="og:title" content={Astro.props.title} />
+		<meta name="og:type" content="website" />
+		<meta name="og:locale" content="en" />
+		<meta name="og:description" content={Astro.props.description} />
+		<meta name="og:site_name" content="Pilcrow" />
+		<meta name="og:image" content="/og/pilcrow.jpg" />
+		<meta name="og:title" content={Astro.props.title} />
+
+		<!-- Twitter tags -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="pilcrow" />
+		<meta name="twitter:title" content={Astro.props.title} />
+		<meta name="twitter:description" content={Astro.props.description} />
+		<meta name="twitter:image" content="/og/pilcrow.jpg" />
+		<meta name="twitter:image:alt" content={Astro.props.title} />
 	</head>
 	<body class="mx-auto max-w-3xl px-4">
 		<header class="flex place-content-between place-items-center pb-2 pt-6">
@@ -66,10 +76,8 @@ const fontFiles = [
 				/></a
 			>
 			<div class="flex gap-x-4 text-zinc-800">
-				<a href="/projects" class="hover:text-indigo-500 hover:underline"
-					>Projects</a
-				>
-				<a href="/blog" class="hover:text-indigo-500 hover:underline">Blog</a>
+				<a href="/projects" class="hover:text-main hover:underline">Projects</a>
+				<a href="/blog" class="hover:text-main hover:underline">Blog</a>
 			</div>
 		</header>
 		<main class="mb-24 mt-12 leading-relaxed sm:mt-16">
