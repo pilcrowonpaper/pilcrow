@@ -6,7 +6,7 @@ const { format: formatNumber } = new Intl.NumberFormat("en-US");
 
 import type { Projects } from "../utils/github";
 
-const apiUrl = new URL("/api/projects", Astro.url.origin);
+const apiUrl = new URL("/api/projects", getOrigin(Astro));
 apiUrl.searchParams.set("build_id", BUILD_ID);
 const response = await fetch(apiUrl);
 if (!response.ok) {
