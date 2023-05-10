@@ -23,12 +23,11 @@ const fontFiles = [
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/profile.jpg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={Astro.props.description} />
 		<title>{Astro.props.title}</title>
-		<link rel="preconnect" href="/" crossorigin />
+		<link rel="preconnect" href="/" crossorigin="anonymous" />
 		{
 			fontFiles.map((fontFile) => {
 				const urls = fontFile.weight.map((weight) => {
@@ -41,12 +40,23 @@ const fontFiles = [
 						href={fontUrl}
 						as="font"
 						type="font/woff2"
-						crossorigin
+						crossorigin="anonymous"
 					/>
 				));
 			})
 		}
-		<link rel="preload" href="/profile.jpg" as="image" crossorigin />
+		<link
+			rel="preload"
+			href="/profile.jpg"
+			as="image"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/profile.jpg"
+			crossorigin="anonymous"
+		/>
 	</head>
 	<body class="mx-auto max-w-3xl px-4">
 		<header class="flex place-content-between place-items-center pb-2 pt-6">
