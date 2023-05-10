@@ -5,13 +5,13 @@ date: "2023-05-09"
 tldr: "It is near impossible to count unique visitors from Europe without getting user consent."
 ---
 
-For the past few days, I've been working on my next open source project: a dead-simple, self-host analytics library (don't worry - this blog post isn't for promoting it). I just want something simple and lightweight for my blogs and library docs that didn't require those annoying popups. Daily views, countries, and OS/device. The one metric I hadn't implement yet was unique visitors; I wasn't really sure how to make it GDPR compliant. That led me down a rabbit hole of EU laws and I read tons of legal documents.
+For the past few days, I've been working on my next open source project: a dead-simple, self-host analytics library (don't worry, this blog post isn't for promoting it). I just want something simple and lightweight for my blogs and library docs that doesn't require those annoying banners. Daily views, countries, OS/device - that's pretty much all I need. The one metric I considered adding but hadn't was unique visitors; I wasn't really sure how to make it GDPR compliant. No worries, let me just ask Google... and that led me down a rabbit hole of EU law.
 
-Here's a short summary of what I found. This is more a "what _not_ to do" article than a "what you should do" one. Specifically, it won't explain how you should write your privacy policy and get consent - that's for another time.
+Here's a short summary of what I found after reading tons of legal documents. This is more a "what _not_ to do" article than a "what you should do" one. Specifically, it won't explain how you should write your privacy policy and get consent - that's for another time.
 
-I also looked through how other analytics provider were counting visitors - a lot of them, at best, are misunderstanding the law, and at worst, violating GDPR. This was especially the case for those that claim that they were GDPR complaint and don't use cookies. And yes, that includes Plausible, Vercel Web Analytics, Umami, Matomo, PostHog, and Fathom. I also assume many people don't really understand GDPR either. Did you know that GDPR isn't about cookies, and in fact, by itself, you're allowed to set cookies without user consent? The important phrase bing "_by itself_".
+I also looked through how other analytics provider were counting visitors - a lot of them, at best, are misunderstanding the law, and at worst, violating GDPR. This was especially the case for those that claim that they were GDPR complaint and don't use cookies. And yes, that includes Plausible, Vercel Web Analytics, Umami, Matomo, PostHog, and Fathom. I also assume many people don't really understand GDPR either. Did you know that GDPR isn't about cookies, and in fact, by itself, you're allowed to set cookies without user consent? 
 
-It's important to preface that **I'm not a lawyer, and this is not legal advice**. However, you may want to reconsider if you're using such services.
+It should be obvious but **I'm not a lawyer, and this is not legal advice**. However, you may want to reconsider if you're using such services.
 
 ## Related laws
 
@@ -37,7 +37,7 @@ If a user from Europe visits your site, you must comply.
 
 ## Personal data
 
-'Personal data' has a specific definition in the context of GDPR. Article 4(1):
+'Personal data' in the context of GDPR is defined in Article 4(1):
 
 > (...) any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person;
 
@@ -95,10 +95,10 @@ Anonymous data, data that cannot be used to identify the user directly or indire
 
 This may include initials, gender, country, and device. Masked IP addresses are [considered anonymous under French regulators](), though a clear EU wide decision has not been made.
 
-| type | requirement        | before                                    | masked                   |
-| ---- | ------------------ | ----------------------------------------- | ------------------------ |
-| IPv4 | Remove last octet  | `128.128.128.128`                         | `128.128.128.0`          |
-| IPv6 | Remove last 80 bit | `0123:4567:89ab:cdef:0123:4567:89ab:cdef` | 0123:4567:89ab:0:0:0:0:0 |
+| type | requirement        | before                                    | masked                     |
+| ---- | ------------------ | ----------------------------------------- | -------------------------- |
+| IPv4 | Remove last octet  | `128.128.128.128`                         | `128.128.128.0`            |
+| IPv6 | Remove last 80 bit | `0123:4567:89ab:cdef:0123:4567:89ab:cdef` | `0123:4567:89ab:0:0:0:0:0` |
 
 However, the combination of such anonymous data may be considered personal data, such as a masked IP address and device type.
 

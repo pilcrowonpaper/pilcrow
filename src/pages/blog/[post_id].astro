@@ -36,7 +36,7 @@ const { post } = Astro.props;
 			tl;dr - {post.metaData.tldr}
 		</p>
 	</div>
-	<div id="md" class="mt-12 leading-loose">
+	<div id="md" class="mt-12 leading-relaxed">
 		<post.Content />
 	</div>
 </Layout>
@@ -66,8 +66,11 @@ const { post } = Astro.props;
     :global(#md a) {
         @apply text-indigo-500 hover:underline;
     }
-    :global(#md p code, #md ul code, #md ol code, #md table code) {
+    :global(#md p code, #md ul code, #md ol code) {
 		@apply text-sm;
+	}
+	:global(#md table code) {
+		@apply text-xs;
 	}
 	:global(#md .astro-code) {
 		@apply my-2 overflow-scroll rounded-md px-4 py-2 text-sm ;
