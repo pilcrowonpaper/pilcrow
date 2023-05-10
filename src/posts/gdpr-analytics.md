@@ -2,7 +2,7 @@
 title: 'Your "GDPR compliant" analytics is probably violating GDPR'
 description: "Let's clear up some misconceptions surrounding EU privacy laws and look at why your privacy-friendly analytics is probably violating them."
 date: "2023-05-09"
-tldr: "It is near impossible to count unique visitors from Europe without getting user consent."
+tldr: "Counting unique visitors from Europe is nearly impossible with the current legislation."
 ---
 
 For the past few days, I've been working on my next open source project: a dead-simple, self-host analytics library (don't worry, this blog post isn't for promoting it). I just want something simple and lightweight for my blogs and library docs that doesn't require those annoying banners. Daily views, countries, OS/device - that's pretty much all I need. The one metric I considered adding but hadn't was unique visitors; I wasn't really sure how to make it GDPR compliant. No worries, let me just ask Google... and that led me down a rabbit hole of EU law.
