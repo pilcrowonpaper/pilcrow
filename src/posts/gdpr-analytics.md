@@ -159,7 +159,7 @@ The first option violates GDPR as it requires you to process personal data (a un
 
 ### Validity of egitimate interests
 
-As mentioned earlier, there is a legal basis analytics may apply for processing personal data: legitimate interests. Some analytics provider disclose this but some don't. However, there are few things you have to consider.
+As mentioned earlier, there is a legal basis for processing personal data that analytics may apply: legitimate interests. Some analytics provider disclose this but some don't. However, there are few things you have to consider.
 
 First, your interests must be specific. "I was just curious" would likely not work. A/B testing for comparing the performance of 2 versions of a page may be valid.
 
