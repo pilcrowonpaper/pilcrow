@@ -163,7 +163,7 @@ As mentioned earlier, there is a legal basis for processing personal data that a
 
 First, your interests must be specific. "I was just curious" would likely not work. A/B testing for comparing the performance of 2 versions of a page may be valid.
 
-Second, it must be done in the most privacy-friendly method possible. For example, if you want to gauge user interests, views should be sufficient instead of unique visitors. Measuring bounce rates and session length do require storing sessions, but there may be ways to measure similar data without the use of identifiers.
+Second, it must be done in the most un-intrusive way possible. For example, if you want to gauge user interests, views should be sufficient instead of unique visitors. Measuring bounce rates and session length do require storing sessions, but there may be ways to measure similar data without the use of identifiers. It's also important that people will reasonably expect you to do so. I don't think many people expect websites to measure how long they're on the page!
 
 Finally, you must disclose what you're collecting and for what reason. If you're using a third party analytics, your users should known about it as well.
 
