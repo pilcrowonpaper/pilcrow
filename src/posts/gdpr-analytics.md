@@ -2,7 +2,7 @@
 title: 'Your "GDPR compliant" analytics is probably violating GDPR'
 description: "Let's clear up some misconceptions surrounding EU privacy laws and look at why your privacy-friendly analytics is probably violating them."
 date: "2023-05-09"
-tldr: "Unique identifiers are considered personal data, and you are still required to have a privacy policy even when using these analytics tool."
+tldr: "Unique identifiers are considered personal data, and you are still required to have a privacy policy even when using privacy-friendly analytics tool."
 ---
 
 For the past few days, I've been working on my next open source project: a dead-simple, self-host analytics library (don't worry, this blog post isn't for promoting it). I just want something simple and lightweight for my blogs and library docs that doesn't require those annoying banners. Daily views, countries, OS/device - that's pretty much all I need. The one metric I considered adding but hadn't was unique visitors; I wasn't really sure how to make it GDPR compliant. No worries, let me just ask Google... and that led me down a rabbit hole of EU law.
@@ -157,7 +157,7 @@ The first option violates GDPR as it requires you to process personal data (a un
 | Umami     | assigns unique id: hash from ip, user agent | GDPR                 |
 | Vercel    | assigns unique id: hash from ip, user agent | GDPR                 |
 
-### Validity of egitimate interests
+### Legitimate interests
 
 As mentioned earlier, there is a legal basis for processing personal data that analytics may apply: legitimate interests. Some analytics provider disclose this but some don't. However, there are few things you have to consider.
 
