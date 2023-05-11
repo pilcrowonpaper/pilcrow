@@ -11,7 +11,7 @@ Here's a short summary of what I found after reading tons of legal documents. Th
 
 I also looked through how other analytics provider were counting visitors - a lot of them, at best, are misunderstanding the law, and at worst, violating GDPR. This was especially the case for those that claim that they were GDPR complaint and don't use cookies. And yes, that includes Plausible, Vercel Web Analytics, Umami, Matomo, PostHog, and Fathom. I also assume many people don't really understand GDPR either. Did you know that GDPR isn't about cookies, and in fact, by itself, you're allowed to set cookies without user consent?
 
-It should be obvious but **I'm not a lawyer, and this is not legal advice**. However, you may want to reconsider if you're using such services.
+It should be obvious but **I'm not a lawyer, and this is not legal advice.** Please consider this as more of an opinion piece in a newspaper. However, you may want to reconsider if you're using such services.
 
 ## Related laws
 
@@ -41,11 +41,11 @@ If a user from Europe visits your site, you must comply.
 
 > (...) any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person;
 
-Any data that is linked to a single, or just a handful of users, is considered personal data. Names and home addresses are obvious examples, but it also includes online identifiers such as IP addresses, emails, usernames, and session ids. This is mentioned in recital 30:
+'Natural person' is likely for clarifying that it doesn't apply to companies or dead people. Any data we consider "personal data" is included, like names and home addresses. But it also includes data that "indirectly" identifies a person. Recital 30:
 
 > Natural persons may be associated with online identifiers (...) such as internet protocol addresses, cookie identifiers (...)
 
-It does not matter whether you can extract meaningful personal info or not. If you can (re)identify the user, it's considered personal data. I think this is obvious with "cookie identifiers" being mentioned. This means user ids and id used for pixel tags are included as well.
+From this, I think we can assume means any data that is linked to a single user, including via their device, is considered personal data. IP addresses, session ids, user ids, and usernames fit that description. It does not matter whether you can extract meaningful personal info or not. If you can (re)identify the user, it's considered personal data.
 
 Unique identifiers, regardless of the method used to generate it (including fingerprinting), are personal data. Encrypting or hashing the data, a process referred to as 'pseudonymization,' may affect the fines when there's a data breach, but the resulting output is still considered personal data.
 
@@ -75,7 +75,7 @@ Consent must be opt-in. A pre-ticked checkbox or any other default consent are n
 
 #### Legitimate interests
 
-While (6) is purposefully broad and is the most flexible out of the six, there must be a specific interest, be it commercial or security, for it to apply. Users' personal rights override your own interests as well, and it cannot be used if you have more unintrusive way to achieve your "interests". Security related interests, such as DDOS protection, are explicitly stated to be considered proper legitimate interest in recital 49:
+While (6) is purposefully broad and is the most flexible out of the six, there must be a specific interest, be it commercial or security, for it to apply. Users' personal rights override your own interests as well, and it cannot be used if you have more unintrusive way to achieve your "interests". **Security related interests, such as DDOS protection, are explicitly stated to be considered proper legitimate interests** in recital 49:
 
 > This [a legitimate interest of the data controller concerned] could, for example, include preventing unauthorised access to electronic communications networks and malicious code distribution and stopping ‘denial of service’ attacks and damage to computer and electronic communication systems.
 
@@ -83,9 +83,11 @@ Your users have a right to object to their personal data being processed, as sta
 
 > The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her which is based on point (e) or (f) [legitimate interests] of Article 6(1), (...)
 
-While you don't need to comply if you have "compelling legitimate grounds" that override your users' objection, it is generally recommended that there an option to opt-out of the processing is present. You must list your "interests" in clear manner as well (e.g. privacy policy).
+While you don't need to comply if you have "compelling legitimate grounds" that override your users' objection, it is generally recommended that there an option to opt-out of the processing is present.
 
-**Analytics for the sake of analytics will likely not be considered "legitimate interests."** "I was just curious" is, at best, a weak argument.
+**Does analytics count as legitimate interests?** Maybe. I'd argue general analytics, such as Google Analytics, does not apply. The scope should be limited and it has to be done in the most privacy-respecting way possible. Gauging user interests may be legitimate interests, but it can be done by counting views per page rather than tracking unique visitors. (Keep in mind that processing anonymized falls outside of the scope of GDPR.)
+
+You must list your "interests" in clear manner as well (e.g. privacy policy) if you think this legal basis applies.
 
 ### Anonymous data
 
@@ -93,7 +95,7 @@ Anonymous data, data that cannot be used to identify the user directly or indire
 
 > The principles of data protection should therefore not apply to anonymous information, namely information which does not relate to an identified or identifiable natural person or to personal data rendered anonymous in such a manner that the data subject is not or no longer identifiable.
 
-This may include initials, gender, country, and device. Masked IP addresses are [considered anonymous under French regulators](), though a clear EU wide decision has not been made.
+This may include initials, gender, country, and device. Masked IP addresses are [considered anonymous under French regulators](https://www.cnil.fr/en/sheet-ndeg16-use-analytics-your-websites-and-applications), though a clear EU wide decision has not been made.
 
 | type | requirement        | before                                    | masked                     |
 | ---- | ------------------ | ----------------------------------------- | -------------------------- |
@@ -156,6 +158,8 @@ The first option violates GDPR as it requires you to process personal data (a un
 It's also possible sending requests to third party APIs, so just using third party analytics, may be a violation of GDPR as you're exposing the user's IP address without their consent.
 
 The only leeway here is legitimate interests, as mentioned before. Do you have legitimate interests in tracking unique visitors, and solely that? It's likely you _just_ want to see the number of visitors to your site, and since you can already track interests and traffic via page views, I do not think it applies here.
+
+Even if legitimate interests is applicable, many of these services don't mention you have to disclose what data you're collecting via such legal basis.
 
 #### Matomo
 
