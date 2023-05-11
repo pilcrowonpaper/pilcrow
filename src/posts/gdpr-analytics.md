@@ -2,14 +2,14 @@
 title: 'Your "GDPR compliant" analytics is probably violating GDPR'
 description: "Let's clear up some misconceptions surrounding EU privacy laws and look at why your privacy-friendly analytics is probably violating them."
 date: "2023-05-09"
-tldr: "Counting unique visitors from Europe is nearly impossible with the current legislation."
+tldr: "Unique identifiers are considered personal data, and you are still required to have a privacy policy even when using these analytics tool."
 ---
 
 For the past few days, I've been working on my next open source project: a dead-simple, self-host analytics library (don't worry, this blog post isn't for promoting it). I just want something simple and lightweight for my blogs and library docs that doesn't require those annoying banners. Daily views, countries, OS/device - that's pretty much all I need. The one metric I considered adding but hadn't was unique visitors; I wasn't really sure how to make it GDPR compliant. No worries, let me just ask Google... and that led me down a rabbit hole of EU law.
 
-Here's a short summary of what I found after reading tons of legal documents. This is more a "what _not_ to do" article than a "what you should do" one. Specifically, it won't explain how you should write your privacy policy and get consent - that's for another time.
+Here's a short summary of what I found after reading tons of legal documents.
 
-I also looked through how other analytics provider were counting visitors - a lot of them, at best, are misunderstanding the law, and at worst, violating GDPR. This was especially the case for those that claim that they were GDPR complaint and don't use cookies. And yes, that includes Plausible, Vercel Web Analytics, Umami, Matomo, PostHog, and Fathom. I also assume many people don't really understand GDPR either. Did you know that GDPR isn't about cookies, and in fact, by itself, you're allowed to set cookies without user consent?
+I also looked through how other analytics provider were counting visitors - a lot of them, at best, are misunderstanding the law, and at worst, possibly violating GDPR. This was especially the case for those that claim that they were GDPR complaint and don't use cookies. And yes, that includes Plausible, Vercel Web Analytics, Umami, Matomo, PostHog, and Fathom. I also assume many people don't really understand GDPR either. Did you know that GDPR isn't about cookies, and in fact, by itself, you're allowed to set cookies without user consent?
 
 It should be obvious but **I'm not a lawyer, and this is not legal advice.** Please consider this as more of an opinion piece in a newspaper. However, you may want to reconsider if you're using such services.
 
@@ -69,13 +69,19 @@ Sending requests to third party APIs may be a violation of GDPR as the user's IP
 5. Public task
 6. Legitimate interests
 
+You must disclose (in a privacy policy or equivalent) what data you're collecting and what purposes (including the legal basis to do so) as mentioned in Article 13 (1):
+
+> Where personal data relating to a data subject are collected from the data subject, the controller shall, at the time when personal data are obtained, provide the data subject with all of the following information: (...) (c) the purposes of the processing for which the personal data are intended as well as the legal basis for the processing; (d) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party; (e) the recipients or categories of recipients of the personal data, if any;(...)
+
+If you're using a third party tool, it should be mentioned as well.
+
 #### Consent
 
 Consent must be opt-in. A pre-ticked checkbox or any other default consent are not allowed. The choice must be presented in a way clearly distinguishable from other matters, and must be written in a clear and concise language. Finally, the user must be given a choice to withdraw.
 
 #### Legitimate interests
 
-While (6) is purposefully broad and is the most flexible out of the six, there must be a specific interest, be it commercial or security, for it to apply. Users' personal rights override your own interests as well, and it cannot be used if you have more unintrusive way to achieve your "interests". **Security related interests, such as DDOS protection, are explicitly stated to be considered proper legitimate interests** in recital 49:
+While (6) is purposefully broad and is the most flexible out of the six, there must be a specific interest, be it commercial or security, for it to apply. Users' personal rights override your own interests as well, and it cannot be used if you have more unintrusive way to achieve your "interests". You must disclose the legitimate interests you are pursuing (in a privacy policy for example). **Security related interests, such as DDOS protection, are explicitly stated to be considered proper legitimate interests** in recital 49:
 
 > This [a legitimate interest of the data controller concerned] could, for example, include preventing unauthorised access to electronic communications networks and malicious code distribution and stopping ‘denial of service’ attacks and damage to computer and electronic communication systems.
 
@@ -84,10 +90,6 @@ Your users have a right to object to their personal data being processed, as sta
 > The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her which is based on point (e) or (f) [legitimate interests] of Article 6(1), (...)
 
 While you don't need to comply if you have "compelling legitimate grounds" that override your users' objection, it is generally recommended that there an option to opt-out of the processing is present.
-
-**Does analytics count as legitimate interests?** Maybe. I'd argue general analytics, such as Google Analytics, does not apply. The scope should be limited and it has to be done in the most privacy-respecting way possible. Gauging user interests may be legitimate interests, but it can be done by counting views per page rather than tracking unique visitors. (Keep in mind that processing anonymized falls outside of the scope of GDPR.)
-
-You must list your "interests" in clear manner as well (e.g. privacy policy) if you think this legal basis applies.
 
 ### Anonymous data
 
@@ -138,7 +140,7 @@ Using the device (= storing data) without the user's consent violates their priv
 
 > (...) the answer to Question 1(b) is that Article 2(f) and Article 5(3) of Directive 2002/58, read in conjunction with Article 2(h) of Directive 95/46 and Article 4(11) and Article 6(1)(a) of Regulation 2016/679, are not to be interpreted differently according to whether or not the information stored or accessed on a website user’s terminal equipment is personal data within the meaning of Directive 95/46 and Regulation 2016/679.
 
-## Counting unique visitors
+## Analytics
 
 The issue with counting unique visitors is that you have to distinguish new users from returning users. There's only 2 ways to do that:
 
@@ -155,23 +157,26 @@ The first option violates GDPR as it requires you to process personal data (a un
 | Umami     | assigns unique id: hash from ip, user agent | GDPR                 |
 | Vercel    | assigns unique id: hash from ip, user agent | GDPR                 |
 
-It's also possible sending requests to third party APIs, so just using third party analytics, may be a violation of GDPR as you're exposing the user's IP address without their consent.
+### Validity of egitimate interests
 
-The only leeway here is legitimate interests, as mentioned before. Do you have legitimate interests in tracking unique visitors, and solely that? It's likely you _just_ want to see the number of visitors to your site, and since you can already track interests and traffic via page views, I do not think it applies here.
+As mentioned earlier, there is a legal basis analytics may apply for processing personal data: legitimate interests. Some analytics provider disclose this but some don't. However, there are few things you have to consider.
 
-Even if legitimate interests is applicable, many of these services don't mention you have to disclose what data you're collecting via such legal basis.
+First, your interests must be specific. "I was just curious" would likely not work. A/B testing for comparing the performance of 2 versions of a page may be valid.
 
-#### Matomo
+Second, it must be done in the most privacy-friendly method possible. For example, if you want to gauge user interests, views should be sufficient instead of unique visitors. Measuring bounce rates and session length do require storing sessions, but there may be ways to measure similar data without the use of identifiers.
+
+Finally, you must disclose what you're collecting and for what reason. If you're using a third party analytics, your users should known about it as well.
+
+There are 2 issues that arise from this:
+
+1. Every site has different needs: You may not have a particular reason for collecting all the metrics collected by your analytics provider, in which case legitimate interests may not apply.
+2. A privacy policy is still required: You still need to disclose the what personal data you're processing, why, and how, as well as who you're sharing the data with.
+
+**Just because you're using a GDPR compliant tool, it does not make your site GDPR compliant.**
+
+### Cookie exception
 
 Matomo claims its no-consent cookie based configuration is approved by CNIL, France's data privacy regulatory body. While this is true, as [CNIL considers some analytics cookies exempt from requiring consent](https://www.cnil.fr/en/sheet-ndeg16-use-analytics-your-websites-and-applications) under certain conditions, this is only applicable to France.
-
-#### Fathom
-
-[Fathom claims](https://usefathom.com/blog/anonymization) its customers use legitimate interests as their basis for handling IP addresses (personal data):
-
-> Processing personal data (IP address & User-Agent as per the GDPR) is not an issue, and the GDPR offers six lawful bases for doing so. Our customers rely on legitimate interest, and there is no risk to the data subject, and we ensure their data is anonymized.
-
-However, as stated above, I do not think legitimate interests apply here, and Fathom does not elaborate further. It also wrongly claims that hashing counts as anonymization and that GDPR may not apply, when it should be considered pseudonymization and the resulting data is still considered personal data.
 
 ## Now what?
 
