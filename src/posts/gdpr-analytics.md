@@ -1,17 +1,15 @@
 ---
-title: 'Your "GDPR compliant" analytics is probably violating GDPR'
-description: "Let's clear up some misconceptions surrounding EU privacy laws and look at why your privacy-friendly analytics is probably violating them."
+title: 'A look into "GDPR compliant" analytics'
+description: "What makes something GDPR compliant, and how do you implement analytics without violating it?"
 date: "2023-05-09"
 tldr: "Unique identifiers are considered personal data, and you are still required to have a privacy policy even when using privacy-friendly analytics tool."
 ---
 
-For the past few days, I've been working on my next open source project: a dead-simple, self-host analytics library (don't worry, this blog post isn't for promoting it). I just want something simple and lightweight for my blogs and library docs that doesn't require those annoying banners. Daily views, countries, OS/device - that's pretty much all I need. The one metric I considered adding but hadn't was unique visitors; I wasn't really sure how to make it GDPR compliant. No worries, let me just ask Google... and that led me down a rabbit hole of EU law.
+For the past few days, I've been looking into various analytics services. I just need something simple and lightweight for my blogs and library docs that doesn't require those annoying banners. Daily views, countries, OS/device - that's pretty much all I need. I was interested in implementing it myself so I wanted to know how I can make it GDPR compliant. No worries, let me just ask Google... and that led me down a rabbit hole of EU law.
 
-Here's a short summary of what I found after reading tons of legal documents.
+Here's a short summary of what I found after reading tons of legal documents. It should be obvious but **I'm not a lawyer, and this is not legal advice.** I don't have the legal expertise or experience to make any decisive conclusions, but I've tried my best to get an accurate view on it.
 
-I also looked through how other analytics provider were counting visitors - a lot of them, at best, are misunderstanding the law, and at worst, possibly violating GDPR. This was especially the case for those that claim that they were GDPR complaint and don't use cookies. And yes, that includes Plausible, Vercel Web Analytics, Umami, Matomo, PostHog, and Fathom. I also assume many people don't really understand GDPR either. Did you know that GDPR isn't about cookies, and in fact, by itself, you're allowed to set cookies without user consent?
-
-It should be obvious but **I'm not a lawyer, and this is not legal advice.** Please consider this as more of an opinion piece in a newspaper. However, you may want to reconsider if you're using such services.
+I also looked through how popular analytics provider were handling it, specifically looking into how they counted visitors. My conclusion is that a lot of them are in a legal grey area, and I personally think that there are situations where it may be violating EU privacy laws. This was especially the case for those that claim that they were GDPR complaint and don't use cookies.
 
 ## Related laws
 
@@ -147,7 +145,7 @@ The issue with counting unique visitors is that you have to distinguish new user
 1. Assign every user an id and store it on initial request.
 2. Store some flag to users who visit your site.
 
-The first option violates GDPR as it requires you to process personal data (a unique identifier), and the second option violates the ePrivacy Directive as you're storing data onto the user's device if you don't show a cookie banner.
+The first option, in my opinion, violates GDPR as it requires you to process personal data (a unique identifier), and the second option violates the ePrivacy Directive as you're storing data onto the user's device if you don't show a cookie banner.
 
 | service   | possible violation                          | relevant legislation |
 | --------- | ------------------------------------------- | -------------------- |
