@@ -21,27 +21,27 @@ const projects: Projects = await response.json();
 	title="Projects - Pilcrow"
 	description="Some projects and libraries I maintain"
 >
-	<h1 class="text-4xl font-semibold sm:text-6xl">Projects</h1>
+	<h1 class="text-5xl sm:text-6xl font-bold">Projects</h1>
 	<p class="mt-4 text-zinc-800">
-		Here are some projects and libraries I created. I usually put extensive
-		efforts into writing documentation when maintaining libraries.
+		Here are some projects and libraries I created.
 	</p>
 	<div class="mt-10 grid gap-y-6">
 		{
 			projects.map((project) => {
 				return (
-					<article>
-						<div class="flex place-items-center gap-x-1">
-							<a href={project.repositoryUrl} class="block w-fit ">
-								<h2 class="w-fit text-xl font-medium hover:text-main hover:underline sm:text-2xl">
-									{project.name}
-								</h2>
-							</a>
-						</div>
-						<p class="text-zinc-800">{project.description}</p>
-						<p class="mt-1 text-sm leading-none text-zinc-500">
-							{formatNumber(project.stars)} stars
-						</p>
+					<article class="group rounded-lg border border-zinc-200 p-4">
+						<a href={project.repositoryUrl} class="block">
+							<div class="flex place-items-center gap-x-1">
+								<h2 class="w-fit text-xl font-semibold">{project.name}</h2>
+							</div>
+							<p class="text-zinc-800 mt-0.5">{project.description}</p>
+							<div class="mt-1 flex place-content-between place-items-center">
+								<p class="text-main group-hover:underline">Visit</p>
+								<p class="mt-1 text-sm leading-none text-zinc-500">
+									{formatNumber(project.stars)} stars
+								</p>
+							</div>
+						</a>
 					</article>
 				);
 			})

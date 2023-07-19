@@ -5,22 +5,7 @@ type Props = {
 	ogId?: string;
 };
 
-const fontFiles = [
-	{
-		size: 400,
-		weight: [null, "italic"]
-	},
-	{
-		size: 500,
-		weight: [null]
-	},
-	{
-		size: 600,
-		weight: [null]
-	}
-];
-
-const ORIGIN = "https://pilcrow.vercel.app";
+const ORIGIN = Astro.url.origin;
 ---
 
 <html lang="en">
@@ -31,23 +16,6 @@ const ORIGIN = "https://pilcrow.vercel.app";
 		<meta name="description" content={Astro.props.description} />
 		<title>{Astro.props.title}</title>
 		<link rel="preconnect" href="/" crossorigin />
-		{
-			fontFiles.map((fontFile) => {
-				const urls = fontFile.weight.map((weight) => {
-					if (weight) return `/fonts/jost-${fontFile.size}-${weight}.woff2`;
-					return `/fonts/jost-${fontFile.size}.woff2`;
-				});
-				return urls.map((fontUrl) => (
-					<link
-						rel="preload"
-						href={fontUrl}
-						as="font"
-						type="font/woff2"
-						crossorigin
-					/>
-				));
-			})
-		}
 		<link rel="preload" href="/profile.jpg" as="image" />
 		<link rel="icon" type="image/svg+xml" href="/profile.jpg" />
 
@@ -81,13 +49,13 @@ const ORIGIN = "https://pilcrow.vercel.app";
 		<!-- Discord -->
 		<meta name="theme-color" content="#7575ff" />
 	</head>
-	<body class="mx-auto max-w-3xl px-4 text-lg">
+	<body class="mx-auto max-w-3xl px-4 text-zinc-800">
 		<header class="flex place-content-between place-items-center pb-2 pt-6">
 			<a class="block" href="/">
 				<img
 					src="/profile.jpg"
 					alt="profile picture"
-					class="h-10 w-10 rounded-full bg-zinc-100"
+					class="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-zinc-100"
 				/></a
 			>
 			<div class="flex gap-x-4 text-zinc-800">
@@ -100,39 +68,10 @@ const ORIGIN = "https://pilcrow.vercel.app";
 		</main>
 	</body>
 	<style>
-		/* @font-face {
-			font-family: "Jost";
-			src: url("/fonts/jost-700.woff2") format("woff2");
-			font-weight: 700;
-			font-style: normal;
-		} */
-		@font-face {
-			font-family: "Jost";
-			src: url("/fonts/jost-600.woff2") format("woff2");
-			font-weight: 600;
-			font-style: normal;
-		}
-		@font-face {
-			font-family: "Jost";
-			src: url("/fonts/jost-500.woff2") format("woff2");
-			font-weight: 500;
-			font-style: normal;
-		}
-		@font-face {
-			font-family: "Jost";
-			src: url("/fonts/jost-400.woff2") format("woff2");
-			font-weight: 400;
-			font-style: normal;
-		}
-		@font-face {
-			font-family: "Jost";
-			src: url("/fonts/jost-400-italic.woff2") format("woff2");
-			font-weight: 400;
-			font-style: italic;
-		}
-
 		html {
-			font-family: "Jost", sans-serif;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+				Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+				"Segoe UI Symbol";
 		}
 	</style>
 </html>

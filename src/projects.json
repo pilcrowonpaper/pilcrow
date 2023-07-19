@@ -1,7 +1,7 @@
 [
 	{
 		"name": "Lucia",
-		"description": "A simple and flexible auth library that provides an abstraction layer between your app and your database. Supports multiple databases and frameworks.",
+		"description": "A simple and flexible auth layer between your app and your database.",
 		"repository": "pilcrowonpaper/lucia"
 	},
 	{
