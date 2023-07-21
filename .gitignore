@@ -21,3 +21,5 @@ pnpm-debug.log*
 
 .BUILD_ID
 .vercel
+
+public/.siena

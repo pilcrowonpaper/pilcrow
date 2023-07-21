@@ -36,11 +36,13 @@ const { post } = Astro.props;
 		{formatDate(post.metaData.date)}
 	</p>
 	<div class="mt-6">
-		<p class="text-lg font-medium text-main">
-			tl;dr - {post.metaData.tldr}
-		</p>
+		{
+			post.metaData.tldr && (
+				<p class="font-medium text-main">tl;dr - {post.metaData.tldr}</p>
+			)
+		}
 	</div>
-	<div id="md" class="mt-12 leading-relaxed text-lg">
+	<div id="md" class="mt-12 leading-relaxed">
 		<post.Content />
 	</div>
 </Layout>
@@ -55,14 +57,17 @@ const { post } = Astro.props;
     :global(#md h4) {
         @apply mt-6 text-xl font-medium;
     }
+	:global(#md h5) {
+        @apply mt-4 text-lg font-medium;
+    }
     :global(#md > p) {
-        @apply mt-4 text-zinc-800;
+        @apply mt-4 ;
     }
     :global(#md ol) {
-        @apply mt-4 list-decimal list-inside text-zinc-800;
+        @apply mt-4 list-decimal list-inside;
     }
 	:global(#md ul) {
-        @apply mt-4 list-disc list-inside text-zinc-800;
+        @apply mt-4 list-disc list-inside ;
     }
     :global(#md blockquote) {
         @apply text-zinc-500 mt-4 border-l-2 border-zinc-400 pl-1.5 text-base;
@@ -84,7 +89,7 @@ const { post } = Astro.props;
 		display: none;
 	}
     :global(#md table) {
-		@apply mt-4 w-full table-auto border-collapse text-left text-zinc-800 text-base;
+		@apply mt-6 mb-2 w-full table-auto border-collapse text-left text-sm;
 	}
 	:global(#md .table-wrapper) {
 		@apply w-full overflow-auto whitespace-nowrap;
@@ -93,6 +98,6 @@ const { post } = Astro.props;
 		@apply border-b border-zinc-200 py-1.5 px-1;
 	}
 	:global(#md table th) {
-		@apply text-sm font-medium py-1.5 px-1 border-b border-zinc-400;
+		@apply text-xs font-medium py-1.5 px-1 border-b border-zinc-400;
 	}
 </style>

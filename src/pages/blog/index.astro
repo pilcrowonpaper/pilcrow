@@ -13,31 +13,25 @@ const posts = await getPosts();
 	description="Some projects and libraries I maintain"
 >
 	<h1 class="text-5xl sm:text-6xl font-bold">Blogs</h1>
-	<p class="mt-4 text-zinc-800">
-		I occasionally write about... stuff.
-	</p>
+	<p class="mt-4 text-zinc-800">I occasionally write about... stuff.</p>
 	<div class="mt-10 grid gap-y-6">
 		{
-			posts.map((post) => {
-				return (
-					<article class="group rounded-lg border border-zinc-200 p-4">
-						<a href={post.href} class="block">
-							<div class="flex place-items-center gap-x-1">
-								<h2 class="w-fit text-xl font-semibold">
-									{post.metaData.title}
-								</h2>
-							</div>
-							<p class="text-zinc-800 mt-0.5">{post.metaData.description}</p>
-							<div class="mt-1 flex place-content-between place-items-center">
-								<p class="text-main group-hover:underline">Read</p>
-								<p class="mt-1 text-sm leading-none text-zinc-500">
-									{formatDate(post.metaData.date)}
-								</p>
-							</div>
-						</a>
-					</article>
-				);
-			})
+			posts
+				.sort((a, b) => b.metaData.date.getTime() - a.metaData.date.getTime())
+				.map((post) => {
+					return (
+						<article class="group ">
+							<a href={post.href} class="block">
+								<div class="flex place-items-center gap-x-1">
+									<h2 class="w-fit text-lg font-medium group-hover:underline">
+										{post.metaData.title}
+									</h2>
+								</div>
+								<p class=" text-zinc-500">{post.metaData.description}</p>
+							</a>
+						</article>
+					);
+				})
 		}
 	</div>
 </Layout>

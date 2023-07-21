@@ -29,18 +29,12 @@ const projects: Projects = await response.json();
 		{
 			projects.map((project) => {
 				return (
-					<article class="group rounded-lg border border-zinc-200 p-4">
+					<article class="group">
 						<a href={project.repositoryUrl} class="block">
 							<div class="flex place-items-center gap-x-1">
-								<h2 class="w-fit text-xl font-semibold">{project.name}</h2>
+								<h2 class="w-fit text-lg font-medium group-hover:underline">{project.name}</h2>
 							</div>
-							<p class="text-zinc-800 mt-0.5">{project.description}</p>
-							<div class="mt-1 flex place-content-between place-items-center">
-								<p class="text-main group-hover:underline">Visit</p>
-								<p class="mt-1 text-sm leading-none text-zinc-500">
-									{formatNumber(project.stars)} stars
-								</p>
-							</div>
+							<p class="text-zinc-500 -mt-0.5">{project.description}</p>
 						</a>
 					</article>
 				);

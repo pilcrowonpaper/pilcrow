@@ -14,7 +14,7 @@ const resolveMarkdownImportEntry = async ([relativePath, resolveImport]: [
 	const markdown = (await resolveImport()) as MarkdownInstance<{
 		title: string;
 		description: string;
-		tldr: string;
+		tldr?: string;
 		date: string;
 	}>;
 	return {
