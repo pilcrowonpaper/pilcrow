@@ -5,7 +5,7 @@ type Props = {
 	ogId?: string;
 };
 
-const ORIGIN = "https://pilcrow.vercel.app"
+const ORIGIN = "https://pilcrow.vercel.app";
 ---
 
 <html lang="en">
@@ -36,15 +36,18 @@ const ORIGIN = "https://pilcrow.vercel.app"
 		<meta name="og:title" content={Astro.props.title} />
 
 		<!-- Twitter tags -->
-		<!-- <meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="pilcrow" />
 		<meta name="twitter:title" content={Astro.props.title} />
 		<meta name="twitter:description" content={Astro.props.description} />
 		<meta
 			name="twitter:image"
-			content={`/og/${Astro.props.ogId}.jpg` ?? "/og/pilcrow.jpg"}
+			content={new URL(
+				Astro.props.ogId ? `/og/${Astro.props.ogId}.jpg` : "/og/pilcrow.jpg",
+				ORIGIN
+			)}
 		/>
-		<meta name="twitter:image:alt" content={Astro.props.title} /> -->
+		<meta name="twitter:image:alt" content={Astro.props.title} />
 
 		<!-- Discord -->
 		<meta name="theme-color" content="#7575ff" />
