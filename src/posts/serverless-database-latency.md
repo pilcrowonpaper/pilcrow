@@ -107,7 +107,7 @@ Neon, which includes Vercel Postgres, seems to have cold starts usually ranging 
 
 The general trend is that TCP connections are fast once connected, while HTTP connections aren't as fast but provides a stable query speed all around. That said, there are some clear outliers. For one, PlanetScale and Neon are hitting sub-10ms latency, and Supabase with TCP provides both fast connections and queries. I'm also pretty impressed by CockroachDB since it doesn't use any pooling under the hood.
 
-MongoDB Atlas has the best query speeds for subsequent queries but has abysmal initial connection time. I'm also not sure why Supabase with HTTP is slower than their competitors.
+MongoDB Atlas has the best query speeds for subsequent queries but has abysmal initial connection time. I'm also not sure why Supabase with HTTP is slower than their competitors (Edit: It looks like the auth middleware which isn't included when used with TCP is the cause).
 
 Keep in mind the averages has a margin of error from 1ms (for low numbers) to 10ms (for high numbers). This is based on my observations and no real calculations were done.
 
