@@ -111,6 +111,8 @@ MongoDB Atlas has the best query speeds for subsequent queries but has abysmal i
 
 Keep in mind the averages has a margin of error from 1ms (for low numbers) to 10ms (for high numbers). This is based on my observations and no real calculations were done.
 
+_In the chart below, the top bar represents the latency of initial queries, and the bottom represents the latency of subsequent queries._
+
 ![Chart comparing 90th, 95th, and 99th percentile of initial and subsequent queries](../images/serverless-database-comparison.png)
 
 ##### Initial query
@@ -177,6 +179,6 @@ Keep in mind the averages has a margin of error from 1ms (for low numbers) to 10
 
 I don't think there are any wrong options per se, but I think PlanetScale and Supabase with TCP can be considered "winners." Both provide low latency without major hikes and support transactions. The ultra low latency of Neon + HTTP is impressive but I think the lack of transaction support is a big drawback, at least for me. PlanetScale also doesn't support foreign keys which may be a deal-breaker for some. That all being said, I think it's safe to say all 3 providers provide fast query speeds, and the performance is probably comparable (though I have no data to back that). That just leaves pricing and features which are easier to compare.
 
-Row-Level Security (RLS) isn't supported in Supabase when used with TCP, though my opinion is that security checks should be handled by your server rather than the database. I also want to recommend libraries like [Kysely](https://kysely.dev), which makes creating queries easier without the performance implications of using hefty ORMs like Prisma (P.S. avoid Prisma).
+Row-Level Security (RLS) isn't supported in Supabase when used with TCP, though my opinion is that security checks should be handled by your server rather than the database. I also want to recommend libraries like [Kysely](https://kysely.dev), which makes creating queries easier without the performance implications of using hefty ORMs like Prisma (Top tip: avoid Prisma).
 
 I kinda wish it was easier to set up your own server, which would allow me to establish a connection once and reuse that for ultra-fast queries. Of course I'm aware that that brings its own issues, but it's definitely something I'd like to explore.
