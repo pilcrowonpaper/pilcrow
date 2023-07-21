@@ -5,7 +5,7 @@ type Props = {
 	ogId?: string;
 };
 
-const ORIGIN = Astro.url.origin;
+const ORIGIN = "https://pilcrow.vercel.app"
 ---
 
 <html lang="en">
@@ -36,8 +36,8 @@ const ORIGIN = Astro.url.origin;
 		<meta name="og:title" content={Astro.props.title} />
 
 		<!-- Twitter tags -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<!-- <meta name="twitter:site" content="pilcrow" />
+		<!-- <meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="pilcrow" />
 		<meta name="twitter:title" content={Astro.props.title} />
 		<meta name="twitter:description" content={Astro.props.description} />
 		<meta
