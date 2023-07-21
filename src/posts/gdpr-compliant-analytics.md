@@ -5,7 +5,7 @@ date: "2023-05-09"
 tldr: "Unique identifiers are considered personal data, and you are still required to have a privacy policy even when using privacy-friendly analytics tool."
 ---
 
-For the past few days, I've been looking into various analytics services. I just need something simple and lightweight for my blogs and library docs that doesn't require those annoying banners. Daily views, countries, OS/device - that's pretty much all I need. I was interested in implementing it myself so I wanted to know how I can make it GDPR compliant. No worries, let me just ask Google... and that led me down a rabbit hole of EU law.
+For the past few days, I've been looking into various analytics services. I just need something simple and lightweight for my blog and library docs that doesn't require those annoying banners. Daily views, countries, OS/device - that's pretty much all I need. I was interested in implementing it myself so I wanted to know how I can make it GDPR compliant. No worries, let me just ask Google... and that led me down a rabbit hole of EU law.
 
 Here's a short summary of what I found after reading tons of legal documents. It should be obvious but **I'm not a lawyer, and this is not legal advice.** I don't have the legal expertise or experience to make any decisive conclusions, but I've tried my best to get an accurate view on it.
 
