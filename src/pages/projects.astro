@@ -21,7 +21,7 @@ const projects: Projects = await response.json();
 	title="Projects - Pilcrow"
 	description="Some projects and libraries I maintain"
 >
-	<h1 class="text-5xl sm:text-6xl font-bold">Projects</h1>
+	<h1 class="text-5xl font-bold">Projects</h1>
 	<p class="mt-4 text-zinc-800">
 		Here are some projects and libraries I created.
 	</p>
@@ -32,9 +32,11 @@ const projects: Projects = await response.json();
 					<article class="group">
 						<a href={project.repositoryUrl} class="block">
 							<div class="flex place-items-center gap-x-1">
-								<h2 class="w-fit text-lg font-medium group-hover:underline">{project.name}</h2>
+								<h2 class="w-fit text-lg font-medium group-hover:underline">
+									{project.name}
+								</h2>
 							</div>
-							<p class="text-zinc-500 -mt-0.5">{project.description}</p>
+							<p class="-mt-0.5 text-zinc-500">{project.description}</p>
 						</a>
 					</article>
 				);
