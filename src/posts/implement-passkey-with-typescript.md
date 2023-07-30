@@ -328,20 +328,6 @@ s value (32 bytes)
 In code, it'd look like this:
 
 ```ts
-// DER signature consists of several parts:
-// 1 byte: `48` (header byte)
-// 1 byte: total byte length - header byte length (1)
-// 1 byte: `2` (header byte indicating an integer)
-// 1 byte: r value byte length
-// around 32 bytes: r value
-// 1 byte: `2` (header byte indicating an integer)
-// 1 byte: s value byte length
-// around 32 bytes: s value
-// (end - total of around 70 bytes)
-
-// ECDSA signature is the sequence of:
-// r value (32 bytes)
-// s value (32 bytes)
 function convertDERSignatureToECDSASignature(
 	DERSignature: ArrayLike<number> | ArrayBufferLike
 ): ArrayBuffer {
