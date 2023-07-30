@@ -307,21 +307,22 @@ This is where I was stuck for like 3 hours. You'd expect that you'll be able to 
 The signature is in the "Distinguished Encoding Rules" (DER) format. This stores the data like below, with a length of around 70 bytes.
 
 ```
-// 1 byte: `48` (header byte)
-// 1 byte: total byte length - header byte length (1)
-// 1 byte: `2` (header byte indicating an integer)
-// 1 byte: r value byte length
-// around 32 bytes: r value
-// 1 byte: `2` (header byte indicating an integer)
-// 1 byte: s value byte length
+1 byte: `48` (header byte)
+1 byte: total byte length - header byte length (1)
+1 byte: `2` (header byte indicating an integer)
+1 byte: r value byte length
+around 32 bytes: r value
+1 byte: `2` (header byte indicating an integer)
+1 byte: s value byte length
+around 32 bytes: s value
 ```
 
 We need to extract the `r` and `s` value, both of which are 32 bytes unsigned integer, and concatenate them for it to be in the format ECDSA expects.
 
-```ts
-// ECDSA signature is the sequence of:
-// r value (32 bytes)
-// s value (32 bytes)
+```
+SEQUENCE:
+r value (32 bytes)
+s value (32 bytes)
 ```
 
 In code, it'd look like this:
