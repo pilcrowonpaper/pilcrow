@@ -82,8 +82,11 @@ const { post } = Astro.props;
 		@apply text-sm;
 	}
 	:global(#md .astro-code) {
-		@apply my-2 overflow-scroll rounded-md px-4 py-2 text-base ;
+		@apply !bg-zinc-80 my-2 overflow-scroll rounded-lg px-4 py-3 !leading-tight;
 		scrollbar-width: none;
+	}
+	:global(#md .astro-code span) {
+		@apply !text-code-sm;
 	}
 	:global(#md pre::-webkit-scrollbar) {
 		display: none;

@@ -1,6 +1,6 @@
 ---
 title: "What's the fastest serverless database provider?"
-description: "Measuring the latency of various database providers in a serverless environment"
+description: "Measuring the latency of various database providers in a serverless environment."
 date: "2023-7-19"
 ---
 
