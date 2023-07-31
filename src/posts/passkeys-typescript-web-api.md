@@ -84,7 +84,7 @@ On the client, `navigator.credentials.create()` will create a new passkey on the
 - `user.name`: Something unique to the user (username, email, etc)
 - `pubKeyCredParams`: Algorithm to use
 
-I went with algorithm `-7`, or ECDSA with the secp256k1 curve and the SHA-256 (aka. ES256K). I *think* this is the most commonly used and supported option. Anyway, this number is the algorithm id from the [IANA COSE Algorithms registry](https://www.iana.org/assignments/cose/cose.xhtml).
+I went with algorithm `-7`, or ECDSA with the secp256k1 curve and the SHA-256 (aka. ES256K). I _think_ this is the most commonly used and supported option. Anyway, this number is the algorithm id from the [IANA COSE Algorithms registry](https://www.iana.org/assignments/cose/cose.xhtml).
 
 ```ts
 const publicKeyCredential = await navigator.credentials.create({
@@ -100,7 +100,7 @@ const publicKeyCredential = await navigator.credentials.create({
 			{
 				type: "public-key",
 				// use ECDSA with the secp256k1 curve and the SHA-256 (aka. ES256K)
-                // id from the IANA COSE Algorithms registry
+				// id from the IANA COSE Algorithms registry
 				alg: -7
 			}
 		],
