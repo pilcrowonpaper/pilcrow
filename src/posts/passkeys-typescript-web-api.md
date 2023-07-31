@@ -160,7 +160,7 @@ This step verifies the user's credentials and the origin of it. There are 3 part
 2. The authenticator data
 3. The signature
 
-Verifying the signature also verifies the legitimacy of the client and authenticator data.
+Verifying the signature also verifies the legitimacy of the client and authenticator data. I'm not sure if step 1 & 2 are really necessary and your application won't be any weaker than a regular password based authentication if you omit them, but I've included them here as just part of "good practice."
 
 ```ts
 const user = getUserByCredentialId(publicKeyCredential.id);
@@ -359,12 +359,12 @@ if (!verifiedSignature) {
 
 ## Final thoughts
 
-I had a lot of fun working on this and got to learn about the Web Crypto API and cryptography in general.
+I had a lot of fun working on this and got to learn more about the Web Crypto API and cryptography in general.
 
-I like the concept of passkeys but I think the biggest hurdle preventing it from becoming more mainstream is the it's just way too complex. It really doesn't help that it's built on top of the already complicated Web Authentication standard (WebAuthn).
+I like the concept of passkeys but I think the biggest hurdle preventing it from becoming more mainstream is that it's just way too complex. It really doesn't help that it's built on top of the already complicated Web Authentication standard (WebAuthn).
 
 The big issue is that WebAuthn was originally built for verifying _devices_, while passkeys are for verifying _users_. Users should be able to share passkeys across devices.
-That difference in requirements makes significant part of the API redundant and unnecessary when working with passkeys. There were also people that could not get the demo to work on Android, so I'm skeptical of how well it works in a real application. Anyway, I really think it should've been a different standard all together, and it could've been as simple as implementing a password manager in the web. The device generates a new password, stores it, and lets the developer handle the actual verification.
+That difference in requirements makes significant part of the API redundant and unnecessary when working with passkeys. There were also people that could not get the demo to work on Android, so I'm skeptical of how well it works in a real application. Anyway, I really think it should've been a different standard all together, and it could've been as simple as implementing a password manager in the web. The device generates a new password, stores it, and lets the developer handle the actual verification. This won't be as secure as the current implementation but should be sufficient when common security measures are taken.
 
 ```ts
 function signUp(username: string) {
