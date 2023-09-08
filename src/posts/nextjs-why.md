@@ -36,7 +36,7 @@ Next.js 13 introduced a new router - the App Router. All components inside it ar
 ```tsx
 // app/page.tsx
 const Page = async () => {
-	console.log("I always run on the server"); // never gets logged
+	console.log("I always run on the server"); // only gets logged in the server
 	return <h1>Hello world!</h1>;
 };
 ```
