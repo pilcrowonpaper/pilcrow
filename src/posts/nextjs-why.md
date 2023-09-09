@@ -25,7 +25,7 @@ export const getServerSideProps = async (
 };
 ```
 
-THere were few issues with it however. First, you just can't set cookies when you deploy the page to the Edge. You just can't. I'm not sure about the history of Next.js, but it looks to me that the API wasn't thought out very well. Another issue is that the middleware uses the web standard `Request`. Props to the Next.js team for transitioning to web standards, but I'd argue it just made things worse with inconsistent APIs (`IncomingMessage` vs `Request`). But, at the end of the way, it works... I guess.
+There were few issues with it however. First, you just can't set cookies when you deploy the page to the Edge. You just can't. I'm not sure about the history of Next.js, but it looks to me that the API wasn't thought out very well. Another issue is that the middleware uses the web standard `Request`. Props to the Next.js team for transitioning to web standards, but I'd argue it just made things worse with inconsistent APIs (`IncomingMessage` vs `Request`). But, at the end of the way, it works... I guess.
 
 ## Next.js 13
 
@@ -104,10 +104,10 @@ My final gripe is with middleware. Why does it always run on the Edge? Why limit
 
 ## Just, why?
 
-All these little issues add up and just make supporting Next.js as a library author frustrating at best, and near-impossible at worst. The slow boot-up and compilation time, as well as buggy dev servers, just makes using Next.js in general not enjoyable.
+All these little issues add up and just make supporting Next.js as a library author frustrating at best, and near-impossible at worst. The slow boot-up and compilation time, as well as buggy dev servers, just make using Next.js in general not enjoyable. Caching is a whole another issue I didn't touch too.
 
 I don't want to assume anything malicious on Next.js' or Vercel's end, but they just seem to out-right ignore issues on setting cookies inside `page.tsx`. Their dev-rel is pretty good at responding on Github and Twitter, but they haven't responded to any tweets or Github issues on the matter. Their dev-rel and even the CEO reached out to me to ask if they were anything that could be improved, and I mentioned the cookie issue and no response. I even tweeted out to them multiple times. Like I don't expect any changes, especially immediately, but some kind of acknowledgement would be nice.
 
 Like, I get it. I shouldn't expect anything from open-source projects. I'm a library author myself. But come on. It's a massive framework backed by a massive company. Is it bad to have some expectations?
 
-I think the root cause is React, and server components specifically. React still tries to be a library when it's definitely a framework at this point. The goo of Next.js APIs and React APIs with overlapping responsibilities in the server isn't working. React needs to embrace a single framework, whether it be their own or Next.js, and fully commit to it.
+I think the root cause is 2 folds. First, a rushed release. Documentation is still spotty and everything seems to be incomplete to a varying degree. And second, React, and server components specifically. React still tries to be a library when it's definitely a framework at this point. The goo of Next.js APIs and React APIs with overlapping responsibilities in the server isn't working. React needs to embrace a single framework, whether it be their own or Next.js, and fully commit to it.
