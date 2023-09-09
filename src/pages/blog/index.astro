@@ -1,9 +1,6 @@
 ---
-export const prerender = true;
-
 import Layout from "@components/Layout.astro";
 import { getPosts } from "@utils/posts";
-import { formatDate } from "@utils/format";
 
 const posts = await getPosts();
 ---
@@ -13,7 +10,6 @@ const posts = await getPosts();
 	description="Some projects and libraries I maintain"
 >
 	<h1 class="text-5xl font-bold">Blog</h1>
-	<p class="mt-4 text-zinc-800">I should write these more often.</p>
 	<div class="mt-10 grid gap-y-6">
 		{
 			posts

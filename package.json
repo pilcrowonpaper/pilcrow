@@ -9,18 +9,19 @@
 		"build": "npm run build-id && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"format": "pnpm prettier -w .",
+		"format:docs": "pnpm exec prettier --write --plugin=prettier-plugin-astro",
 		"build-id": "ts-node --esm -T scripts/build-id.ts"
 	},
 	"dependencies": {
-		"@astrojs/tailwind": "^3.1.2",
-		"@astrojs/vercel": "^3.3.0",
-		"astro": "^2.9.0",
+		"@astrojs/tailwind": "^5.0.0",
+		"astro": "^3.0.12",
 		"siena": "^0.3.0",
 		"tailwindcss": "^3.3.2"
 	},
 	"devDependencies": {
 		"@types/node": "^18.11.9",
+		"prettier": "^3.0.3",
+		"prettier-plugin-astro": "^0.12.0",
 		"prettier-plugin-tailwindcss": "^0.2.8",
 		"ts-node": "^10.9.1",
 		"typescript": "^5.0.4"

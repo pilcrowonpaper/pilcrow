@@ -4,20 +4,27 @@ export const onRequest: MiddlewareResponseHandler = async (_, next) => {
 	const response = await next();
 	const html = await response.text();
 	const modifiedHtml = html
-		.replaceAll(
-			`<span style="color: #6F42C1">.</span>`,
-			`<span style="color: #24292EFF">.</span>`
-		)
-		.replaceAll(
-			`<span style="color: #6F42C1">.`,
-			`<span style="color: #24292EFF">.</span><span style="color: #6F42C1">`
-		)
-		.replaceAll("#C2C3C5", "#a8a8a8") // comment
-		.replaceAll("#22863A", "#509c30") // string
-		.replaceAll("#6F42C1", "#239ecf") // function
-		.replaceAll("#1976D2", "#7575ff") // variables, object keys
-		.replaceAll("#D32F2F", "#e35349"); // keyword (const, await, if, `:`, etc.)
+		.replaceAll("background-color: #1E1E1E", "")
+		.replaceAll("#569CD6", COLORS.KEYWORD)
+		.replaceAll("#4FC1FF", COLORS.BLACK)
+		.replaceAll("#C586C0", COLORS.KEYWORD)
+		.replaceAll("#9CDCFE", COLORS.BLACK)
+		.replaceAll("#6A9955", COLORS.COMMENT)
+		.replaceAll("#DCDCAA", COLORS.FUNCTION)
+		.replaceAll("#4EC9B0", COLORS.KEYWORD)
+		.replaceAll("#CE9178", COLORS.STRING)
+		.replaceAll("#B5CEA8", COLORS.NUMBER)
+		.replaceAll("#D4D4D4", COLORS.BLACK)
 	return new Response(modifiedHtml, {
 		headers: response.headers
 	});
 };
+
+const COLORS = {
+	COMMENT: "#8D8D8D",
+	BLACK: "#000000",
+	STRING: "#E28A17",
+	NUMBER: "#E92F89",
+	KEYWORD: "#5931ED",
+	FUNCTION: "#518DFD"
+}
