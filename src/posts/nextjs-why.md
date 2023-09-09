@@ -111,3 +111,5 @@ I don't want to assume anything malicious on Next.js' or Vercel's end, but they 
 Like, I get it. I shouldn't expect anything from open-source projects. I'm a library author myself. But come on. It's a massive framework backed by a massive company. Is it bad to have some expectations?
 
 I think the root cause is 2 folds. First, a rushed release. Documentation is still spotty and everything seems to be incomplete to a varying degree. And second, React, and server components specifically. React still tries to be a library when it's definitely a framework at this point. The goo of Next.js APIs and React APIs with overlapping responsibilities in the server isn't working. React needs to embrace a single framework, whether it be their own or Next.js, and fully commit to it.
+
+_Update: I've been told a some of these issues stem from streaming. You can't set status codes and headers after streaming has started (everything is streamed in RSCs). I don't see how that makes anything better. It just makes them look worse; they were aware of the issue yet built a whole framework around it without addressing it._
