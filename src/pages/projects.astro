@@ -1,19 +1,7 @@
 ---
 import Layout from "@components/Layout.astro";
-import { BUILD_ID } from "@utils/build";
 
-import type { Projects } from "../utils/github";
-
-const apiUrl = new URL("/api/projects", Astro.url.origin);
-apiUrl.searchParams.set("build_id", BUILD_ID);
-const response = await fetch(apiUrl);
-if (!response.ok) {
-	return new Response(JSON.stringify({ error: "Failed to fetch data" }), {
-		status: 500
-	});
-}
-
-const projects: Projects = await response.json();
+import projects from "../projects.json";
 ---
 
 <Layout
@@ -21,15 +9,12 @@ const projects: Projects = await response.json();
 	description="Some projects and libraries I maintain"
 >
 	<h1 class="text-5xl font-bold">Projects</h1>
-	<p class="mt-4 text-zinc-800">
-		Here are some projects and libraries I created.
-	</p>
 	<div class="mt-10 grid gap-y-6">
 		{
 			projects.map((project) => {
 				return (
 					<article class="group">
-						<a href={project.repositoryUrl} class="block">
+						<a href={new URL(project.repository, "https://github.com")} class="block">
 							<div class="flex place-items-center gap-x-1">
 								<h2 class="w-fit text-lg font-medium group-hover:underline">
 									{project.name}
