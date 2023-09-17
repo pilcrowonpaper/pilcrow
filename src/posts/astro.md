@@ -1,5 +1,5 @@
 ---
-title: "You should really try Astro"
+title: "You really need to try Astro"
 description: "Astro brings modern improvements to the web without the complexity."
 date: "2023-09-17"
 ---
@@ -26,7 +26,7 @@ const message = "Hello, world!"
 
 ## In a nutshell
 
-What makes Astro truly great is that it has everything you really need for building the frontend. And it's achieved in a modern, yet simple manner. It doesn't have shiny, cutting-edge tech, but everything is so straightforward that it requires no mental overhead and just works I think the maintainers has made an excellent effort to keep the project focus limited and avoid feature-creep.
+What makes Astro truly great is that it has everything you really need for building the frontend. And it's achieved in a modern, yet simple manner. It's not really shiny or cutting-edge, but everything is so straightforward that it requires no mental overhead and just works. I think the maintainers has made an excellent effort to keep the project focus limited and avoid feature-creep.
 
 This is very blog, as well as the [docs for Lucia](https://lucia-auth.com), has been built with Astro. It's just such a joy to use.
 
@@ -63,7 +63,7 @@ But one underrated part of Astro is `<script/>` - it supports TypeScript *AND* N
 
 ## Not just static
 
-Astro's main focus is static content, but it actually has a pretty decent server-side features, including API routes, Middleware, and APIs for handling cookies. Aside from it missing an API for form actions (like in Remix or SvelteKit), it's on-par with or sometimes even better than existing frameworks.
+Astro's main focus is static content, but it actually has a pretty decent server-side features, including API routes, Middleware, and APIs for handling cookies. It's on-par with or sometimes even better than existing frameworks. But it doesn't have anything magical like form actions in React Server Components. At the end of the day, you're just building a basic HTTP server, and Astro doesn't hide that; instead, it brings a polished experience.
 
 ```ts
 // pages/api.ts
