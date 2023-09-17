@@ -4,7 +4,7 @@ description: "Astro brings modern improvements to the web without the complexity
 date: "2023-09-17"
 ---
 
-Last week I wrote about [my frustration with Next.js](/blog/nextjs-why). That got a lot more attention on Twitter than I had expected. Anyway, I wanted to write something positive next, and what's better than to write about my favorite framework: Astro.
+Last week I wrote about [my frustration with Next.js](/blog/nextjs-why). That got a lot more attention on Twitter than I had expected. Anyway, I wanted to write something positive next, and what's better than to write about my favorite framework: Astro. 
 
 ## What's Astro?
 
@@ -26,9 +26,9 @@ const message = "Hello, world!"
 
 ## In a nutshell
 
-What makes Astro truly great is that it has everything you really need for building the frontend. And it's achieved in a modern, yet simple manner. It doesn't have shiny, cutting edge tech, but everything is so straightforward that it requires no mental overhead and just works. I think the maintainers has made an excellent effort to keep the project focus limited and avoid feature-creep.
+What makes Astro truly great is that it has everything you really need for building the frontend. And it's achieved in a modern, yet simple manner. It doesn't have shiny, cutting-edge tech, but everything is so straightforward that it requires no mental overhead and just works I think the maintainers has made an excellent effort to keep the project focus limited and avoid feature-creep.
 
-This is very blog, as well as the [docs for Lucia](https://lucia-auth.com), has been built with Lucia.
+This is very blog, as well as the [docs for Lucia](https://lucia-auth.com), has been built with Astro. It's just such a joy to use.
 
 ## Great client side JS support
 
@@ -63,7 +63,7 @@ But one underrated part of Astro is `<script/>` - it supports TypeScript *AND* N
 
 ## Not just static
 
-Astro's main focus is static content, but it actually has a pretty decent server-side features, including API routes, Middleware, and APIs for handling cookies. 
+Astro's main focus is static content, but it actually has a pretty decent server-side features, including API routes, Middleware, and APIs for handling cookies. Aside from it missing an API for form actions (like in Remix or SvelteKit), it's on-par with or sometimes even better than existing frameworks.
 
 ```ts
 // pages/api.ts
@@ -81,7 +81,7 @@ You can deploy your site anywhere you want with adapters, including Node.js, ser
 
 ## `.astro` files
 
-`.astro` files aren't just for representing pages; they're components too. That means you can import them as components and pass props and children like any other JS component. 
+`.astro` files aren't just for representing pages; they're components too. That means you can import them as components and pass props and children like any other component system. 
 
 ```astro
 ---

@@ -40,7 +40,7 @@ export async function getPosts() {
 		Object.entries(postImports).map(resolveMarkdownImportEntry)
 	);
 	return posts.sort((a, b) => {
-		return  b.metaData.date.getTime() - a.metaData.date.getTime()
+		return b.metaData.date.getTime() - a.metaData.date.getTime();
 	});
 }
 
