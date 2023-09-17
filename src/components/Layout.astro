@@ -5,7 +5,7 @@ type Props = {
 	ogId?: string;
 };
 
-const ORIGIN = import.meta.env.VERCEL_URL;
+const ORIGIN = "https://" + import.meta.env.VERCEL_URL;
 ---
 
 <html lang="en">
@@ -62,11 +62,13 @@ const ORIGIN = import.meta.env.VERCEL_URL;
 				/></a
 			>
 			<div class="flex gap-x-4 text-zinc-800">
-				<a href="https://github.com/pilcrowOnPaper" class="hover:text-main hover:underline"
-					>Github</a
+				<a
+					href="https://github.com/pilcrowOnPaper"
+					class="hover:text-main hover:underline">Github</a
 				>
-				<a href="https://twitter.com/pilcrowonpaper" class="hover:text-main hover:underline"
-					>Twitter</a
+				<a
+					href="https://twitter.com/pilcrowonpaper"
+					class="hover:text-main hover:underline">Twitter</a
 				>
 			</div>
 		</header>
