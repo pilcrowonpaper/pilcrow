@@ -9,7 +9,7 @@
 		"build": "npm run build-id && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"format:docs": "pnpm exec prettier --write --plugin=prettier-plugin-astro",
+		"format": "pnpm exec prettier -w . --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss",
 		"build-id": "ts-node --esm -T scripts/build-id.ts"
 	},
 	"dependencies": {
@@ -22,7 +22,7 @@
 		"@types/node": "^18.11.9",
 		"prettier": "^3.0.3",
 		"prettier-plugin-astro": "^0.12.0",
-		"prettier-plugin-tailwindcss": "^0.2.8",
+		"prettier-plugin-tailwindcss": "^0.5.4",
 		"sharp": "^0.32.5",
 		"ts-node": "^10.9.1",
 		"typescript": "^5.0.4"

@@ -58,15 +58,19 @@ const ORIGIN = "https://pilcrow.vercel.app";
 				<img
 					src="/profile.jpg"
 					alt="profile picture"
-					class="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-zinc-100"
+					class="h-8 w-8 rounded-full bg-zinc-100 sm:h-10 sm:w-10"
 				/></a
 			>
 			<div class="flex gap-x-4 text-zinc-800">
-				<a href="/projects" class="hover:text-main hover:underline">Projects</a>
-				<a href="/blog" class="hover:text-main hover:underline">Blog</a>
+				<a href="https://github.com/pilcrowOnPaper" class="hover:text-main hover:underline"
+					>Github</a
+				>
+				<a href="https://twitter.com/pilcrowonpaper" class="hover:text-main hover:underline"
+					>Twitter</a
+				>
 			</div>
 		</header>
-		<main class="mb-24 mt-12 leading-relaxed sm:mt-16">
+		<main class="pb-32 pt-8 leading-relaxed sm:pt-12">
 			<slot />
 		</main>
 	</body>
@@ -77,8 +81,14 @@ const ORIGIN = "https://pilcrow.vercel.app";
 				"Segoe UI Symbol";
 		}
 		code {
-			font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
-				Liberation Mono, monospace;
+			font-family:
+				ui-monospace,
+				SFMono-Regular,
+				SF Mono,
+				Menlo,
+				Consolas,
+				Liberation Mono,
+				monospace;
 		}
 	</style>
 </html>

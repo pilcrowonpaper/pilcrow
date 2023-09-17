@@ -1,7 +1,7 @@
 [
 	{
 		"name": "Lucia",
-		"description": "A simple and flexible auth layer between your app and your database.",
+		"description": "A simple and flexible auth library that works alongside your database",
 		"repository": "pilcrowonpaper/lucia"
 	},
 	{
@@ -10,18 +10,13 @@
 		"repository": "pilcrowonpaper/pilcrow"
 	},
 	{
-		"name": "Siena",
-		"description": "Astro integration for optimizing markdown images, with support for relative src paths.",
-		"repository": "pilcrowonpaper/siena"
-	},
-	{
 		"name": "Auri",
-		"description": "Manage package changes and releases in an organized manner without leaving Github.",
+		"description": "Manage package changes and releases without leaving GitHub.",
 		"repository": "pilcrowonpaper/auri"
 	},
 	{
-		"name": "astro-form-actions",
-		"description": "The form actions API that Astro always needed.",
-		"repository": "pilcrowonpaper/astro-form-actions"
+		"name": "Siena",
+		"description": "Astro integration for optimizing markdown images",
+		"repository": "pilcrowonpaper/siena"
 	}
 ]
