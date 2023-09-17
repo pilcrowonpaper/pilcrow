@@ -14,7 +14,7 @@ export const onRequest: MiddlewareResponseHandler = async (_, next) => {
 		.replaceAll("#4EC9B0", COLORS.KEYWORD)
 		.replaceAll("#CE9178", COLORS.STRING)
 		.replaceAll("#B5CEA8", COLORS.NUMBER)
-		.replaceAll("#D4D4D4", COLORS.BLACK)
+		.replaceAll("#D4D4D4", COLORS.BLACK);
 	return new Response(modifiedHtml, {
 		headers: response.headers
 	});
@@ -27,4 +27,4 @@ const COLORS = {
 	NUMBER: "#E92F89",
 	KEYWORD: "#5931ED",
 	FUNCTION: "#518DFD"
-}
+};

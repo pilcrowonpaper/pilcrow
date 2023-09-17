@@ -29,17 +29,10 @@ const { post } = Astro.props;
 	description={post.metaData.description}
 	ogId={post.postId}
 >
-	<h1 class="text-4xl font-semibold sm:text-5xl">{post.metaData.title}</h1>
-	<p class="mt-4 text-lg text-zinc-800">
+	<h1 class="text-4xl font-semibold">{post.metaData.title}</h1>
+	<p class="mt-4 text-lg text-zinc-450">
 		{formatDate(post.metaData.date)}
 	</p>
-	<div class="mt-6">
-		{
-			post.metaData.tldr && (
-				<p class="font-medium text-main">tl;dr - {post.metaData.tldr}</p>
-			)
-		}
-	</div>
 	<div id="md" class="mt-12 leading-relaxed">
 		<post.Content />
 	</div>
@@ -47,7 +40,7 @@ const { post } = Astro.props;
 
 <style lang="postcss">
     :global(#md h2) {
-        @apply mt-16 text-3xl sm:text-4xl font-semibold;
+        @apply mt-16 text-3xl font-semibold;
     }
     :global(#md h3) {
         @apply mt-8 text-2xl font-medium;
@@ -68,7 +61,7 @@ const { post } = Astro.props;
         @apply mt-4 list-disc list-inside ;
     }
     :global(#md blockquote) {
-        @apply text-zinc-500 mt-4 border-l-2 border-zinc-400 pl-1.5 text-base;
+        @apply text-zinc-450 mt-4 border-l-2 border-zinc-300 pl-4 text-base;
     }
     :global(#md a) {
         @apply text-main hover:underline;
