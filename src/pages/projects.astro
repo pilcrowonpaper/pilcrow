@@ -14,7 +14,10 @@ import projects from "../projects.json";
 			projects.map((project) => {
 				return (
 					<article class="group">
-						<a href={new URL(project.repository, "https://github.com")} class="block">
+						<a
+							href={new URL(project.repository, "https://github.com")}
+							class="block"
+						>
 							<div class="flex place-items-center gap-x-1">
 								<h2 class="w-fit text-lg font-medium group-hover:underline">
 									{project.name}

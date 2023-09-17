@@ -9,6 +9,5 @@
 				"parser": "astro"
 			}
 		}
-	],
-	"pluginSearchDirs": ["."]
+	]
 }
