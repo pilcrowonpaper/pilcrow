@@ -10,9 +10,10 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				main: "#7575ff",
+				main: "#6161ff",
 				zinc: {
-					80: "#f7f7f7"
+					80: "#f7f7f7",
+					450: "#85858f"
 				}
 			},
 			fontSize: {

@@ -1,42 +1,60 @@
 ---
 import Layout from "@components/Layout.astro";
+
+import projects from "../projects.json";
+import { getPosts } from "@utils/posts";
+
+const posts = await getPosts();
 ---
 
 <Layout title="Pilcrow" description="Pilcrow's personal website">
+	<h1 class="text-3xl font-semibold mb-3">Hi, I'm Pilcrow</h1>
+	<p class="text-zinc-800">
+		I think I'm best "known" for my work on authentication, but I'm interested
+		in anything web dev... well maybe except CSS. When I don't have VSCode or
+		Github open, I enjoy taking photos, drawing, playing games, traveling, and
+		cooking. Italian cuisine is my favorite.
+	</p>
+	<p class="mt-4 text-zinc-800">
+		Feel free to message me on Twitter or Discord!
+	</p>
+	<section class="mt-8">
+		<h2 class="text-2xl font-medium mb-2">Projects</h2>
+		{
+			projects.map((project) => {
+				return (
+					<article class="group mb-1">
+						<a
+							href={new URL(project.repository, "https://github.com")}
+							class="block"
+						>
+							<div class="flex place-items-center gap-x-1">
+								<h3 class="w-fit group-hover:underline group-hover:text-main font-medium">
+									{project.name}
+								</h3>
+							</div>
+							<p class="-mt-0.5 text-zinc-450">{project.description}</p>
+						</a>
+					</article>
+				);
+			})
+		}
+	</section>
 	<section class="mt-12">
-		<p class="mt-6 text-zinc-800">
-			<span class="font-semibold">Hi there, I'm Pilcrow!</span> I think I'm best
-			"known" for my work on authentication, but I'm interested in anything web
-			dev... well maybe except CSS. When I don't have VSCode or Github open, I
-			enjoy taking photos, drawing, playing games, traveling, and cooking.
-			Italian food is my favorite.
-		</p>
-		<p class="mt-4 text-zinc-800">
-			Feel free to message me on Twitter or Discord!
-		</p>
-		<ul class="mt-4 flex gap-x-3">
-			<li>
-				<a
-					class="text-zinc-400 hover:text-main hover:underline"
-					href="https://twitter.com/pilcrowonpaper"
-					target="_blank">Twitter</a
-				>
-			</li>
-			<li>
-				<a
-					class="text-zinc-400 hover:text-main hover:underline"
-					href="https://github.com/pilcrowOnPaper"
-					target="_blank">Github</a
-				>
-			</li>
-			<li>
-				<a
-					class="text-zinc-400 hover:text-main hover:underline"
-					href="https://www.youtube.com/@pilcrowonpaper"
-					target="_blank"
-					>Youtube
-				</a>
-			</li>
-		</ul>
+		<h2 class="text-2xl font-medium mb-2">Blog</h2>
+		{
+			posts.map((post) => {
+				return (
+					<article class="group mb-3">
+						<a href={post.href} class="block">
+							<h3 class="w-fit group-hover:underline group-hover:text-main ">
+								{post.metaData.title}
+							</h3>
+							<p class="text-zinc-450">{post.metaData.description}</p>
+						</a>
+					</article>
+				);
+			})
+		}
 	</section>
 </Layout>
