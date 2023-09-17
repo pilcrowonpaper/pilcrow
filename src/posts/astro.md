@@ -26,7 +26,7 @@ const message = "Hello, world!"
 
 ## In a nutshell
 
-What makes Astro truly great is that it has everything you really need for building the frontend. And it's achieved in a modern, yet simple manner. It's not really shiny or cutting-edge, but everything is so straightforward that it requires no mental overhead and just works. I think the maintainers has made an excellent effort to keep the project focus limited and avoid feature-creep.
+What makes Astro truly great is that it has everything you really need for building websites. And it's achieved in a modern, yet simple manner. It's not really shiny or cutting-edge, but everything is so straightforward that it requires no mental overhead and just works. I think the maintainers have made an excellent effort to keep their scope limited.
 
 This is very blog, as well as the [docs for Lucia](https://lucia-auth.com), has been built with Astro. It's just such a joy to use.
 
@@ -48,7 +48,7 @@ import VueComponent from "@components/Vue.vue"
 </VueComponent>
 ```
 
-But one underrated part of Astro is `<script/>` - it supports TypeScript *AND* NPM modules! I actually write a lot of my client side behaviors in regular script tags instead of using a UI component because of this.
+But one underrated part of Astro is `<script/>` - it supports TypeScript *and* NPM modules! I actually write a lot of my client side behaviors in regular script tags instead of using a UI component because of this.
 
 ```astro
 ---
@@ -63,7 +63,7 @@ But one underrated part of Astro is `<script/>` - it supports TypeScript *AND* N
 
 ## Not just static
 
-Astro's main focus is static content, but it actually has a pretty decent server-side features, including API routes, Middleware, and APIs for handling cookies. It's on-par with or sometimes even better than existing frameworks. But it doesn't have anything magical like form actions in React Server Components. At the end of the day, you're just building a basic HTTP server, and Astro doesn't hide that; instead, it brings a polished experience.
+Astro's main focus is static content, but it actually has a pretty decent server-side features, including API routes, Middleware, and APIs for handling cookies. It's on-par with or sometimes even better than existing frameworks. But it doesn't have anything magical like form actions in React Server Components. At the end of the day, you're just building a basic HTTP server, and Astro doesn't hide that; it just polishes the experience.
 
 ```ts
 // pages/api.ts
@@ -77,7 +77,7 @@ export const GET : APIRoute = async (context) => {
 }
 ```
 
-You can deploy your site anywhere you want with adapters, including Node.js, serverless, and the Edge (ie. V8 runtime in servers around the world).
+You can deploy your site anywhere you want with adapters, including Node.js, serverless platforms, and the Edge (ie. V8 runtime running in servers around the world).
 
 ## `.astro` files
 
@@ -123,6 +123,6 @@ const posts = [{
 
 ## Awesome community
 
-I saved the best for last. Astro might have one of the most chill and nicest community in web dev. They don't care if you like React or Svelte, TypeScript or JavaScript, or vanilla CSS or Tailwind. Everyone's welcomed. The docs are one of the best in the industry; it's clear how much effort when into them. And it has very big localization team too. They're available in all major languages, including Japanese, where I've given back to the community by reviewing some PRs for it.
+Astro might have one of the most chill and nicest community in web dev. They don't care if you like React or Svelte, TypeScript or JavaScript, or vanilla CSS or Tailwind. Everyone's welcomed. The docs are one of the best in the industry; it's clear how much effort when into them. And it has very big localization team too. They're available in all major languages, including Japanese, where I've given back to the community by reviewing some PRs for it.
 
 Finally, all the maintainers are great and super active, from the whiteboard guy to the CEO of HTML and the fuzzy bear. Shout out to the compiler, docs, and language-server team as well!
