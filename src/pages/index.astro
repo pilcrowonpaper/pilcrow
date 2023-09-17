@@ -28,11 +28,9 @@ const posts = await getPosts();
 							href={new URL(project.repository, "https://github.com")}
 							class="block"
 						>
-							<div class="flex place-items-center gap-x-1">
-								<h3 class="w-fit group-hover:underline group-hover:text-main font-medium">
-									{project.name}
-								</h3>
-							</div>
+							<h3 class="w-fit group-hover:underline group-hover:text-main font-medium">
+								{project.name}
+							</h3>
 							<p class="-mt-0.5 text-zinc-450">{project.description}</p>
 						</a>
 					</article>
