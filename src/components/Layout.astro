@@ -5,7 +5,7 @@ type Props = {
 	ogId?: string;
 };
 
-const ORIGIN = "https://pilcrow.vercel.app";
+const ORIGIN = import.meta.env.VERCEL_URL;
 ---
 
 <html lang="en">
