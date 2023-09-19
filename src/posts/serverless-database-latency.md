@@ -113,7 +113,7 @@ Keep in mind the averages has a margin of error from 1ms (for low numbers) to 10
 
 _In the chart below, the top bar represents the latency of initial queries, and the bottom represents the latency of subsequent queries._
 
-![Chart comparing 90th, 95th, and 99th percentile of initial and subsequent queries](../images/serverless-database-comparison.png)
+![Chart comparing 90th, 95th, and 99th percentile of initial and subsequent queries](./images/serverless-database-comparison.png)
 
 ##### Initial query
 
@@ -165,15 +165,15 @@ _In the chart below, the top bar represents the latency of initial queries, and 
 
 ##### NoSQL databases
 
-![Chart comparing the expected latency of NoSQL databases](../images/serverless-nosql-expected-latency.png)
+![Chart comparing the expected latency of NoSQL databases](./images/serverless-nosql-expected-latency.png)
 
 ##### SQL databases
 
-![Chart comparing the expected latency of SQL databases](../images/serverless-sql-expected-latency.png)
+![Chart comparing the expected latency of SQL databases](./images/serverless-sql-expected-latency.png)
 
 ##### SQL databases with transaction support
 
-![Chart comparing the expected latency of SQL databases with transaction support](../images/serverless-sql-transaction-expected-latency.png)
+![Chart comparing the expected latency of SQL databases with transaction support](./images/serverless-sql-transaction-expected-latency.png)
 
 ## Conclusions
 
