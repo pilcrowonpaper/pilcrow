@@ -2,7 +2,12 @@
 	{
 		"name": "Lucia",
 		"description": "A simple and flexible auth library that works alongside your database",
-		"repository": "pilcrowonpaper/lucia"
+		"repository": "lucia-auth/lucia"
+	},
+	{
+		"name": "Oslo",
+		"description": "A collection of auth-related utilities - Lodash but for auth!",
+		"repository": "pilcrowonpaper/oslo"
 	},
 	{
 		"name": "Pilcrow",
