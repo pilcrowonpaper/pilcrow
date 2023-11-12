@@ -22,8 +22,8 @@ export const onRequest: MiddlewareResponseHandler = async (_, next) => {
 
 const BLACK = "#000000";
 const PINK = "#f255a1";
-const BLUE = "#3685f5";
-const ORANGE = "#fc9c26";
+const BLUE = "#5060f2";
+const ORANGE = "#ed9426";
 const GRAY = "#8D8D8D";
 
 const COLORS = {
