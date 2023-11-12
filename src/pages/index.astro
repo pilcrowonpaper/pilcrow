@@ -8,7 +8,7 @@ const posts = await getPosts();
 ---
 
 <Layout title="Pilcrow" description="Pilcrow's personal website">
-	<h1 class="text-3xl font-semibold mb-3">Hi, I'm Pilcrow</h1>
+	<h1 class="mb-3 text-3xl font-semibold">Hi, I'm Pilcrow</h1>
 	<p class="text-zinc-800">
 		I think I'm best "known" for my work on authentication, but I'm interested
 		in anything web dev... well maybe except CSS. When I don't have VSCode or
@@ -19,7 +19,7 @@ const posts = await getPosts();
 		Feel free to message me on Twitter or Discord!
 	</p>
 	<section class="mt-8">
-		<h2 class="text-2xl font-medium mb-2">Projects</h2>
+		<h2 class="mb-2 text-2xl font-medium">Projects</h2>
 		{
 			projects.map((project) => {
 				return (
@@ -28,7 +28,7 @@ const posts = await getPosts();
 							href={new URL(project.repository, "https://github.com")}
 							class="block"
 						>
-							<h3 class="w-fit group-hover:underline group-hover:text-main font-medium">
+							<h3 class="w-fit font-medium group-hover:text-main group-hover:underline">
 								{project.name}
 							</h3>
 							<p class="-mt-0.5 text-zinc-450">{project.description}</p>
@@ -39,13 +39,13 @@ const posts = await getPosts();
 		}
 	</section>
 	<section class="mt-12">
-		<h2 class="text-2xl font-medium mb-2">Blog</h2>
+		<h2 class="mb-2 text-2xl font-medium">Blog</h2>
 		{
 			posts.map((post) => {
 				return (
 					<article class="group mb-3">
 						<a href={post.href} class="block">
-							<h3 class="w-fit group-hover:underline group-hover:text-main ">
+							<h3 class="w-fit group-hover:text-main group-hover:underline ">
 								{post.metaData.title}
 							</h3>
 							<p class="text-zinc-450">{post.metaData.description}</p>

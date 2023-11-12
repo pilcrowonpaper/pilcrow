@@ -4,7 +4,7 @@ description: "Astro brings modern improvements to the web without the complexity
 date: "2023-09-17"
 ---
 
-Last week I wrote about [my frustration with Next.js](/blog/nextjs-why). That got a lot more attention on Twitter than I had expected. Anyway, I wanted to write something positive next, and what's better than to write about my favorite framework: Astro. 
+Last week I wrote about [my frustration with Next.js](/blog/nextjs-why). That got a lot more attention on Twitter than I had expected. Anyway, I wanted to write something positive next, and what's better than to write about my favorite framework: Astro.
 
 ## What's Astro?
 
@@ -12,15 +12,16 @@ Astro is a framework for building static and server-rendered sites with JavaScri
 
 ```astro
 ---
-const message = "Hello, world!"
+const message = "Hello, world!";
 ---
+
 <html>
-    <head>
-        <title>My page</title>
-    </head>
-    <body>
-        <h1>{message}</h1>
-    </body>
+	<head>
+		<title>My page</title>
+	</head>
+	<body>
+		<h1>{message}</h1>
+	</body>
 </html>
 ```
 
@@ -36,28 +37,30 @@ Astro allows you to import components from most major frameworks into `.astro` f
 
 ```astro
 ---
-import ReactComponent from "@components/react.tsx"
-import SvelteComponent from "@components/Svelte.svelte"
-import VueComponent from "@components/Vue.vue"
+import ReactComponent from "@components/react.tsx";
+import SvelteComponent from "@components/Svelte.svelte";
+import VueComponent from "@components/Vue.vue";
 ---
 
-<ReactComponent/>
-<SvelteComponent message="hello"/>
+<ReactComponent />
+<SvelteComponent message="hello" />
 <VueComponent>
-    <p>Some static HTML</p>
+	<p>Some static HTML</p>
 </VueComponent>
 ```
 
-But one underrated part of Astro is `<script/>` - it supports TypeScript *and* NPM modules! I actually write a lot of my client side behaviors in regular script tags instead of using a UI component because of this.
+But one underrated part of Astro is `<script/>` - it supports TypeScript _and_ NPM modules! I actually write a lot of my client side behaviors in regular script tags instead of using a UI component because of this.
 
 ```astro
 ---
----
-<script>
-    import { fn } from "./local";
-    import package from "some-package";
 
-    const t: string = fn();
+---
+
+<script>
+	import { fn } from "./local";
+	import package from "some-package";
+
+	const t: string = fn();
 </script>
 ```
 
@@ -68,28 +71,28 @@ Astro's main focus is static content, but it actually has a pretty decent server
 ```ts
 // pages/api.ts
 
-export const GET : APIRoute = async (context) => {
-    const user = context.locals.user; // object populated in middleware
-    const query = context.url.searchParams.get("q");
-    const preference = context.cookies.get("preference")
-    // ...
-    return new Response()
-}
+export const GET: APIRoute = async (context) => {
+	const user = context.locals.user; // object populated in middleware
+	const query = context.url.searchParams.get("q");
+	const preference = context.cookies.get("preference");
+	// ...
+	return new Response();
+};
 ```
 
 You can deploy your site anywhere you want with adapters, including Node.js, serverless platforms, and the Edge (ie. V8 runtime running in servers around the world).
 
 ## `.astro` files
 
-`.astro` files aren't just for representing pages; they're components too. That means you can import them as components and pass props and children like any other component system. 
+`.astro` files aren't just for representing pages; they're components too. That means you can import them as components and pass props and children like any other component system.
 
 ```astro
 ---
-import AstroComponent from "@components/Astro.astro"
+import AstroComponent from "@components/Astro.astro";
 ---
 
 <AstroComponent message="hello">
-    <p>Some static HTML</p>
+	<p>Some static HTML</p>
 </AstroComponent>
 ```
 
@@ -97,18 +100,23 @@ It even supports JSX! Though, I kinda prefer having utility components for handl
 
 ```astro
 ---
-const posts = [{
-    title: "Why you should use TypeScript",
-    href: "/posts/1",
-}, {
-    title: "Why you should avoid TypeScript",
-    href: "/posts/2", 
-}]
+const posts = [
+	{
+		title: "Why you should use TypeScript",
+		href: "/posts/1"
+	},
+	{
+		title: "Why you should avoid TypeScript",
+		href: "/posts/2"
+	}
+];
 ---
 
-{posts.map(post => {
-    return <a href={post.href}>{post.title}</a>
-})}
+{
+	posts.map((post) => {
+		return <a href={post.href}>{post.title}</a>;
+	})
+}
 ```
 
 ## Other small features
