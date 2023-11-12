@@ -14,7 +14,7 @@ Why? You can trivially read all data stored in local storage with just a single 
 Object.entries(localStorage);
 ```
 
-This means if your website is vulnerable to XSS attacks, where a third party can run arbitrary scripts, your users' tokens can be easily stolen. Cookies, on the other hand, can7t be read by client-side JS if you add the `HttpOnly` flag.
+This means if your website is vulnerable to XSS attacks, where a third party can run arbitrary scripts, your users' tokens can be easily stolen. Cookies, on the other hand, can't be read by client-side JS if you add the `HttpOnly` flag.
 
 So job done right? Use `HttpOnly` cookies.
 
