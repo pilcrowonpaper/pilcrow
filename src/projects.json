@@ -10,14 +10,14 @@
 		"repository": "pilcrowonpaper/oslo"
 	},
 	{
-		"name": "Pilcrow",
-		"description": "My personal website - pilcrow.vercel.app.",
-		"repository": "pilcrowonpaper/pilcrow"
-	},
-	{
 		"name": "Auri",
 		"description": "Manage package changes and releases without leaving GitHub.",
 		"repository": "pilcrowonpaper/auri"
+	},
+	{
+		"name": "Arctic",
+		"description": "Simple wrappers for various OAuth providers",
+		"repository": "pilcrowonpaper/arctic"
 	},
 	{
 		"name": "Siena",
