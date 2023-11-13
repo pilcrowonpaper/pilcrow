@@ -19,37 +19,39 @@ const posts = await getPosts();
 		Feel free to message me on Twitter or Discord!
 	</p>
 	<section class="mt-8">
-		<h2 class="mb-2 text-2xl font-medium">Projects</h2>
-		{
-			projects.map((project) => {
-				return (
-					<article class="group mb-1">
-						<a
-							href={new URL(project.repository, "https://github.com")}
-							class="block"
-						>
-							<h3 class="w-fit font-medium group-hover:text-main group-hover:underline">
-								{project.name}
-							</h3>
-							<p class="-mt-0.5 text-zinc-450">{project.description}</p>
-						</a>
-					</article>
-				);
-			})
-		}
+		<h2 class="mb-2 text-2xl font-semibold">Projects</h2>
+		<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+			{
+				projects.map((project) => {
+					return (
+						<article class="group rounded-md pt-2 pb-3 px-4  border">
+							<a
+								href={new URL(project.repository, "https://github.com")}
+								class="block"
+							>
+								<h3 class="w-fit group-hover:text-main group-hover:underline">
+									{project.name}
+								</h3>
+								<p class=" text-zinc-500 text-sm">{project.description}</p>
+							</a>
+						</article>
+					);
+				})
+			}
+		</div>
 	</section>
 	<section class="mt-12">
-		<h2 class="mb-2 text-2xl font-medium">Blog</h2>
+		<h2 class="mb-4 text-2xl font-semibold">Blog</h2>
 		{
 			posts.map((post) => {
 				return (
-					<article class="group mb-3">
-						<a href={post.href} class="block">
-							<h3 class="w-fit group-hover:text-main group-hover:underline ">
+					<article class="mb-4">
+						<h3 class="w-fit ">
+							<a href={post.href} class="hover:text-main hover:underline">
 								{post.metaData.title}
-							</h3>
-							<p class="text-zinc-450">{post.metaData.description}</p>
-						</a>
+							</a>
+						</h3>
+						<p class="text-zinc-400 text-sm">{post.metaData.description}</p>
 					</article>
 				);
 			})

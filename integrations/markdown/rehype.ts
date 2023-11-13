@@ -9,20 +9,20 @@ class HastElement implements HastElementInstance {
 	public readonly type = "element";
 	public children;
 	public tagName;
-	public properties?;
+	public properties;
 	constructor(
 		tagName: string,
 		options: {
 			properties?: Record<
 				any,
-				string | number | boolean | (string | number)[] | null | undefined
+				boolean | number | string | null | undefined | Array<string | number>
 			>;
 			children?: HastElementContent[];
 		}
 	) {
 		this.tagName = tagName;
 		this.children = options.children ?? [];
-		this.properties = options.properties;
+		this.properties = options.properties ?? {};
 	}
 }
 

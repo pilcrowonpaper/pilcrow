@@ -64,7 +64,7 @@ const { post } = Astro.props;
         @apply text-zinc-450 mt-4 border-l-2 border-zinc-300 pl-4 text-base;
     }
     :global(#md a) {
-        @apply text-main hover:underline;
+        @apply text-main underline hover:text-black;
     }
     :global(#md p code, #md ul code, #md ol code) {
 		@apply text-base;
@@ -93,5 +93,11 @@ const { post } = Astro.props;
 	}
 	:global(#md table th) {
 		@apply text-xs font-medium py-1.5 px-1 border-b border-zinc-400;
+	}
+	:root {
+		--astro-code-color-background: rgb(246, 246, 246);
+		--astro-code-token-keyword: rgb(220, 63, 99);
+		--astro-code-token-string-expression: rgb(228, 155, 53);
+		--astro-code-token-comment: rgb(175, 175, 175);
 	}
 </style>
