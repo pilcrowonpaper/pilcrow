@@ -94,6 +94,9 @@ const { post } = Astro.props;
 	:global(#md table th) {
 		@apply text-xs font-medium py-1.5 px-1 border-b border-zinc-400;
 	}
+	:global(#md p > code) {
+		@apply text-sm;
+	}
 	:root {
 		--astro-code-color-background: rgb(246, 246, 246);
 		--astro-code-token-keyword: rgb(220, 63, 99);
