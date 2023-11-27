@@ -136,8 +136,8 @@ The endpoint will return an error response if one of the credentials were invali
 app.post("/login/github/callback", async (request: Request) => {
 	const url = new URL(request.url);
 	const code = url.searchParams.get("code");
-	const state = url.searchParams.get("github_oauth_state");
-	const storedState = getCookie("state");
+	const state = url.searchParams.get("state");
+	const storedState = getCookie("github_oauth_state");
 
 	// validate state
 	if (!code || !state || !storedState || state !== storedState) {
