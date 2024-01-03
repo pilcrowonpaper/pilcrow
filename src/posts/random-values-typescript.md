@@ -4,7 +4,7 @@ description: "Generate cryptographically strong random values with the Web Crypt
 date: "2024-1-3"
 ---
 
-`Math.random()` is broken. Web APIs, and JavaScript in general, was never intended to be used for serious applications. So, what's the alternative?
+`Math.random()` is broken. Nobody expected JavaScript to be anything more than just a language to add some tiny interactions to websites. So, what's the alternative?
 
 There's Node's `crypto` API, but there's also the lesser known Web Crypto API. It provides basic functionality everything cryptography, including hashing values, encrypting secrets, and generating random values. It's a web API so it's available everywhere, including Node.js, browsers, Deno, Bun, and Cloudflare Workers. `Crypto.getRandomValues()` looks like the API we want.
 
