@@ -16,11 +16,9 @@ interface Props {
 		<link rel="preconnect" href="/" crossorigin />
 		<link rel="preload" href="/profile.jpg" as="image" />
 		<link rel="icon" href="/profile.jpg" />
-		<link rel="mask-icon" href="/profile.jpg" color="#7575ff" />
-
-		<meta name="og:title" content={Astro.props.title} />
 
 		<!-- OpenGraph tags -->
+		<meta name="og:title" content={Astro.props.title} />
 		<meta property="og:title" content={Astro.props.title} />
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="en" />
