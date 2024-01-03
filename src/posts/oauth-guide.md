@@ -60,10 +60,7 @@ app.get("/login/github", () => {
 	const state = generateState();
 
 	authorizationURL.searchParams.set("client_id", CLIENT_ID);
-	authorizationURL.searchParams.set(
-		"redirect_uri",
-		"http://localhost:3000/login/github/callback"
-	);
+	authorizationURL.searchParams.set("redirect_uri", "http://localhost:3000/login/github/callback");
 	authorizationURL.searchParams.set("state", state);
 	authorizationURL.searchParams.set("scope", "user:email repo");
 
@@ -157,17 +154,14 @@ app.post("/login/github/callback", async (request: Request) => {
 	});
 
 	try {
-		const response = await fetch(
-			"https://github.com/login/oauth/access_token",
-			{
-				method: "POST",
-				body,
-				headers: {
-					"Content-Type": "application/x-www-form-urlencoded",
-					Accept: "application/json"
-				}
+		const response = await fetch("https://github.com/login/oauth/access_token", {
+			method: "POST",
+			body,
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded",
+				Accept: "application/json"
 			}
-		);
+		});
 		const result = await response.json();
 		if ("error" in result) {
 			// invalid credentials, code, redirect uri
@@ -257,14 +251,9 @@ While the general idea is simple, it looks like something that a library can han
 import { OAuth2Controller } from "oslo/oauth2";
 import { generateState, generateCodeVerifier } from "oslo/oauth2";
 
-const oauth2Controller = new OAuth2Controller(
-	clientId,
-	authorizeEndpoint,
-	tokenEndpoint,
-	{
-		redirectURI: "http://localhost:3000/login/github/callback"
-	}
-);
+const oauth2Controller = new OAuth2Controller(clientId, authorizeEndpoint, tokenEndpoint, {
+	redirectURI: "http://localhost:3000/login/github/callback"
+});
 
 const state = generateState();
 const url = await createAuthorizationURL({

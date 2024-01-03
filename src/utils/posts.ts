@@ -1,8 +1,6 @@
 import type { MarkdownInstance } from "astro";
 
-const postImports: Record<string, ResolveMarkdownImport> = import.meta.glob(
-	"../posts/*.md"
-);
+const postImports: Record<string, ResolveMarkdownImport> = import.meta.glob("../posts/*.md");
 
 type ResolveMarkdownImport = () => Promise<
 	MarkdownInstance<{
@@ -36,9 +34,7 @@ async function resolveMarkdownImportEntry([relativePath, resolveImport]: [
 }
 
 export async function getPosts() {
-	const posts = await Promise.all(
-		Object.entries(postImports).map(resolveMarkdownImportEntry)
-	);
+	const posts = await Promise.all(Object.entries(postImports).map(resolveMarkdownImportEntry));
 	return posts.sort((a, b) => {
 		return b.metaData.date.getTime() - a.metaData.date.getTime();
 	});

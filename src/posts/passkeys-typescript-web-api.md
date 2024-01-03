@@ -60,10 +60,7 @@ function signUp(username: string) {
 function signIn() {
 	const passkeyCredential = getPasskey();
 	const user = getUserByCredentialId(passkeyCredential.id);
-	const validCredential = verifySignature(
-		passkeyCredential.signature,
-		user.publicKey
-	);
+	const validCredential = verifySignature(passkeyCredential.signature, user.publicKey);
 	if (!validCredential) throw new Error("Invalid passkey");
 }
 ```
@@ -110,9 +107,7 @@ const publicKeyCredential = await navigator.credentials.create({
 if (!(publicKeyCredential instanceof PublicKeyCredential)) {
 	throw new TypeError();
 }
-if (
-	!(publicKeyCredential.response instanceof AuthenticatorAttestationResponse)
-) {
+if (!(publicKeyCredential.response instanceof AuthenticatorAttestationResponse)) {
 	throw new TypeError("Unexpected attestation response");
 }
 ```
@@ -305,10 +300,7 @@ function convertDERSignatureToECDSASignature(
 But... integers in DER format can be smaller or larger (with leading 0s) than the expected size (in this case 32 bytes)! So they need to be transformed into 32 bytes.
 
 ```ts
-function decodeDERInteger(
-	integerBytes: Uint8Array,
-	expectedLength: number
-): Uint8Array {
+function decodeDERInteger(integerBytes: Uint8Array, expectedLength: number): Uint8Array {
 	if (integerBytes.byteLength === expectedLength) return integerBytes;
 	if (integerBytes.byteLength < expectedLength) {
 		return concatenateUint8Array(

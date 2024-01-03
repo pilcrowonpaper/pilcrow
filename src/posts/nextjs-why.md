@@ -15,10 +15,7 @@ And then there's Next.js.
 Next.js 12 and the Pages Router were fine. You get access to `IncomingMessage` and `OutgoingMessage` inside `getServerSideProps()`, which allows you to run some code in the server before SSR-ing the page.
 
 ```ts
-export const getServerSideProps = async (
-	req: IncomingMessage,
-	res: OutgoingMessage
-) => {
+export const getServerSideProps = async (req: IncomingMessage, res: OutgoingMessage) => {
 	req.headers.cookie; // read header
 	res.setHeader("Set-Cookie", cookie.serialize()); // set cookie
 	return {};

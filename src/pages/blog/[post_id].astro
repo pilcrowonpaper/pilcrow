@@ -24,11 +24,7 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { post } = Astro.props;
 ---
 
-<Layout
-	title={post.metaData.title}
-	description={post.metaData.description}
-	ogId={post.postId}
->
+<Layout title={post.metaData.title} description={post.metaData.description} ogId={post.postId}>
 	<h1 class="text-4xl font-semibold">{post.metaData.title}</h1>
 	<p class="mt-4 text-lg text-zinc-450">
 		{formatDate(post.metaData.date)}
@@ -99,8 +95,7 @@ const { post } = Astro.props;
 	}
 	:root {
 		--astro-code-color-background: rgb(246, 246, 246);
-		--astro-code-token-keyword: rgb(220, 63, 99);
-		--astro-code-token-string-expression: rgb(228, 155, 53);
-		--astro-code-token-comment: rgb(175, 175, 175);
+		--astro-code-token-string-expression: rgb(97, 97 ,255);
+		--astro-code-token-comment: rgb(157, 157, 157);
 	}
 </style>
