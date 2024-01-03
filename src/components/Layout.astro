@@ -1,11 +1,9 @@
 ---
-type Props = {
+interface Props {
 	title: string;
 	description: string;
 	ogId?: string;
-};
-
-const ORIGIN = "https://" + import.meta.env.VERCEL_URL;
+}
 ---
 
 <html lang="en">
@@ -27,8 +25,8 @@ const ORIGIN = "https://" + import.meta.env.VERCEL_URL;
 		<meta property="og:locale" content="en" />
 		<meta property="og:description" content={Astro.props.description} />
 		<meta property="og:site_name" content="Pilcrow" />
-		<meta property="og:url" content={ORIGIN} />
-		<meta property="og:image" content={new URL("/profile.jpg", ORIGIN)} />
+		<meta property="og:url" content="https://pilcrow.vercel.app" />
+		<meta property="og:image" content="https://pilcrow.vercel.app/profile.jpg" />
 
 		<!-- Twitter tags -->
 		<meta name="twitter:card" content="summary" />
