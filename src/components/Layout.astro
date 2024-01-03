@@ -28,7 +28,7 @@ const ORIGIN = "https://" + import.meta.env.VERCEL_URL;
 		<meta property="og:description" content={Astro.props.description} />
 		<meta property="og:site_name" content="Pilcrow" />
 		<meta property="og:url" content={ORIGIN} />
-		<meta property="og:image" content="/profile.jpg" />
+		<meta property="og:image" content={new URL("/profile.jpg", ORIGIN)} />
 
 		<!-- Twitter tags -->
 		<meta name="twitter:card" content="summary" />
