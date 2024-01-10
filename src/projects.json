@@ -6,7 +6,7 @@
 	},
 	{
 		"name": "Oslo",
-		"description": "A collection of auth-related utilities - Lodash but for auth!",
+		"description": "A collection of auth-related utilities",
 		"repository": "pilcrowonpaper/oslo"
 	},
 	{
@@ -16,12 +16,17 @@
 	},
 	{
 		"name": "Arctic",
-		"description": "Simple wrappers for various OAuth providers",
+		"description": "OAuth 2.0 and OIDC clients for major providers",
 		"repository": "pilcrowonpaper/arctic"
 	},
 	{
 		"name": "Siena",
 		"description": "Astro integration for optimizing markdown images",
 		"repository": "pilcrowonpaper/siena"
+	},
+	{
+		"name": "Malta",
+		"description": "Generate simple and clean documentation with markdown - written in Go",
+		"repository": "pilcrowonpaper/malta"
 	}
 ]
