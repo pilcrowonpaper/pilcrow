@@ -47,7 +47,7 @@ Authorization: <VALID_JWT>
 Cookie: session=<FAKE_JWT>
 ```
 
-Clerk, or rather its Next.js integration, validated the valid token in the authorization header, but when getting the current user ID, parsed the invalid JWT/cookie that we created instead. Why did it read the token from the request _twice_?
+Clerk validated the valid token in the authorization header, but when getting the current user ID, parsed the invalid cookie that we created instead without validating it. Why did it need to read the token from the request _twice_?
 
 ## How it happened
 
