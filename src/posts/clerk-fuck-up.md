@@ -6,7 +6,7 @@ date: "2024-01-26"
 
 On January 12th 2024, Clerk disclosed a major security vulnerability with their Next.js integration. Clerk is an auth provider similar to Auth0 and Firebase Auth, and Next.js is a popular JavaScript framework for building websites with React. While they did not publicly share the details of the vulnerability in the disclosure, the severity was immediately obvious. It allowed malicious actors to act on behalf of other users and had a CVSS score of 9.4 (critical). If you're using the `@clerk/nextjs` package, you should update it to the latest version immediately.
 
-I got curious and went through the source code to find the vulnerability myself. And what I found was horrifying. You could impersonate any users just with their user ID as long as you had any valid session token.
+I got curious and went through the source code to find the vulnerability myself. And what I found was horrifying. You could impersonate any users just with their user ID as long as you had any valid session token. And worse, it didn't take much effort.
 
 So, what the fuck happened?
 
