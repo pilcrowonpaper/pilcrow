@@ -44,7 +44,7 @@ You can then send both the valid and invalid JWT at the same time. This is possi
 ```
 GET https://example.com
 Authorization: <VALID_JWT>
-Cookie: session=<FAKE_JWT>
+Cookie: __session=<FAKE_JWT>
 ```
 
 Clerk validated the valid token in the authorization header, but when getting the current user ID, parsed the invalid cookie that we created instead without validating it. Why did it need to read the token from the request _twice_?
