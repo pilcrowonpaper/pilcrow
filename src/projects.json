@@ -1,13 +1,23 @@
 [
 	{
 		"name": "Lucia",
-		"description": "A simple and flexible auth library that works alongside your database",
+		"description": "A simple and flexible auth library that works alongside your database.",
 		"repository": "lucia-auth/lucia"
 	},
 	{
+		"name": "The Copenhagen Book",
+		"description": "A basic guideline on implementing auth for the web.",
+		"repository": "pilcrowonpaper/copenhagen"
+	},
+	{
 		"name": "Oslo",
-		"description": "A collection of auth-related utilities",
+		"description": "A collection of auth-related utilities.",
 		"repository": "pilcrowonpaper/oslo"
+	},
+	{
+		"name": "Arctic",
+		"description": "OAuth 2.0 and OIDC clients for major providers.",
+		"repository": "pilcrowonpaper/arctic"
 	},
 	{
 		"name": "Auri",
@@ -15,18 +25,8 @@
 		"repository": "pilcrowonpaper/auri"
 	},
 	{
-		"name": "Arctic",
-		"description": "OAuth 2.0 and OIDC clients for major providers",
-		"repository": "pilcrowonpaper/arctic"
-	},
-	{
-		"name": "Siena",
-		"description": "Astro integration for optimizing markdown images",
-		"repository": "pilcrowonpaper/siena"
-	},
-	{
 		"name": "Malta",
-		"description": "Generate simple and clean documentation with markdown - written in Go",
+		"description": "Generate simple and clean documentation with markdown - written in Go.",
 		"repository": "pilcrowonpaper/malta"
 	}
 ]
