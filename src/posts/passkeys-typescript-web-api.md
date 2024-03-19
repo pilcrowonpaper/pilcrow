@@ -4,6 +4,8 @@ description: "Experimenting with passkeys on the browser, and some thoughts on i
 date: "2023-8-1"
 ---
 
+> This page has numerous grammatical and technical mistakes. Refer to the guide in [the Copenhagen Book](https://thecopenhagenbook.com/passkeys).
+
 While working on Lucia, I had a few feature requests for passkey support. Passkeys allow users to sign in using their device via biometrics or device PIN instead of regular passwords.
 
 To learn how it works, I decided to implement a simple demo using TypeScript. I also thought it would be a fun challenge to implement it from scratch using Wev APIs since I recently implemented JWT and Apple OAuth with the same constraints.
