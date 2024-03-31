@@ -8,7 +8,7 @@ When talking about auth, there seems be a certain group that's adamant on using 
 
 ```ts
 function isProtected(path: string) {
-	return path !== "/login" && path !== "/login";
+	return path !== "/login" && path !== "/signup";
 }
 
 app.middleware((req, res, next) => {
