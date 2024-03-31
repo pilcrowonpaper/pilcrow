@@ -104,4 +104,6 @@ app.get("/", (req, res) => {
 });
 ```
 
-One common response I get is that using middleware prevents developers from accidentally forgetting to add an auth check. **That's why you test your code** for anything serious. You should be testing your auth logic regardless of your implementation. Given that, adding auth checks to each route is less bug-prone and easier to debug than forcing an abstraction with middleware.
+This doesn't mean middleware is useless. It works for global-level stuff like CSRF protection and providing data to each route. But even then, you should probably replace it once you need to deal with exceptions and multiple patterns.
+
+One common response I get to this opinion is that using middleware prevents developers from accidentally forgetting to add an auth check. **That's why you test your code**. You should be testing your auth logic regardless of your implementation. Given that, adding auth checks to each route is less bug-prone and easier to debug than forcing an abstraction with middleware.
