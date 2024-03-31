@@ -20,6 +20,12 @@ app.middleware((req, res, next) => {
 		return next();
 	}
 	res.writeHeader(401);
+	res.write("Unauthorized");
+});
+
+app.get("/", (_, res) => {
+	res.writeHeader(200);
+	res.write("Secret message");
 });
 ```
 
