@@ -58,8 +58,6 @@ app.middleware((req, res, next) => {
 
 While route-level middleware (middleware that only applies to certain routes) may help in this simple example, routes in real-world applications aren't often organized by their required permissions. What happens if you have multiple roles? What if you need to implement different rate-limiting on each route based on user roles? How about API access token permissions and scopes?
 
-It just doesn't make sense to put everything into a single location "just to be safe" and "be organized." Even when using route-level middleware, you then have to deal with auth logic for a single route spread across your entire project.
-
 Abstractions aren't the problem here. The issue is that middleware is the wrong abstraction. It's just the most obvious solution that seems to make sense in a smaller scale.
 
 But, we first have to answer: Do we need to abstract in the first place?
@@ -81,7 +79,7 @@ app.get("/", (req, res) => {
 
 "B, b... but DRY! Abstractions!"
 
-If you're too lazy to write some basic if checks, maybe that's a you problem. But on a serious note, if you need to abstract, use wrapper functions. This is a much better approach than middleware since you don't have to worry about routing.
+If you're too lazy to write some basic if checks, maybe that's a you problem. But on a serious note, if you need to abstract, use wrapper functions. This is a much better approach than middleware since you don't have to worry about routing. I also like that all the logic is defined in a single location instead of scattered across your project.
 
 ```ts
 app.get(
@@ -103,6 +101,8 @@ app.get("/", (req, res) => {
 	}
 });
 ```
+
+> Another approach is to check if the user is authenticated in a middleware and check for permissions in each route, but I personally just prefer having a single way of doing it instead of mixing multiple methods.
 
 This doesn't mean middleware is useless. It works for global-level stuff like CSRF protection and providing data to each route. But even then, you should probably replace it once you need to deal with exceptions and multiple patterns.
 
