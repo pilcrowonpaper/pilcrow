@@ -8,6 +8,7 @@ type ResolveMarkdownImport = () => Promise<
 		description: string;
 		tldr?: string;
 		date: string;
+		hidden?: boolean;
 	}>
 >;
 async function resolveMarkdownImportEntry([relativePath, resolveImport]: [
@@ -27,7 +28,8 @@ async function resolveMarkdownImportEntry([relativePath, resolveImport]: [
 			title: markdown.frontmatter.title,
 			tldr: markdown.frontmatter.tldr ?? null,
 			description: markdown.frontmatter.description,
-			date: new Date(markdown.frontmatter.date.replaceAll("-", "/"))
+			date: new Date(markdown.frontmatter.date.replaceAll("-", "/")),
+			hidden: markdown.frontmatter.hidden ?? false
 		},
 		href: ["blog", postId].join("/")
 	} as const;
@@ -35,19 +37,24 @@ async function resolveMarkdownImportEntry([relativePath, resolveImport]: [
 
 export async function getPosts() {
 	const posts = await Promise.all(Object.entries(postImports).map(resolveMarkdownImportEntry));
-	return posts.sort((a, b) => {
-		return b.metaData.date.getTime() - a.metaData.date.getTime();
-	});
+	return posts
+		.sort((a, b) => {
+			return b.metaData.date.getTime() - a.metaData.date.getTime();
+		})
+		.filter((post) => !post.metaData.hidden);
 }
 
 interface Post {
 	postId: string;
 	Content: MarkdownInstance<any>["Content"];
-	metaData: {
-		title: string;
-		tldr: string | null;
-		description: string;
-		date: Date;
-	};
+	metaData: PostMetaData;
 	href: string;
+}
+
+interface PostMetaData {
+	title: string;
+	tldr: string | null;
+	description: string;
+	date: Date;
+	hidden: boolean;
 }

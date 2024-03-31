@@ -1,0 +1,101 @@
+---
+title: "Please stop using middleware to protect your routes"
+description: "Stop overthinking and over-abstracting."
+date: "2024-3-31"
+---
+
+When talking about auth, there seems be a certain group that's adamant on using middleware to handle authorization. Middleware here refers to functions that run before every request.
+
+```ts
+function isProtected(path: string) {
+	return path !== "/login" && path !== "/login";
+}
+
+app.middleware((req, res, next) => {
+	if (!isProtected(req.path)) {
+		return next();
+	}
+	const user = validateRequest(req);
+	if (user) {
+		return next();
+	}
+	res.writeHeader(401);
+});
+```
+
+I do not like this approach at all.
+
+I'm just confused at this point since you're just re-implementing routing logic within middleware, an API provided by your routing library. And what do you do when you need to protect routes based on user roles?
+
+```ts
+const adminOnlyRoutes = ["/admin/*"];
+
+app.middleware((req, res, next) => {
+	if (!isProtected(req.path)) {
+		return next();
+	}
+	const user = validateRequest(req);
+	if (user) {
+		let requiresAdminRole = false;
+		for (const route of adminOnlyRoutes) {
+			requiresAdminRole = matchRoute(route, req.path);
+		}
+		if (requiresAdminRole && !user.admin) {
+			res.writeHeader(401);
+			return;
+		}
+		return next();
+	}
+	res.writeHeader(401);
+});
+```
+
+While route-level middleware (middleware that only applies to certain routes) may help in this simple example, routes in real-world applications aren't often organized by their required permissions. What happens if you have multiple roles? What if you need to implement different rate-limiting on each route based on user roles? How about API access token permissions and scopes?
+
+It just doesn't make sense to put everything into a single location "just to be safe" and "be organized." Even when using route-level middleware, you then have to deal with auth logic for a single route spread across your entire project.
+
+Abstractions aren't the problem here. The issue is that middleware is the wrong abstraction. It's just the most obvious solution that seems to make sense in a smaller scale.
+
+But, we first have to answer: Do we need to abstract in the first place?
+
+This goes beyond this rant but I feel, at least in the JavaScript ecosystem, people seems to go _too_ far on abstractions and "simplicity." It isn't surprising given how ~~loosey-goosey~~ powerful JS can be. Auth, which includes both authentication and authorization, seems to be particularly vulnerable to this since people are overtly scared of it. But auth is not an independent system from your application. It's an integral part of it that affects and is affected by everything else. This makes it extra-hard to abstract without introducing unwanted complexity since it any abstraction that's useful require some level of flexibility.
+
+Getting back to the middleware discussion, why not just add the auth check on each route?
+
+```ts
+app.get("/", (req, res) => {
+	const user = validateRequest(req);
+	if (!user) {
+		res.writeHeader(401);
+		return;
+	}
+	// ...
+});
+```
+
+"B, b... but DRY! Abstractions!"
+
+If you're too lazy to write some basic if checks, maybe that's a you problem. But on a serious note, if you need to abstract, use wrapper functions. This is a much better approach than middleware since you don't have to worry about routing.
+
+```ts
+app.get(
+	"/",
+	protectedRoute((req, res) => {
+		// ...
+	})
+);
+```
+
+If you deal with multiple permission level (e.g. roles, scopes), you can just create a helper function for checking them. Again, abstractions themselves aren't bad. You just need to implement them at the right level.
+
+```ts
+app.get("/", (req, res) => {
+	// ...
+	if (!hasPermission(user.role, ["moderator", "admin"])) {
+		res.writeHeader(403);
+		return;
+	}
+});
+```
+
+One common response I get is that using middleware prevents developers from accidentally forgetting to add an auth check. **That's why you test your code** for anything serious. You should be testing your auth logic regardless of your implementation. Given that, adding auth checks to each route is less bug-prone and easier to debug than forcing an abstraction with middleware.

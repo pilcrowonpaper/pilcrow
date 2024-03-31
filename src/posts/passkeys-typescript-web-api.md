@@ -2,6 +2,7 @@
 title: "Implementing passkeys with just TypeScript and Web APIs"
 description: "Experimenting with passkeys on the browser, and some thoughts on it."
 date: "2023-8-1"
+hidden: true
 ---
 
 > This page has numerous grammatical and technical mistakes. Refer to the guide in [the Copenhagen Book](https://thecopenhagenbook.com/passkeys).

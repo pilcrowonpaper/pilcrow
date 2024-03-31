@@ -1,6 +1,6 @@
 ---
 title: "A beginner's guide to OAuth 2.0"
-description: "OAuth isn't hard"
+description: "OAuth isn't hard."
 date: "2023-11-13"
 ---
 

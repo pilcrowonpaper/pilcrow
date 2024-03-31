@@ -2,6 +2,7 @@
 title: "You really need to try Astro"
 description: "Astro brings modern improvements to the web without the complexity."
 date: "2023-09-17"
+hidden: true
 ---
 
 Last week I wrote about [my frustration with Next.js](/blog/nextjs-why). That got a lot more attention on Twitter than I had expected. Anyway, I wanted to write something positive next, and what's better than to write about my favorite framework: Astro.

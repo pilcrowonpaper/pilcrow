@@ -1,6 +1,6 @@
 ---
 title: "Generating random values in TypeScript"
-description: "Generate cryptographically strong random values with the Web Crypto API"
+description: "Generate cryptographically strong random values with the Web Crypto API."
 date: "2024-1-3"
 ---
 
