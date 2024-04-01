@@ -68,8 +68,8 @@ Getting back to the middleware discussion, why not just add the auth check on ea
 
 ```ts
 app.get("/", (req, res) => {
-	const user = validateRequest(req);
-	if (!user) {
+	// ...
+	if (!user.admin) {
 		res.writeHeader(401);
 		return;
 	}
@@ -84,7 +84,7 @@ If you're too lazy to write some basic if checks, maybe that's a you problem. Bu
 ```ts
 app.get(
 	"/",
-	protectedRoute((req, res) => {
+	adminOnlyRoute((req, res) => {
 		// ...
 	})
 );
@@ -102,6 +102,6 @@ app.get("/", (req, res) => {
 });
 ```
 
-This doesn't mean middleware is useless. It works for global-level stuff like CSRF protection and providing data to each route. But even then, you should probably replace it once you need to deal with exceptions and multiple patterns.
+This doesn't mean middleware is useless. It works for global-level stuff like CSRF protection and providing data to each route. Actually, authenticating requests and passing the user object to each route is a great use of middleware (but letting each route handle authorization). But even then, you should probably replace it once you need to deal with exceptions and multiple patterns.
 
 One common response I get to this opinion is that using middleware prevents developers from accidentally forgetting to add an auth check. **That's why you test your code**. You should be testing your auth logic regardless of your implementation. Given that, adding auth checks to each route is less bug-prone and easier to debug than forcing an abstraction with middleware.
