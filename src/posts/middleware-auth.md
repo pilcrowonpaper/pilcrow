@@ -84,7 +84,7 @@ If you're too lazy to write some basic if checks, maybe that's a you problem. Bu
 ```ts
 app.get(
 	"/",
-	adminOnlyRoute((req, res) => {
+	protectedRoute((req, res) => {
 		// ...
 	})
 );
