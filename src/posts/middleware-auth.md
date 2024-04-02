@@ -1,7 +1,7 @@
 ---
 title: "Please stop using middleware to protect your routes"
 description: "Stop overthinking and over-abstracting."
-date: "2024-3-31"
+date: "2024-03-31"
 ---
 
 When talking about auth, there seems be a certain group that's adamant on using middleware to handle authorization. Middleware here refers to functions that run before every request.
@@ -84,7 +84,7 @@ If you're too lazy to write some basic if checks, maybe that's a you problem. Bu
 ```ts
 app.get(
 	"/",
-	protectedRoute((req, res) => {
+	protectedRoute((req, res, user) => {
 		// ...
 	})
 );
