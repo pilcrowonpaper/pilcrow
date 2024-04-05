@@ -1,7 +1,7 @@
 ---
 title: "A beginner's guide to OAuth 2.0"
 description: "OAuth isn't hard."
-date: "2023-11-13"
+date: 2023-11-13
 ---
 
 If you've ever signed in to a website using your GitHub account, that website was likely using OAuth. OAuth allows third parties to access your data on GitHub and other services, without requiring you to share your password. It's a widely accepted standard that, for once, not really complicated or hard to implement, and using it can greatly simplify your app's auth.

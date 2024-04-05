@@ -1,7 +1,7 @@
 ---
 title: "You really need to try Astro"
 description: "Astro brings modern improvements to the web without the complexity."
-date: "2023-09-17"
+date: 2023-09-17
 hidden: true
 ---
 

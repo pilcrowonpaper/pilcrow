@@ -1,7 +1,7 @@
 ---
 title: "Generating random values in TypeScript"
 description: "Generate cryptographically strong random values with the Web Crypto API."
-date: "2024-1-3"
+date: 2024-01-03
 ---
 
 `Math.random()` is broken. Nobody expected JavaScript to be anything more than just a language to add some tiny interactions to websites. So, what's the alternative?

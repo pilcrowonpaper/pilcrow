@@ -1,7 +1,7 @@
 ---
 title: 'A look into "GDPR compliant" analytics'
 description: "What makes something GDPR compliant, and how do you implement analytics without violating it?"
-date: "2023-05-09"
+date: 2023-05-09
 tldr: "Unique identifiers are considered personal data, and you are still required to have a privacy policy even when using privacy-friendly analytics tool."
 ---
 

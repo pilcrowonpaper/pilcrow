@@ -1,7 +1,7 @@
 ---
 title: "What's the fastest serverless database provider?"
 description: "Measuring the latency of various database providers in a serverless environment."
-date: "2023-7-19"
+date: 2023-07-19
 hidden: true
 ---
 
