@@ -1,36 +1,33 @@
 ---
+import { getCollection, type CollectionEntry } from "astro:content";
+
 import Layout from "@components/Layout.astro";
-import { getPosts } from "@utils/posts";
 import { formatDate } from "@utils/format";
 
-import type { InferGetStaticPropsType } from "astro";
+export async function getStaticPaths() {
+	const posts = await getCollection("posts");
+	return posts.map((post) => ({
+		params: { post_id: post.id },
+		props: post
+	}));
+}
+type Props = CollectionEntry<"posts">;
 
-export const getStaticPaths = async () => {
-	const posts = await getPosts();
-	return posts.map((post) => {
-		return {
-			params: {
-				post_id: post.postId
-			},
-			props: {
-				post
-			}
-		};
-	});
-};
+const post = Astro.props;
+const { Content } = await post.render();
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-
-const { post } = Astro.props;
+if (post.data.hidden === true) {
+    return Astro.redirect('/');
+}
 ---
 
-<Layout title={post.metaData.title} description={post.metaData.description} ogId={post.postId}>
-	<h1 class="text-4xl font-semibold">{post.metaData.title}</h1>
+<Layout title={post.data.title} description={post.data.description} ogId={post.id}>
+	<h1 class="text-4xl font-semibold">{post.data.title}</h1>
 	<p class="mt-4 text-lg text-zinc-450">
-		{formatDate(post.metaData.date)}
+		{formatDate(post.data.date)}
 	</p>
 	<div id="md" class="mt-12 leading-relaxed">
-		<post.Content />
+		<Content />
 	</div>
 </Layout>
 

@@ -1,7 +1,7 @@
 ---
 title: "Implementing passkeys with just TypeScript and Web APIs"
 description: "Experimenting with passkeys on the browser, and some thoughts on it."
-date: "2023-8-1"
+date: 2023-08-01
 hidden: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "The never-ending discussion of cookies vs. local storage"
 description: "Should you use cookies or local storage for storing credentials?"
-date: "2023-11-12"
+date: 2023-11-12
 ---
 
 If you're looking to store some data in the client, you have the option between cookies and local storage. For sensitive data, OWASP [recommends you to use cookies](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage):

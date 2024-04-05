@@ -1,7 +1,7 @@
 ---
 title: "Next.js, just why?"
 description: "Next.js has been one of the most frustrating frameworks I've ever worked with."
-date: "2023-09-09"
+date: 2023-09-09
 ---
 
 I don't want this to be just a rant. I really don't. But out of all the frameworks I've worked with for Lucia, Next.js has been consistently infuriating to work with. And it hasn't improved in months.
