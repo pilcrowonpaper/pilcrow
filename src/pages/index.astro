@@ -2,9 +2,11 @@
 import Layout from "@components/Layout.astro";
 
 import projects from "../projects.json";
-import { getPosts } from "@utils/posts";
+import { getCollection } from "astro:content";
 
-const posts = await getPosts();
+const posts = await getCollection("posts", ({ data }) => {
+	return data.hidden != true;
+});
 ---
 
 <Layout title="Pilcrow" description="Pilcrow's personal website">
@@ -38,12 +40,12 @@ const posts = await getPosts();
 			posts.map((post) => {
 				return (
 					<article class="mb-4">
-						<h3 class="w-fit ">
-							<a href={post.href} class="hover:text-main hover:underline">
-								{post.metaData.title}
+						<h3 class="w-fit">
+							<a href={`/blog/${post.id}`} class="hover:text-main hover:underline">
+								{post.data.title}
 							</a>
 						</h3>
-						<p class="text-sm text-zinc-400">{post.metaData.description}</p>
+						<p class="text-sm text-zinc-400">{post.data.description}</p>
 					</article>
 				);
 			})
