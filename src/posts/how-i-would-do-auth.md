@@ -4,8 +4,6 @@ description: "A quick blog on how I would implement auth for my applications."
 date: "2024-07-14"
 ---
 
-# How I would do auth
-
 This is a quick post on how I would implement auth for a public-facing app. This is based on some of the questions I've gotten on Discord and Twitter. Of course each application have their own requirements, so this is more of starting point rather than a definitive guide. I will also probably build a demo that follows this post in the near future.
 
 First, if the application is for devs and I need something very quick, I would just use GitHub OAuth. Done in 10 minutes.
