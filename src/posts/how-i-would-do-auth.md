@@ -85,3 +85,7 @@ Login throttling and rate limiting would be pretty similar to login and will be 
 I think both single-use OTPs and links work and their expiration will be similar to email verification. I would hash the code or token just to be safe, especially since it's not really hard.
 
 2FA should be required even for password resets.
+
+## Did I miss anything?
+
+Let me know on Twitter or Discord if there's anything I should add to the post.
