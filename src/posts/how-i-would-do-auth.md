@@ -12,6 +12,12 @@ Now to the main part - how would I implement password-based auth? The minimum fo
 
 > Always implement rate-limiting, even if it's something very basic!
 
+## Session management
+
+Database sessions 100%. I really, really don't like JWTs and they shouldn't be used as sessions majority of times.
+
+Assuming I only have to deal with authenticated sessions, my preferred approach is 30 days expiration but the expiration gets extended every time the session is used. This ensures active users stay authenticated while inactive users are signed out.
+
 ## Registration
 
 Hot take - I think it's fine for apps to share whether an email exists in their system or not. If the email is already taken, just tell the user that they already have an account. Significantly better UX for minimal security loss. Don't use emails for auth if you don't like that.
