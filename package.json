@@ -11,9 +11,9 @@
 		"format": "pnpm exec prettier -w . --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss"
 	},
 	"dependencies": {
-		"@astrojs/rss": "^4.0.5",
-		"@astrojs/tailwind": "^5.0.0",
-		"astro": "^3.0.12",
+		"@astrojs/rss": "^4.0.7",
+		"@astrojs/tailwind": "^5.1.0",
+		"astro": "^4.11.5",
 		"rehype": "^13.0.1",
 		"tailwindcss": "^3.3.2"
 	},

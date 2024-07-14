@@ -9,7 +9,7 @@ export default () => {
 				updateConfig({
 					markdown: {
 						shikiConfig: {
-							theme: "css-variables"
+							theme: "one-light"
 						},
 						rehypePlugins: [rehype()]
 					}

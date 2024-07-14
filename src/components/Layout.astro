@@ -16,7 +16,12 @@ interface Props {
 		<link rel="preconnect" href="/" crossorigin />
 		<link rel="preload" href="/profile.jpg" as="image" />
 		<link rel="icon" href="/profile.jpg" />
-		<link rel="alternate" type="application/rss+xml" title="Pilcrow" href={`${Astro.site}rss.xml`} />
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title="Pilcrow"
+			href={`${Astro.site}rss.xml`}
+		/>
 
 		<!-- OpenGraph tags -->
 		<meta name="og:title" content={Astro.props.title} />
