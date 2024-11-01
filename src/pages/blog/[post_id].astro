@@ -24,10 +24,13 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { post } = Astro.props;
 ---
 
-<Layout title={post.metaData.title} description={post.metaData.description} ogId={post.postId}>
-	<h1 class="text-4xl font-semibold">{post.metaData.title}</h1>
+<Layout title={post.title} ogId={post.postId}>
+	<a href="/" class="mb-4 block">← About me</a>
+	<h1 class="text-3xl font-semibold leading-tight sm:text-4.5xl sm:font-bold">
+		{post.title}
+	</h1>
 	<p class="mt-4 text-lg text-zinc-450">
-		{formatDate(post.metaData.date)}
+		{formatDate(post.date)}
 	</p>
 	<div id="md" class="mt-12 leading-relaxed">
 		<post.Content />
@@ -36,16 +39,10 @@ const { post } = Astro.props;
 
 <style lang="postcss">
     :global(#md h2) {
-        @apply mt-16 text-3xl font-semibold;
+        @apply mt-16 text-2.5xl font-semibold sm:font-bold;
     }
     :global(#md h3) {
-        @apply mt-8 text-2xl font-medium;
-    }
-    :global(#md h4) {
-        @apply mt-6 text-xl font-medium;
-    }
-	:global(#md h5) {
-        @apply mt-4 text-lg font-medium;
+        @apply mt-8 text-1.5xl font-semibold;
     }
     :global(#md > p) {
         @apply mt-4 ;

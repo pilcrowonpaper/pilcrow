@@ -277,9 +277,7 @@ s value (32 byte integer)
 In code, it'd look like this:
 
 ```ts
-function convertDERSignatureToECDSASignature(
-	DERSignature: ArrayLike<number> | ArrayBufferLike
-): ArrayBuffer {
+function convertDERSignatureToECDSASignature(DERSignature: ArrayLike<number> | ArrayBufferLike): ArrayBuffer {
 	const signatureBytes = new Uint8Array(DERSignature);
 
 	const rStart = 4;

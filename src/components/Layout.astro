@@ -1,7 +1,7 @@
 ---
 interface Props {
 	title: string;
-	description: string;
+	description?: string;
 	ogId?: string;
 }
 ---
@@ -11,24 +11,18 @@ interface Props {
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={Astro.props.description} />
+		{Astro.props.description !== undefined && <meta name="description" content={Astro.props.description} />}
 		<title>{Astro.props.title}</title>
 		<link rel="preconnect" href="/" crossorigin />
 		<link rel="preload" href="/profile.jpg" as="image" />
 		<link rel="icon" href="/profile.jpg" />
-		<link
-			rel="alternate"
-			type="application/rss+xml"
-			title="Pilcrow"
-			href={`${Astro.site}rss.xml`}
-		/>
+		<link rel="alternate" type="application/rss+xml" title="Pilcrow" href={`${Astro.site}rss.xml`} />
 
 		<!-- OpenGraph tags -->
-		<meta name="og:title" content={Astro.props.title} />
 		<meta property="og:title" content={Astro.props.title} />
+		{Astro.props.description !== undefined && <meta property="og:description" content={Astro.props.description} />}
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="en" />
-		<meta property="og:description" content={Astro.props.description} />
 		<meta property="og:site_name" content="Pilcrow" />
 		<meta property="og:url" content="https://pilcrowonpaper.com" />
 		<meta property="og:image" content="https://pilcrowonpaper.com/profile.jpg" />
@@ -37,40 +31,23 @@ interface Props {
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@pilcrowonpaper" />
 		<meta name="twitter:title" content={Astro.props.title} />
-		<meta name="twitter:description" content={Astro.props.description} />
+		{Astro.props.description !== undefined && <meta name="twitter:description" content={Astro.props.description} />}
 
 		<!-- Discord -->
 		<meta name="theme-color" content="#7575ff" />
 	</head>
 	<body class="mx-auto max-w-3xl px-4 text-zinc-800">
-		<header class="flex place-content-between place-items-center pb-2 pt-6">
-			<a class="block" href="/">
-				<img
-					src="/profile.jpg"
-					alt="profile picture"
-					class="h-8 w-8 rounded-full bg-zinc-100 transition-transform duration-200 ease-in-out hover:scale-110 sm:h-10 sm:w-10"
-				/></a
-			>
-			<div class="flex gap-x-4 text-zinc-800">
-				<a href="https://github.com/pilcrowOnPaper" class="hover:text-main hover:underline"
-					>Github</a
-				>
-				<a href="https://twitter.com/pilcrowonpaper" class="hover:text-main hover:underline"
-					>Twitter</a
-				>
-				<a href="https://github.com/sponsors/pilcrowOnPaper" class="hover:text-main hover:underline"
-					>Donate</a
-				>
-			</div>
-		</header>
-		<main class="pb-32 pt-8 leading-relaxed sm:pt-12">
+		<main class="pb-16 pt-8 leading-relaxed sm:pt-12">
 			<slot />
 		</main>
+		<footer class="flex place-content-center py-12">
+			<a href="https://github.com/pilcrowonpaper/pilcrow" class="text-zinc-500">Source code</a>
+		</footer>
 	</body>
 	<style>
 		html {
-			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-				sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+				"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 		}
 		code {
 			font-family:

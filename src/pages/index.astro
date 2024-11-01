@@ -3,50 +3,71 @@ import Layout from "@components/Layout.astro";
 
 import projects from "../projects.json";
 import { getPosts } from "@utils/posts";
+import { formatDate } from "@utils/format";
 
 const posts = await getPosts();
 ---
 
-<Layout title="Pilcrow" description="Pilcrow's personal website">
-	<h1 class="mb-3 text-3xl font-semibold">Hi, I'm Pilcrow</h1>
-	<p class="text-zinc-800">
-		I think I'm best "known" for my work on auth libraries, but I'm interested in anything web
-		dev... well maybe except CSS. I enjoy taking photos, drawing, playing games, traveling, and
-		cooking.
+<Layout title="pilcrow" description="pilcrow's personal website">
+	<div class="mb-8 mt-8 flex place-items-center gap-x-2 sm:mb-12 sm:gap-x-4">
+		<img src="/profile.jpg" alt="profile picture" class="h-12 w-12 rounded-full bg-zinc-100 sm:h-16 sm:w-16" />
+		<h1 class="text-4.5xl font-bold sm:text-5xl">pilcrow</h1>
+	</div>
+	<p>Hi! I'm a university student in Japan interested in application security.</p>
+	<p class="mt-4">
+		I maintain various open source libraries in the JavaScript ecosystem, mostly around authentication and cryptography.
+		I really enjoy building stuff from scratch and re-inventing the wheel, learning all the little details along the
+		way. I also really enjoy designing library APIs
 	</p>
-	<p class="mt-4 text-zinc-800">Feel free to message me on Twitter or Discord!</p>
-	<section class="mt-8">
-		<h2 class="mb-2 text-2xl font-semibold">Projects</h2>
-		<div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+	<p class="mt-4">Aside from programming, my hobbies include cooking, drawing, and playing games.</p>
+	<p class="mt-4">
+		You can find me on <a href="https://twitter.com/pilcrowonpaper" class="text-main underline hover:text-black"
+			>Twitter</a
+		>, <a href="https://github.com/pilcrowonpaper" class="text-main underline hover:text-black">GitHub</a>, and <a
+			href="https://bsky.app/profile/pilcrowonpaper.com"
+			class="text-main underline hover:text-black">BlueSky</a
+		>. You can also email me at <a href="mailto:pilcrowonpaper@gmail.com" class="text-main underline hover:text-black"
+			>pilcrowonpaper@gmail.com</a
+		>.
+	</p>
+	<section class="mt-12">
+		<h2 class="text-2.5xl font-semibold sm:font-bold">Projects</h2>
+		<ul class="mt-4 flex list-inside list-disc flex-col gap-y-1">
 			{
 				projects.map((project) => {
 					return (
-						<article class="group rounded-md border px-4 pb-3  pt-2">
-							<a href={project.href} class="block">
-								<h3 class="w-fit group-hover:text-main group-hover:underline">{project.name}</h3>
-								<p class=" text-sm text-zinc-500">{project.description}</p>
-							</a>
+						<li>
+							<p>
+								<a href={project.href} class="inline-block text-main underline hover:text-black">
+									{project.name}
+								</a>
+								: {project.description}
+							</p>
+						</li>
+					);
+				})
+			}
+		</ul>
+		<p class="mt-4">
+			Go is by far my favorite language so I've been trying to use it more often. In the future, I'd like to explore
+			infrastructure, low-level languages like Zig and Rust, and network protocols.
+		</p>
+	</section>
+	<section class="mt-12">
+		<h2 class="text-2.5xl font-semibold sm:font-bold">Blog</h2>
+		<div class="mt-4 flex flex-col gap-y-4">
+			{
+				posts.map((post) => {
+					return (
+						<article>
+							<h3 class="leading-snug">
+								<a href={post.href}>{post.title}</a>
+							</h3>
+							<p class="text-sm text-zinc-500"> {formatDate(post.date)}</p>
 						</article>
 					);
 				})
 			}
 		</div>
-	</section>
-	<section class="mt-12">
-		<h2 class="mb-4 text-2xl font-semibold">Blog</h2>
-		{
-			posts.map((post) => {
-				return (
-					<article class="mb-4">
-						<h3 class="w-fit ">
-							<a href={post.href} class="hover:text-main hover:underline">
-								{post.metaData.title}
-							</a>
-						</h3>
-						<p class="text-sm text-zinc-400">{post.metaData.description}</p>
-					</article>
-				);
-			})
-		}
 	</section>
 </Layout>

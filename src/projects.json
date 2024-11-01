@@ -1,22 +1,22 @@
 [
 	{
 		"name": "Lucia",
-		"description": "A resource on implementing auth with JavaScript. Former auth library.",
+		"description": "A learning resource on implementing auth with JavaScript. Former auth library.",
 		"href": "https://github.com/lucia-auth/lucia"
 	},
 	{
-		"name": "The Copenhagen Book",
-		"description": "A basic guideline on implementing auth in web applications.",
-		"href": "https://github.com/pilcrowonpaper/copenhagen"
-	},
-	{
 		"name": "Oslo",
-		"description": "High-quality auth packages for JavaScript.",
+		"description": "A collection of auth-related packages written in pure JavaScript, including WebAuthn, ASN.1, CBOR, hashing, ECDSA, HMAC, RSA, HOTP/TOTP, and base16/32/64.",
 		"href": "https://oslojs.dev"
 	},
 	{
+		"name": "The Copenhagen Book",
+		"description": "A guideline on implementing auth in web applications.",
+		"href": "https://github.com/pilcrowonpaper/copenhagen"
+	},
+	{
 		"name": "Arctic",
-		"description": "OAuth 2.0 and OIDC clients with 50+ providers.",
+		"description": "OAuth 2.0 and OIDC clients for JavaScript with 50+ providers.",
 		"href": "https://github.com/pilcrowonpaper/arctic"
 	},
 	{
@@ -26,7 +26,7 @@
 	},
 	{
 		"name": "Malta",
-		"description": "Generate simple and clean documentation with markdown",
+		"description": "Generate simple and clean documentation with markdown.",
 		"href": "https://github.com/pilcrowonpaper/malta"
 	}
 ]

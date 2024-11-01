@@ -1,9 +1,4 @@
-import type {
-	Root,
-	RootContent,
-	Element as HastElementInstance,
-	ElementContent as HastElementContent
-} from "hast";
+import type { Root, RootContent, Element as HastElementInstance, ElementContent as HastElementContent } from "hast";
 
 class HastElement implements HastElementInstance {
 	public readonly type = "element";
@@ -13,10 +8,7 @@ class HastElement implements HastElementInstance {
 	constructor(
 		tagName: string,
 		options: {
-			properties?: Record<
-				any,
-				boolean | number | string | null | undefined | Array<string | number>
-			>;
+			properties?: Record<any, boolean | number | string | null | undefined | Array<string | number>>;
 			children?: HastElementContent[];
 		}
 	) {
