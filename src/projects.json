@@ -1,32 +1,32 @@
 [
 	{
 		"name": "Lucia",
-		"description": "A simple and flexible auth library that works alongside your database.",
-		"repository": "lucia-auth/lucia"
+		"description": "A resource on implementing auth with JavaScript. Former auth library.",
+		"href": "https://github.com/lucia-auth/lucia"
 	},
 	{
 		"name": "The Copenhagen Book",
-		"description": "A basic guideline on implementing auth for the web.",
-		"repository": "pilcrowonpaper/copenhagen"
+		"description": "A basic guideline on implementing auth in web applications.",
+		"href": "https://github.com/pilcrowonpaper/copenhagen"
 	},
 	{
 		"name": "Oslo",
-		"description": "A collection of auth-related utilities.",
-		"repository": "pilcrowonpaper/oslo"
+		"description": "High-quality auth packages for JavaScript.",
+		"href": "https://oslojs.dev"
 	},
 	{
 		"name": "Arctic",
-		"description": "OAuth 2.0 and OIDC clients for major providers.",
-		"repository": "pilcrowonpaper/arctic"
+		"description": "OAuth 2.0 and OIDC clients with 50+ providers.",
+		"href": "https://github.com/pilcrowonpaper/arctic"
 	},
 	{
-		"name": "Auri",
-		"description": "Manage package changes and releases without leaving GitHub.",
-		"repository": "pilcrowonpaper/auri"
+		"name": "Faroe",
+		"description": "A self-hosted modular authentication backed.",
+		"href": "https://github.com/faroedev/faroe"
 	},
 	{
 		"name": "Malta",
-		"description": "Generate simple and clean documentation with markdown - written in Go.",
-		"repository": "pilcrowonpaper/malta"
+		"description": "Generate simple and clean documentation with markdown",
+		"href": "https://github.com/pilcrowonpaper/malta"
 	}
 ]

@@ -22,7 +22,7 @@ const posts = await getPosts();
 				projects.map((project) => {
 					return (
 						<article class="group rounded-md border px-4 pb-3  pt-2">
-							<a href={new URL(project.repository, "https://github.com")} class="block">
+							<a href={project.href} class="block">
 								<h3 class="w-fit group-hover:text-main group-hover:underline">{project.name}</h3>
 								<p class=" text-sm text-zinc-500">{project.description}</p>
 							</a>

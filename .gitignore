@@ -19,8 +19,7 @@ pnpm-debug.log*
 .DS_Store
 .vscode
 
-.BUILD_ID
-.vercel
-
 public/.siena
 pnpm-lock.yaml
+
+.astro
