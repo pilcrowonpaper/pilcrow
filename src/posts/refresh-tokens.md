@@ -33,4 +33,4 @@ At this point, the refresh token isn't really a _refresh_ token anymore. From th
 
 This simplifies both the client and server implementation and works with the OAuth 2.0 specification. I'd still argue that JWT-based sessions are an overkill for the majority of apps but this is a much better approach if you need stateless-ness.
 
-Security wise, the main benefit of using a separate refresh token is that you can potentially limit the risks if the access token gets leaked. But you only get this if the tokens are stored in different locations or if you plan to share the access token across multiple servers. Essentially, in most cases you're not getting any security benefits.
+Security wise, the main benefit of using a separate refresh token is that you can potentially limit the risks if the access token gets leaked. But you only get this if the tokens are stored in different locations or if you plan to share the access token to third parties. Essentially, in most cases you're not getting any security benefits.
