@@ -10,7 +10,7 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				main: "#2277e0",
+				main: "#2d7fe3",
 				zinc: {
 					80: "#f7f7f7",
 					450: "#85858f"
