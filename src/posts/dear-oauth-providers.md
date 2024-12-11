@@ -7,7 +7,7 @@ A short letter to some of the OAuth providers I've worked with.
 
 ## Dear GitHub
 
-Your token endpoint returns a 200 status code even for errors. Errors responses must use a 400 or 401 status code. Please fix it.
+Your token endpoint returns a 200 status code even for errors. Error responses must use a 400 or 401 status code. Please fix it.
 
 ## Dear Facebook
 
