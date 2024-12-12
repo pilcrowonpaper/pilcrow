@@ -66,9 +66,7 @@ This isn't about being spec-compliant anymore. I _need_ to know the thought proc
 
 ## Dear AWS Cognito
 
-Despite what's written in your [documentation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html#post-token-positive-exchanging-authorization-code-grant-with-pkce-for-tokens), HTTP basic auth isn't supported when PKCE is used. Interestingly, it works fine without PKCE. Please fix it.
-
-*I've also heard that HTTP basic auth doesn't work with `grant_type=refresh_token` but I haven't tested that myself.*
+Your token endpoint requires the `client_id` parameter even when HTTP basic auth is used. Please fix it.
 
 ## Dear 42, Atlassian, Box, Coinbase, Dribble, Facebook, Kakao, Line, Linear, LinkedIn, Naver, osu!, Patreon, Shikimori, Start.gg, Strava, Tiltify, Twitch, VK, WorkOS
 
