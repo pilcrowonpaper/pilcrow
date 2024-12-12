@@ -64,10 +64,6 @@ Your server, for whatever fucking reason, returns a string for the token expirat
 
 This isn't about being spec-compliant anymore. I _need_ to know the thought process behind this decision. And also please fix it.
 
-## Dear AWS Cognito
-
-Your token endpoint requires the `client_id` parameter even when HTTP basic auth is used. Please fix it.
-
 ## Dear 42, Atlassian, Box, Coinbase, Dribble, Facebook, Kakao, Line, Linear, LinkedIn, Naver, osu!, Patreon, Shikimori, Start.gg, Strava, Tiltify, Twitch, VK, WorkOS
 
 Please support HTTP basic auth for client authentication instead of the just the `client_secret` parameter:
@@ -75,3 +71,5 @@ Please support HTTP basic auth for client authentication instead of the just the
 > The authorization server MUST support the HTTP Basic authentication scheme for authenticating clients that were issued a client password.
 
 *Edit: I've been informed that HTTP basic auth is just optional in the upcoming OAuth 2.1 standard. However, since PKCE is required even for confidential clients in 2.1 and most of these providers don't even use PKCE, these providers aren't compliant to either specs.*
+
+*Edit 2: I had a "Dear AWS" section since I've received multiple bug reports on it when used with my OAuth client library. However, I couldn't recreate any of the reported issues so I have removed it from the post.*
