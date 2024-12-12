@@ -66,7 +66,7 @@ This isn't about being spec-compliant anymore. I _need_ to know the thought proc
 
 ## Dear 42, Atlassian, Box, Coinbase, Dribble, Facebook, Kakao, Line, Linear, LinkedIn, Naver, osu!, Patreon, Shikimori, Start.gg, Strava, Tiltify, Twitch, VK, WorkOS
 
-Please support HTTP basic auth for client authentication instead of the just the `client_secret` parameter:
+Please support HTTP basic auth for client authentication instead of just the `client_secret` parameter:
 
 > The authorization server MUST support the HTTP Basic authentication scheme for authenticating clients that were issued a client password.
 
