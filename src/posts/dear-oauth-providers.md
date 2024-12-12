@@ -68,8 +68,12 @@ This isn't about being spec-compliant anymore. I _need_ to know the thought proc
 
 Despite what's written in your [documentation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html#post-token-positive-exchanging-authorization-code-grant-with-pkce-for-tokens), HTTP basic auth isn't supported when PKCE is used. Interestingly, it works fine without PKCE. Please fix it.
 
+*I've also heard that HTTP basic auth doesn't work with `grant_type=refresh_token` but I haven't tested that myself.*
+
 ## Dear 42, Atlassian, Box, Coinbase, Dribble, Facebook, Kakao, Line, Linear, LinkedIn, Naver, osu!, Patreon, Shikimori, Start.gg, Strava, Tiltify, Twitch, VK, WorkOS
 
 Please support HTTP basic auth for client authentication instead of the just the `client_secret` parameter:
 
 > The authorization server MUST support the HTTP Basic authentication scheme for authenticating clients that were issued a client password.
+
+*Edit: I've been informed that HTTP basic auth is just optional in the upcoming OAuth 2.1 standard. However, since PKCE is required even for confidential clients in 2.1 and most of these providers don't even use PKCE, these providers aren't compliant to either specs.*
