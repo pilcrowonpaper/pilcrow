@@ -3,7 +3,7 @@ title: "Managing NPM releases"
 date: "2025-01-26"
 ---
 
-As someone who manages quite a few NPM packages, one aspect I struggled with was managing NPM releases. How do you streamline the process of developing and releasing packages? It's something I think a lot of people figured out but rarely discussed or documented.
+As someone who manages quite a few NPM packages, one aspect I struggled with was managing NPM releases. How do you streamline the process of developing and releasing packages? It's something I think a lot of people have figured out but yet it's rarely discussed or documented.
 
 The most basic approach would be to just run `npm publish` manually but there are obvious downsides to it:
 
