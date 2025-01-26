@@ -70,6 +70,6 @@ Please support HTTP basic auth for client authentication instead of just the `cl
 
 > The authorization server MUST support the HTTP Basic authentication scheme for authenticating clients that were issued a client password.
 
-*Edit: I've been informed that HTTP basic auth is just optional in the upcoming OAuth 2.1 standard. However, since PKCE is required even for confidential clients in 2.1 and most of these providers don't even use PKCE, these providers aren't compliant to either specs.*
+_Edit: I've been informed that HTTP basic auth is just optional in the upcoming OAuth 2.1 standard. However, since PKCE is required even for confidential clients in 2.1 and most of these providers don't even use PKCE, these providers aren't compliant to either specs._
 
-*Edit 2: I had a "Dear AWS" section since I've received multiple bug reports on it when used with my OAuth client library. However, I couldn't recreate any of the reported issues so I have removed it from the post.*
+_Edit 2: I had a "Dear AWS" section since I've received multiple bug reports on it when used with my OAuth client library. However, I couldn't recreate any of the reported issues so I have removed it from the post._
